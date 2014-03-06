@@ -21,6 +21,11 @@
 		A2353EBE18C0A95600440F0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2353EA018C0A95600440F0F /* UIKit.framework */; };
 		A2353EC618C0A95700440F0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2353EC418C0A95700440F0F /* InfoPlist.strings */; };
 		A2353EC818C0A95700440F0F /* Comics_MakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353EC718C0A95700440F0F /* Comics_MakerTests.m */; };
+		A2353ED318C0BFED00440F0F /* OCTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353ED218C0BFED00440F0F /* OCTableViewController.m */; };
+		A2353ED618C0CC6600440F0F /* OCTirinha.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353ED518C0CC6600440F0F /* OCTirinha.m */; };
+		A2353ED918C0CC7E00440F0F /* OCQuadro.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353ED818C0CC7E00440F0F /* OCQuadro.m */; };
+		A2353EDC18C0CCD400440F0F /* OCBaloesDeTexto.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353EDB18C0CCD400440F0F /* OCBaloesDeTexto.m */; };
+		A2353EDF18C0CD2B00440F0F /* OCTirinhasSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353EDE18C0CD2B00440F0F /* OCTirinhasSingleton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,16 @@
 		A2353EC318C0A95600440F0F /* Comics MakerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Comics MakerTests-Info.plist"; sourceTree = "<group>"; };
 		A2353EC518C0A95700440F0F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A2353EC718C0A95700440F0F /* Comics_MakerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comics_MakerTests.m; sourceTree = "<group>"; };
+		A2353ED118C0BFED00440F0F /* OCTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTableViewController.h; sourceTree = "<group>"; };
+		A2353ED218C0BFED00440F0F /* OCTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTableViewController.m; sourceTree = "<group>"; };
+		A2353ED418C0CC6600440F0F /* OCTirinha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinha.h; sourceTree = "<group>"; };
+		A2353ED518C0CC6600440F0F /* OCTirinha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinha.m; sourceTree = "<group>"; };
+		A2353ED718C0CC7E00440F0F /* OCQuadro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCQuadro.h; sourceTree = "<group>"; };
+		A2353ED818C0CC7E00440F0F /* OCQuadro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCQuadro.m; sourceTree = "<group>"; };
+		A2353EDA18C0CCD400440F0F /* OCBaloesDeTexto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCBaloesDeTexto.h; sourceTree = "<group>"; };
+		A2353EDB18C0CCD400440F0F /* OCBaloesDeTexto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCBaloesDeTexto.m; sourceTree = "<group>"; };
+		A2353EDD18C0CD2B00440F0F /* OCTirinhasSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhasSingleton.h; sourceTree = "<group>"; };
+		A2353EDE18C0CD2B00440F0F /* OCTirinhasSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhasSingleton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +132,9 @@
 				A2353EAE18C0A95600440F0F /* Main.storyboard */,
 				A2353EB118C0A95600440F0F /* OCViewController.h */,
 				A2353EB218C0A95600440F0F /* OCViewController.m */,
+				A2353ED118C0BFED00440F0F /* OCTableViewController.h */,
+				A2353ED218C0BFED00440F0F /* OCTableViewController.m */,
+				A2353EE018C0CD3900440F0F /* Model */,
 				A2353EB418C0A95600440F0F /* Images.xcassets */,
 				A2353EA318C0A95600440F0F /* Supporting Files */,
 			);
@@ -150,6 +168,21 @@
 				A2353EC418C0A95700440F0F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2353EE018C0CD3900440F0F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A2353ED418C0CC6600440F0F /* OCTirinha.h */,
+				A2353ED518C0CC6600440F0F /* OCTirinha.m */,
+				A2353ED718C0CC7E00440F0F /* OCQuadro.h */,
+				A2353ED818C0CC7E00440F0F /* OCQuadro.m */,
+				A2353EDA18C0CCD400440F0F /* OCBaloesDeTexto.h */,
+				A2353EDB18C0CCD400440F0F /* OCBaloesDeTexto.m */,
+				A2353EDD18C0CD2B00440F0F /* OCTirinhasSingleton.h */,
+				A2353EDE18C0CD2B00440F0F /* OCTirinhasSingleton.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,9 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2353ED618C0CC6600440F0F /* OCTirinha.m in Sources */,
 				A2353EAD18C0A95600440F0F /* OCAppDelegate.m in Sources */,
 				A2353EA918C0A95600440F0F /* main.m in Sources */,
 				A2353EB318C0A95600440F0F /* OCViewController.m in Sources */,
+				A2353ED318C0BFED00440F0F /* OCTableViewController.m in Sources */,
+				A2353ED918C0CC7E00440F0F /* OCQuadro.m in Sources */,
+				A2353EDC18C0CCD400440F0F /* OCBaloesDeTexto.m in Sources */,
+				A2353EDF18C0CD2B00440F0F /* OCTirinhasSingleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

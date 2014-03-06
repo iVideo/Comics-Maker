@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OCTirinhasSingleton.h"
+#import "OCTirinha.h"
+#import "OCQuadro.h"
 
 @interface OCViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UIImageView *currentImage;
+@property (weak, nonatomic) IBOutlet UITextField *texto;
 
 @end

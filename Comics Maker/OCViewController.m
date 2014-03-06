@@ -17,7 +17,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,4 +25,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)cameraButton:(id)sender {
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentModalViewController:picker animated:YES];
+}
+
+- (IBAction)pesquisaFotoButton:(id)sender {
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    
+    [self presentModalViewController:picker animated:YES];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [_currentImage setImage:[info objectForKey:@"UIImagePickerControllerOriginalImage"]];
+    OCTirinhasSingleton *tirinhasSingleton = [OCTirinhasSingleton sharedTirinhas];
+    OCTirinha *novaTirinha = [tirinhasSingleton.tirinhas lastObject];
+    [novaTirinha setImage:_currentImage.image forQuadroAtIndex:0];
+    
+}
 @end
