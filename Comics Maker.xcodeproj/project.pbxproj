@@ -26,6 +26,7 @@
 		A2353ED918C0CC7E00440F0F /* OCQuadro.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353ED818C0CC7E00440F0F /* OCQuadro.m */; };
 		A2353EDC18C0CCD400440F0F /* OCBaloesDeTexto.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353EDB18C0CCD400440F0F /* OCBaloesDeTexto.m */; };
 		A2353EDF18C0CD2B00440F0F /* OCTirinhasSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353EDE18C0CD2B00440F0F /* OCTirinhasSingleton.m */; };
+		AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		A2353EDB18C0CCD400440F0F /* OCBaloesDeTexto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCBaloesDeTexto.m; sourceTree = "<group>"; };
 		A2353EDD18C0CD2B00440F0F /* OCTirinhasSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhasSingleton.h; sourceTree = "<group>"; };
 		A2353EDE18C0CD2B00440F0F /* OCTirinhasSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhasSingleton.m; sourceTree = "<group>"; };
+		AEB2F68C18C8B5970073030D /* OCTirinhaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhaViewController.h; sourceTree = "<group>"; };
+		AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhaViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 				A2353EB218C0A95600440F0F /* OCViewController.m */,
 				A2353ED118C0BFED00440F0F /* OCTableViewController.h */,
 				A2353ED218C0BFED00440F0F /* OCTableViewController.m */,
+				AEB2F68C18C8B5970073030D /* OCTirinhaViewController.h */,
+				AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */,
 				A2353EE018C0CD3900440F0F /* Model */,
 				A2353EB418C0A95600440F0F /* Images.xcassets */,
 				A2353EA318C0A95600440F0F /* Supporting Files */,
@@ -286,6 +291,7 @@
 				A2353ED618C0CC6600440F0F /* OCTirinha.m in Sources */,
 				A2353EAD18C0A95600440F0F /* OCAppDelegate.m in Sources */,
 				A2353EA918C0A95600440F0F /* main.m in Sources */,
+				AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */,
 				A2353EB318C0A95600440F0F /* OCViewController.m in Sources */,
 				A2353ED318C0BFED00440F0F /* OCTableViewController.m in Sources */,
 				A2353ED918C0CC7E00440F0F /* OCQuadro.m in Sources */,
