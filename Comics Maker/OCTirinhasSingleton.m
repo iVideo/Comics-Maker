@@ -2,8 +2,8 @@
 //  OCTirinhasSingleton.m
 //  Comics Maker
 //
-//  Created by Emannuel Fernandes de Oliveira Carvalho on 2/28/14.
-//  Copyright (c) 2014 Emannuel Fernandes de Oliveira Carvalho. All rights reserved.
+//  Created by -----> Lucas Augusto Cordeiro <-----, Emannuel Fernandes de Oliveira Carvalho e Rodrigo Soldi on 2/28/14.
+//  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
 #import "OCTirinhasSingleton.h"

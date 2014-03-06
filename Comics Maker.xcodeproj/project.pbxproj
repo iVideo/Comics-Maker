@@ -127,9 +127,9 @@
 		A2353EA218C0A95600440F0F /* Comics Maker */ = {
 			isa = PBXGroup;
 			children = (
+				A2353EAE18C0A95600440F0F /* Main.storyboard */,
 				A2353EAB18C0A95600440F0F /* OCAppDelegate.h */,
 				A2353EAC18C0A95600440F0F /* OCAppDelegate.m */,
-				A2353EAE18C0A95600440F0F /* Main.storyboard */,
 				A2353EB118C0A95600440F0F /* OCViewController.h */,
 				A2353EB218C0A95600440F0F /* OCViewController.m */,
 				A2353ED118C0BFED00440F0F /* OCTableViewController.h */,
@@ -499,6 +499,7 @@
 				A2353ECD18C0A95700440F0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2353ECE18C0A95700440F0F /* Build configuration list for PBXNativeTarget "Comics MakerTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +508,7 @@
 				A2353ED018C0A95700440F0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
