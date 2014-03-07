@@ -21,6 +21,7 @@
     [super viewDidLoad];
     OCTirinhasSingleton *single = [OCTirinhasSingleton sharedTirinhas];
     single.quadroAtual++;
+    [_proximo setEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,6 +51,7 @@
     OCTirinhasSingleton *tirinhasSingleton = [OCTirinhasSingleton sharedTirinhas];
     OCTirinha *novaTirinha = [tirinhasSingleton.tirinhas lastObject];
     [novaTirinha setImage:_currentImage.image forQuadroAtIndex:tirinhasSingleton.quadroAtual];
+    [_proximo setEnabled:YES];
     
     if (tirinhasSingleton.quadroAtual==3) {
         [self.concluido setHidden:NO];
