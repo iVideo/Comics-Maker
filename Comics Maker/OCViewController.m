@@ -7,9 +7,11 @@
 //
 
 #import "OCViewController.h"
+#import "OCTirinhaViewController.h"
+#import "OCTirinhasSingleton.h"
 
 @interface OCViewController ()
-
+@property NSInteger contador;
 @end
 
 @implementation OCViewController
@@ -17,6 +19,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    OCTirinhasSingleton *single = [OCTirinhasSingleton sharedTirinhas];
+    single.quadroAtual++;
+    NSLog(@"did load");
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,7 +35,7 @@
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     
-    [self presentModalViewController:picker animated:YES];
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (IBAction)pesquisaFotoButton:(id)sender {
@@ -38,15 +43,24 @@
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     
-    [self presentModalViewController:picker animated:YES];
+    [self presentViewController:picker animated:YES completion:nil];
 }
+
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
     [_currentImage setImage:[info objectForKey:@"UIImagePickerControllerOriginalImage"]];
     OCTirinhasSingleton *tirinhasSingleton = [OCTirinhasSingleton sharedTirinhas];
     OCTirinha *novaTirinha = [tirinhasSingleton.tirinhas lastObject];
-    [novaTirinha setImage:_currentImage.image forQuadroAtIndex:0];
+    NSLog(@"%d",tirinhasSingleton.quadroAtual);
+    [novaTirinha setImage:_currentImage.image forQuadroAtIndex:tirinhasSingleton.quadroAtual];
     
+    if (tirinhasSingleton.quadroAtual==3) {
+        [self.concluido setHidden:NO];
+        [self.proximo setEnabled:NO];
+    }
+    else{
+        [self.concluido setHidden:YES];
+    }
 }
 @end

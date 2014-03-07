@@ -11,9 +11,11 @@
 #import "OCTirinha.h"
 #import "OCQuadro.h"
 
-@interface OCViewController : UIViewController
+@interface OCViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *concluido;
 @property (weak, nonatomic) IBOutlet UIImageView *currentImage;
 @property (weak, nonatomic) IBOutlet UITextField *texto;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *proximo;
 
 @end
