@@ -7,6 +7,9 @@
 //
 
 #import "OCTirinhaViewController.h"
+#import "OCTirinhasSingleton.h"
+#import "OCTirinha.h"
+#import "OCQuadro.h"
 
 @interface OCTirinhaViewController ()
 
@@ -14,6 +17,7 @@
 
 @implementation OCTirinhaViewController
 @synthesize ctx;
+@synthesize tirinha;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,15 +33,37 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(ctx, 50);
+//    CGContextRef ctx = UIGraphicsGetCurrentContext();
+//    CGContextSetLineWidth(ctx, 50);
+//    
+//    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+//    CGFloat components[] = {0.0, 0.0, 1.0, 1.0};
+//    CGColorRef color = CGColorCreate(colorspace, components);
+//    CGContextSetStrokeColorWithColor(ctx, color);
+//    
+//    CGContextStrokePath(ctx);
+    OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
     
-    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-    CGFloat components[] = {0.0, 0.0, 1.0, 1.0};
-    CGColorRef color = CGColorCreate(colorspace, components);
-    CGContextSetStrokeColorWithColor(ctx, color);
+    tirinha = [[sing tirinhas]lastObject];
     
-    CGContextStrokePath(ctx);
+    UIImage* first = tirinha.quadros[0];
+    UIImage* second = tirinha.quadros[1];
+    UIImage* third = tirinha.quadros[2];
+    
+    CGSize newSize = CGSizeMake(209, 260); //size of image view
+    UIGraphicsBeginImageContext( newSize );
+    
+    // drawing 1st image
+    [second drawInRect:CGRectMake(0,0,newSize.width/2,newSize.height/2)];
+    
+    // drawing the 2nd image after the 1st
+    [first drawInRect:CGRectMake(0,newSize.height/2,newSize.width/2,newSize.height/2)] ;
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    join.image = newImage;
 
     
 }

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OCTirinha.h"
 
 @interface OCTirinhaViewController : UIViewController
 
 @property(nonatomic)CGContextRef ctx;
+@property(strong, nonatomic) OCTirinha* tirinha;
 
 @end
