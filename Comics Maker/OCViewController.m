@@ -9,6 +9,7 @@
 #import "OCViewController.h"
 #import "OCTirinhaViewController.h"
 #import "OCTirinhasSingleton.h"
+#import "OCQuadro.h"
 
 @interface OCViewController ()
 @property NSInteger contador;
@@ -48,9 +49,10 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
     [_currentImage setImage:[info objectForKey:@"UIImagePickerControllerOriginalImage"]];
+    OCQuadro *quadro = [[OCQuadro alloc]initWithImagem:_currentImage.image andTexto:nil];
+    
+    
     OCTirinhasSingleton *tirinhasSingleton = [OCTirinhasSingleton sharedTirinhas];
-    OCTirinha *novaTirinha = [tirinhasSingleton.tirinhas lastObject];
-    [novaTirinha setImage:_currentImage.image forQuadroAtIndex:tirinhasSingleton.quadroAtual];
     [_proximo setEnabled:YES];
     
     if (tirinhasSingleton.quadroAtual==3) {
