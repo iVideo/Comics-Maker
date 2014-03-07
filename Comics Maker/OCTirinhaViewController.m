@@ -13,6 +13,7 @@
 @end
 
 @implementation OCTirinhaViewController
+@synthesize ctx;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +28,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(ctx, 50);
+    
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    CGFloat components[] = {0.0, 0.0, 1.0, 1.0};
+    CGColorRef color = CGColorCreate(colorspace, components);
+    CGContextSetStrokeColorWithColor(ctx, color);
+    
+    CGContextStrokePath(ctx);
+
+    
 }
 
 - (void)didReceiveMemoryWarning

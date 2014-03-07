@@ -10,4 +10,6 @@
 
 @interface OCTirinhaViewController : UIViewController
 
+@property(nonatomic)CGContextRef ctx;
+
 @end
