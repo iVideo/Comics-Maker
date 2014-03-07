@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *currentImage;
 @property (weak, nonatomic) IBOutlet UITextField *texto;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *proximo;
+@property OCTirinhasSingleton *single;
 
 @end

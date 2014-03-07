@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OCTirinhasSingleton.h"
+#import "OCImagemSingleton.h"
 #import "OCTirinha.h"
 
 @interface OCTableViewController : UITableViewController <UINavigationBarDelegate, UINavigationControllerDelegate>
+@property OCImagemSingleton *single;
 
 @end

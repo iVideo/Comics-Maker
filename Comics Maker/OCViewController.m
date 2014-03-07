@@ -8,7 +8,6 @@
 
 #import "OCViewController.h"
 #import "OCTirinhaViewController.h"
-#import "OCTirinhasSingleton.h"
 #import "OCQuadro.h"
 
 @interface OCViewController ()
@@ -16,25 +15,20 @@
 @end
 
 @implementation OCViewController
+@synthesize single;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    OCTirinhasSingleton *single = [OCTirinhasSingleton sharedTirinhas];
+    single = [OCTirinhasSingleton sharedTirinhas];
     single.quadroAtual++;
     [_proximo setEnabled:NO];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 - (IBAction)cameraButton:(id)sender {
     UIImagePickerController * picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
     [self presentViewController:picker animated:YES completion:nil];
 }
 
@@ -49,13 +43,12 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
     [_currentImage setImage:[info objectForKey:@"UIImagePickerControllerOriginalImage"]];
-    OCQuadro *quadro = [[OCQuadro alloc]initWithImagem:_currentImage.image andTexto:nil];
     
+    OCQuadro *quadro = [[OCQuadro alloc]init];
+    [quadro addImagem:_currentImage.image andTexto:nil];
     
-    OCTirinhasSingleton *tirinhasSingleton = [OCTirinhasSingleton sharedTirinhas];
     [_proximo setEnabled:YES];
-    
-    if (tirinhasSingleton.quadroAtual==3) {
+    if (single.quadroAtual==3) {
         [self.concluido setHidden:NO];
         [self.proximo setEnabled:NO];
     }

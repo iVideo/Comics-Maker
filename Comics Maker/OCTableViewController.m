@@ -6,13 +6,23 @@
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
+
+/*
+    Essa table view irá pegar as informacoes do Singleton: OCImagemSingleton.
+    O mesmo conterá todas as tirinhas prontas.
+
+*/
+
 #import "OCTableViewController.h"
+
 
 @interface OCTableViewController ()
 
 @end
 
 @implementation OCTableViewController
+@synthesize single;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,6 +38,9 @@
     [super viewDidLoad];
     [[self navigationController] setDelegate:self];
     
+    //Pegando instancia unica do singleton para usar por todo o .m
+    single = [OCImagemSingleton instancia];
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -36,11 +49,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
@@ -53,8 +61,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+#warning Metodo ainda nao implementado.
     // Return the number of rows in the section.
+    NSLog(@"Numero de tirinhas prontas: %d",single.tirinhasProntas.count);
     return 0;
 }
 
@@ -66,13 +75,6 @@
     // Configure the cell...
     
     return cell;
-}
-
-- (void)navigationBar:(UINavigationBar *)navigationBar didPushItem:(UINavigationItem *)item {
-    OCTirinhasSingleton *tirinhasSingleton = [OCTirinhasSingleton sharedTirinhas];
-    OCTirinha *novaTirinha = [[OCTirinha alloc] init];
-    [tirinhasSingleton addTirinha:novaTirinha];
-    NSLog(@"add new comicstrip!");
 }
 
 /*
