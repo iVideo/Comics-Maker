@@ -21,13 +21,11 @@
     [super viewDidLoad];
     OCTirinhasSingleton *single = [OCTirinhasSingleton sharedTirinhas];
     single.quadroAtual++;
-    NSLog(@"did load");
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)cameraButton:(id)sender {
@@ -41,8 +39,7 @@
 - (IBAction)pesquisaFotoButton:(id)sender {
     UIImagePickerController * picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
-    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:nil];
 }
 
@@ -52,7 +49,6 @@
     [_currentImage setImage:[info objectForKey:@"UIImagePickerControllerOriginalImage"]];
     OCTirinhasSingleton *tirinhasSingleton = [OCTirinhasSingleton sharedTirinhas];
     OCTirinha *novaTirinha = [tirinhasSingleton.tirinhas lastObject];
-    NSLog(@"%d",tirinhasSingleton.quadroAtual);
     [novaTirinha setImage:_currentImage.image forQuadroAtIndex:tirinhasSingleton.quadroAtual];
     
     if (tirinhasSingleton.quadroAtual==3) {

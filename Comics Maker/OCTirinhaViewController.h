@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface OCTirinhaViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *join;
 
 @end
