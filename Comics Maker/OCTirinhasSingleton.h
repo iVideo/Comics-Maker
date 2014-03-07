@@ -11,7 +11,7 @@
 @interface OCTirinhasSingleton : NSObject
 
 @property (strong, nonatomic) NSMutableArray *tirinhas;
-
+@property (nonatomic) NSInteger quadroAtual;
 + (id)sharedTirinhas;
 - (void)addTirinha:(NSObject *)tirinha;
 - (void)removeTirinhaAtIndex:(NSUInteger)indice;
