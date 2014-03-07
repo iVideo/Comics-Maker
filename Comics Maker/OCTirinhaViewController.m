@@ -46,8 +46,10 @@
     OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
     
     tirinha = [[sing tirinhas]lastObject];
+    OCQuadro* quad = [[OCQuadro alloc]init];
+    quad = tirinha.quadros[0];
     
-    UIImage* first = tirinha.quadros[0].imagem;
+    UIImage* first = quad.imagem;
     UIImage* second = tirinha.quadros[1];
     UIImage* third = tirinha.quadros[2];
     
