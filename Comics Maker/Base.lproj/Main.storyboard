@@ -9,15 +9,15 @@
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="OCViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uM6-Rh-Vdm"/>
-                        <viewControllerLayoutGuide type="bottom" id="qQN-zq-WbC"/>
+                        <viewControllerLayoutGuide type="top" id="g82-Ml-gcU"/>
+                        <viewControllerLayoutGuide type="bottom" id="qi1-jo-ljp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LZo-xK-Xkg">
-                                <rect key="frame" x="54" y="107" width="213" height="280"/>
+                                <rect key="frame" x="54" y="103" width="213" height="280"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HPS-XO-2xc">
@@ -62,12 +62,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-qN-M5S">
-                                <rect key="frame" x="123" y="475" width="74" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-qN-M5S">
+                                <rect key="frame" x="126" y="480" width="69" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Concluído">
+                                <state key="normal" title="Concluído" image="ok.jpg">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="zQv-ir-lhA" kind="push" id="tky-im-bzn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -95,8 +98,8 @@
             <objects>
                 <viewController id="zQv-ir-lhA" customClass="OCTirinhaViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rhG-8s-qxt"/>
-                        <viewControllerLayoutGuide type="bottom" id="b98-Vz-UKg"/>
+                        <viewControllerLayoutGuide type="top" id="Dzk-Fy-RvQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="fW4-AJ-Az3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pmg-S6-5Gp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -165,6 +168,9 @@
             <point key="canvasLocation" x="-530" y="-766"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ok.jpg" width="298" height="296"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
