@@ -18,6 +18,7 @@
 @implementation OCTirinhaViewController
 @synthesize ctx;
 @synthesize tirinha;
+@synthesize join;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,7 +47,7 @@
     
     tirinha = [[sing tirinhas]lastObject];
     
-    UIImage* first = tirinha.quadros[0];
+    UIImage* first = tirinha.quadros[0].imagem;
     UIImage* second = tirinha.quadros[1];
     UIImage* third = tirinha.quadros[2];
     
@@ -63,7 +64,7 @@
     
     UIGraphicsEndImageContext();
     
-    join.image = newImage;
+    [join setImage: first];
 
     
 }
