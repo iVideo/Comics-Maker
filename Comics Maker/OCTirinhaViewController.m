@@ -45,19 +45,19 @@
 //    CGContextStrokePath(ctx);
     OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
     
-    tirinha = [[sing tirinhas]lastObject];
+    
     OCQuadro* quad = [[OCQuadro alloc]init];
-    quad = tirinha.quadros[0];
+   
+    quad = [[sing tirinhas]firstObject];
     
     UIImage* first = quad.imagem;
-    UIImage* second = tirinha.quadros[1];
-    UIImage* third = tirinha.quadros[2];
+
     
     CGSize newSize = CGSizeMake(209, 260); //size of image view
     UIGraphicsBeginImageContext( newSize );
     
     // drawing 1st image
-    [second drawInRect:CGRectMake(0,0,newSize.width/2,newSize.height/2)];
+    //[second drawInRect:CGRectMake(0,0,newSize.width/2,newSize.height/2)];
     
     // drawing the 2nd image after the 1st
     [first drawInRect:CGRectMake(0,newSize.height/2,newSize.width/2,newSize.height/2)] ;
