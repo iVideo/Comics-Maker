@@ -12,7 +12,7 @@
 #import "OCQuadro.h"
 #import "OCTableViewController.h"
 
-@interface OCViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface OCViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *concluido;
 @property (weak, nonatomic) IBOutlet UIImageView *currentImage;

@@ -76,6 +76,9 @@
     
     return cell;
 }
+- (IBAction)edit:(id)sender {
+    [[self tableView] setEditing:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

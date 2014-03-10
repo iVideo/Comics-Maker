@@ -17,6 +17,7 @@
 
 @implementation OCViewController
 @synthesize single;
+@synthesize texto;
 
 - (void)viewDidLoad
 {
@@ -71,5 +72,9 @@
 }
 -(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     NSLog(@"passou por aqui");
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [texto resignFirstResponder];
+    return YES;
 }
 @end
