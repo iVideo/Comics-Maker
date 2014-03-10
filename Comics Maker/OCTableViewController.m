@@ -71,9 +71,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    
-    
-    NSLog(@"Index Path row: %d",[indexPath row]);
     [[cell textLabel] setText:[NSString stringWithFormat:@"%d",[indexPath row] ]];
     
     

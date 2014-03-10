@@ -50,7 +50,6 @@
     if (_quadros == Nil) {
         _quadros = [[NSMutableArray alloc]init];
     }
-    NSLog(@"Adicionando quadro na tirinha");
     [_quadros addObject:quadro];
 }
 

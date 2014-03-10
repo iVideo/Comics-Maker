@@ -28,7 +28,6 @@
 
 - (void)addTirinha:(NSObject *)tirinha {
     [_tirinhas addObject:tirinha];
-    NSLog(@"Adicionou a imagem e o texto no singleton");
 }
 
 - (void)removeTirinhaAtIndex:(NSUInteger)indice {
