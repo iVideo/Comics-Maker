@@ -12,6 +12,7 @@
 
 @implementation OCTirinha
 @synthesize quadros;
+@synthesize single;
 
 - (id)initWithQuadros:(NSMutableArray *)q {
     self = [super init];
@@ -25,6 +26,7 @@
     self = [super init];
     if (self) {
         quadros = [[NSMutableArray alloc] init];
+        single = [OCTirinhasSingleton sharedTirinhas];
     }
     return self;
 }
@@ -46,11 +48,11 @@
 }
 
 -(void)adicionaQuadroNoArrayDeQuadros: (OCQuadro *)quadro{
-    if (_quadros == Nil) {
-        _quadros = [[NSMutableArray alloc]init];
+    if (quadros == Nil) {
+        quadros = [[NSMutableArray alloc]init];
     }
     NSLog(@"Adicionando quadro na tirinha");
-    [_quadros addObject:quadro];
+    [quadros addObject:quadro];
 }
 
 -(NSString *)titulo{
