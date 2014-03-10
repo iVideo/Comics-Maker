@@ -26,6 +26,7 @@
     if (single.quadroAtual==0) {
         OCTirinha *tirinha = [[OCTirinha alloc]init];
         [single addTirinha:tirinha];
+        [[self navigationItem] setHidesBackButton:YES];
 
     }
     single.quadroAtual++;
@@ -54,10 +55,8 @@
     OCTirinha *t = [[single tirinhas] lastObject];
     [t adicionaQuadroNoArrayDeQuadros:quadro];
     
-    NSLog(@"Quantidade: %d",single.tirinhas.count);
-    
     [_proximo setEnabled:YES];
-    if (single.quadroAtual==3) {
+    if (single.quadroAtual>=3) {
         [single setQuadroAtual:0];
         [self.concluido setHidden:NO];
         [self.proximo setEnabled:NO];
