@@ -34,40 +34,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-//    CGContextRef ctx = UIGraphicsGetCurrentContext();
-//    CGContextSetLineWidth(ctx, 50);
-//    
-//    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-//    CGFloat components[] = {0.0, 0.0, 1.0, 1.0};
-//    CGColorRef color = CGColorCreate(colorspace, components);
-//    CGContextSetStrokeColorWithColor(ctx, color);
-//    
-//    CGContextStrokePath(ctx);
-    OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
+    UIImage* img = [tirinha tirinhaCompleta];
+    [join setImage:img];
     
     
-    OCQuadro* quad = [[OCQuadro alloc]init];
-   
-    quad = [[sing tirinhas]firstObject];
-    
-    UIImage* first = quad.imagem;
-
-    
-    CGSize newSize = CGSizeMake(209, 260); //size of image view
-    UIGraphicsBeginImageContext( newSize );
-    
-    // drawing 1st image
-    //[second drawInRect:CGRectMake(0,0,newSize.width/2,newSize.height/2)];
-    
-    // drawing the 2nd image after the 1st
-    [first drawInRect:CGRectMake(0,newSize.height/2,newSize.width/2,newSize.height/2)] ;
-    
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    [join setImage: first];
-
     
 }
 
