@@ -23,5 +23,6 @@
 - (void)replaceQuadroAtIndex:(NSUInteger)indice withQuadro:(OCQuadro *)quadro;
 - (void)setImage:(UIImage *)imagem forQuadroAtIndex:(NSUInteger)indice;
 -(void)adicionaQuadroNoArrayDeQuadros: (OCQuadro *)quadro;
+- (UIImage *)tirinhaCompleta;
 
 @end

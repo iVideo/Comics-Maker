@@ -34,8 +34,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UIImage* img = [tirinha tirinhaCompleta];
-    [join setImage:img];
+    [join setImage:[[[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject] tirinhaCompleta]];
     
     
     
