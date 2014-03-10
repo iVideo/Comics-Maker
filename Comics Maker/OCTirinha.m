@@ -44,4 +44,20 @@
     }
 }
 
+- (UIImage *)tirinhaCompleta {
+    /* esse é o getter da tirinhaCompleta. Sempre que
+     a gente tentar acessar a propriedade tirinhaCompleta
+     a gente vai rodar esse método.
+     --> ele deve (i) criar um contexto; (ii) acrescentar as 
+     três imagens dos três quadros da tirinha no contexto; e
+     (iii) retornar a imagem do contexto contexto.image;
+     */
+    
+    UIImage *tirinhaCompleta;
+    
+    // your code goes here...
+    
+    return tirinhaCompleta;
+}
+
 @end

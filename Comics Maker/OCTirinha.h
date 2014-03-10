@@ -12,6 +12,7 @@
 @interface OCTirinha : NSObject
 
 @property (strong, nonatomic) NSMutableArray *quadros;
+@property (strong, nonatomic) UIImage *tirinhaCompleta;
 
 - (id)initWithQuadros:(NSMutableArray *)quadros;
 - (void)replaceQuadroAtIndex:(NSUInteger)indice withQuadro:(OCQuadro *)quadro;
