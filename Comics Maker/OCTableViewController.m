@@ -6,13 +6,23 @@
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
+
+/*
+    Essa table view irá pegar as informacoes do Singleton: OCImagemSingleton.
+    O mesmo conterá todas as tirinhas prontas.
+
+*/
+
 #import "OCTableViewController.h"
+
 
 @interface OCTableViewController ()
 
 @end
 
 @implementation OCTableViewController
+@synthesize single;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,6 +38,10 @@
     [super viewDidLoad];
     [[self navigationController] setDelegate:self];
     
+    single = [OCTirinhasSingleton sharedTirinhas];
+    
+    //Pegando instancia unica do singleton para usar por todo o .m
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -36,26 +50,19 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [[single tirinhas] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,14 +72,12 @@
     
     // Configure the cell...
     
+    
+    NSLog(@"Index Path row: %d",[indexPath row]);
+    [[cell textLabel] setText:[NSString stringWithFormat:@"%d",[indexPath row] ]];
+    
+    
     return cell;
-}
-
-- (void)navigationBar:(UINavigationBar *)navigationBar didPushItem:(UINavigationItem *)item {
-    OCTirinhasSingleton *tirinhasSingleton = [OCTirinhasSingleton sharedTirinhas];
-    OCTirinha *novaTirinha = [[OCTirinha alloc] init];
-    [tirinhasSingleton addTirinha:novaTirinha];
-    NSLog(@"add new comicstrip!");
 }
 
 /*

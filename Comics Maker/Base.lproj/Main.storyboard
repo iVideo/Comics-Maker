@@ -65,7 +65,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zQv-ir-lhA" kind="push" id="tky-im-bzn"/>
+                                    <action selector="finalizar:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qpS-X0-3pm"/>
+                                    <segue destination="zQv-ir-lhA" kind="push" id="gQ1-nc-HB9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -87,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4" y="-35"/>
+            <point key="canvasLocation" x="574" y="-766"/>
         </scene>
         <!--Tirinha View Controller-->
         <scene sceneID="oXj-eh-V86">
@@ -122,13 +123,13 @@
         <!--Table View Controller - Tirinhas-->
         <scene sceneID="Xuh-jh-Oyd">
             <objects>
-                <tableViewController title="Tirinhas" id="7ox-7x-0pS" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TabelaViewController" title="Tirinhas" id="7ox-7x-0pS" customClass="OCTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="V0e-9X-g9w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hYz-i0-RsK">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="hYz-i0-RsK">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hYz-i0-RsK" id="1gh-zO-faf">

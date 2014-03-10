@@ -45,6 +45,18 @@
     }
 }
 
+-(void)adicionaQuadroNoArrayDeQuadros: (OCQuadro *)quadro{
+    if (_quadros == Nil) {
+        _quadros = [[NSMutableArray alloc]init];
+    }
+    NSLog(@"Adicionando quadro na tirinha");
+    [_quadros addObject:quadro];
+}
+
+-(NSString *)titulo{
+    return [NSString stringWithFormat:@"Tirinha %d", single.tirinhas.count];
+}
+
 - (UIImage *)tirinhaCompleta {
     /* esse é o getter da tirinhaCompleta. Sempre que
      a gente tentar acessar a propriedade tirinhaCompleta
