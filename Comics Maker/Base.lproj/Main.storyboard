@@ -65,7 +65,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="finalizar:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qpS-X0-3pm"/>
                                     <segue destination="zQv-ir-lhA" kind="push" id="gQ1-nc-HB9"/>
                                 </connections>
                             </button>

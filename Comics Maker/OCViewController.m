@@ -69,6 +69,8 @@
 - (IBAction)finalizar:(id)sender {
     OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
     [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
-    //[self.navigationController popViewControllerAnimated:YES];
+}
+-(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    NSLog(@"passou por aqui");
 }
 @end
