@@ -38,8 +38,9 @@
     [super viewDidLoad];
     [[self navigationController] setDelegate:self];
     
+    single = [OCTirinhasSingleton sharedTirinhas];
+    
     //Pegando instancia unica do singleton para usar por todo o .m
-    single = [OCImagemSingleton instancia];
     
 
     // Uncomment the following line to preserve selection between presentations.
@@ -54,17 +55,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Metodo ainda nao implementado.
     // Return the number of rows in the section.
-    NSLog(@"Numero de tirinhas prontas: %d",single.tirinhasProntas.count);
-    return 0;
+    return [[single tirinhas] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,6 +71,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    
+    
+    NSLog(@"Index Path row: %d",[indexPath row]);
+    [[cell textLabel] setText:[NSString stringWithFormat:@"%d",[indexPath row] ]];
+    
     
     return cell;
 }

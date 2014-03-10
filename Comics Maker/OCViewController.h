@@ -10,6 +10,7 @@
 #import "OCTirinhasSingleton.h"
 #import "OCTirinha.h"
 #import "OCQuadro.h"
+#import "OCTableViewController.h"
 
 @interface OCViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 

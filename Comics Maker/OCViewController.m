@@ -8,7 +8,8 @@
 
 #import "OCViewController.h"
 #import "OCTirinhaViewController.h"
-#import "OCQuadro.h"
+
+
 
 @interface OCViewController ()
 @property NSInteger contador;
@@ -21,8 +22,13 @@
 {
     [super viewDidLoad];
     single = [OCTirinhasSingleton sharedTirinhas];
-    single.quadroAtual++;
     [_proximo setEnabled:NO];
+    if (single.quadroAtual==0) {
+        OCTirinha *tirinha = [[OCTirinha alloc]init];
+        [single addTirinha:tirinha];
+
+    }
+    single.quadroAtual++;
 }
 
 - (IBAction)cameraButton:(id)sender {
@@ -33,12 +39,11 @@
 }
 
 - (IBAction)pesquisaFotoButton:(id)sender {
-    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:nil];
 }
-
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
@@ -46,14 +51,24 @@
     
     OCQuadro *quadro = [[OCQuadro alloc]init];
     [quadro addImagem:_currentImage.image andTexto:nil];
+    OCTirinha *t = [[single tirinhas] lastObject];
+    [t adicionaQuadroNoArrayDeQuadros:quadro];
+    
+    NSLog(@"Quantidade: %d",single.tirinhas.count);
     
     [_proximo setEnabled:YES];
     if (single.quadroAtual==3) {
+        [single setQuadroAtual:0];
         [self.concluido setHidden:NO];
         [self.proximo setEnabled:NO];
     }
     else{
         [self.concluido setHidden:YES];
     }
+}
+- (IBAction)finalizar:(id)sender {
+    OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
+    [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
+    //[self.navigationController popViewControllerAnimated:YES];
 }
 @end

@@ -8,14 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "OCQuadro.h"
+#import "OCTirinhasSingleton.h"
 
 @interface OCTirinha : NSObject
 
 @property (strong, nonatomic) NSMutableArray *quadros;
 @property (strong, nonatomic) UIImage *tirinhaCompleta;
+@property (strong,nonatomic) NSString *titulo;
+@property NSString *autor;
+@property OCQuadro *quadro;
+@property OCTirinhasSingleton *single;
 
 - (id)initWithQuadros:(NSMutableArray *)quadros;
 - (void)replaceQuadroAtIndex:(NSUInteger)indice withQuadro:(OCQuadro *)quadro;
 - (void)setImage:(UIImage *)imagem forQuadroAtIndex:(NSUInteger)indice;
+-(void)adicionaQuadroNoArrayDeQuadros: (OCQuadro *)quadro;
 
 @end

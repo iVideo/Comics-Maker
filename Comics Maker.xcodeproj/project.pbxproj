@@ -27,7 +27,6 @@
 		A2353EDC18C0CCD400440F0F /* OCBaloesDeTexto.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353EDB18C0CCD400440F0F /* OCBaloesDeTexto.m */; };
 		A2353EDF18C0CD2B00440F0F /* OCTirinhasSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353EDE18C0CD2B00440F0F /* OCTirinhasSingleton.m */; };
 		AC5D7E4818C9F22400FA8DBB /* ok.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC5D7E4718C9F22400FA8DBB /* ok.jpg */; };
-		AC5D7E4C18CA0B4400FA8DBB /* OCImagemSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC5D7E4B18CA0B4400FA8DBB /* OCImagemSingleton.m */; };
 		AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -72,8 +71,6 @@
 		A2353EDD18C0CD2B00440F0F /* OCTirinhasSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhasSingleton.h; sourceTree = "<group>"; };
 		A2353EDE18C0CD2B00440F0F /* OCTirinhasSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhasSingleton.m; sourceTree = "<group>"; };
 		AC5D7E4718C9F22400FA8DBB /* ok.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ok.jpg; path = Imagens/ok.jpg; sourceTree = "<group>"; };
-		AC5D7E4A18CA0B4400FA8DBB /* OCImagemSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCImagemSingleton.h; sourceTree = "<group>"; };
-		AC5D7E4B18CA0B4400FA8DBB /* OCImagemSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCImagemSingleton.m; sourceTree = "<group>"; };
 		AEB2F68C18C8B5970073030D /* OCTirinhaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhaViewController.h; sourceTree = "<group>"; };
 		AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhaViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,8 +187,6 @@
 				A2353ED818C0CC7E00440F0F /* OCQuadro.m */,
 				A2353EDA18C0CCD400440F0F /* OCBaloesDeTexto.h */,
 				A2353EDB18C0CCD400440F0F /* OCBaloesDeTexto.m */,
-				AC5D7E4A18CA0B4400FA8DBB /* OCImagemSingleton.h */,
-				AC5D7E4B18CA0B4400FA8DBB /* OCImagemSingleton.m */,
 				A2353EDD18C0CD2B00440F0F /* OCTirinhasSingleton.h */,
 				A2353EDE18C0CD2B00440F0F /* OCTirinhasSingleton.m */,
 			);
@@ -314,7 +309,6 @@
 				A2353ED918C0CC7E00440F0F /* OCQuadro.m in Sources */,
 				A2353EDC18C0CCD400440F0F /* OCBaloesDeTexto.m in Sources */,
 				A2353EDF18C0CD2B00440F0F /* OCTirinhasSingleton.m in Sources */,
-				AC5D7E4C18CA0B4400FA8DBB /* OCImagemSingleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

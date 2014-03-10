@@ -8,6 +8,7 @@
 
 #import "OCQuadro.h"
 #import "OCTirinhasSingleton.h"
+#import "OCTirinha.h"
 
 @implementation OCQuadro
 
@@ -25,7 +26,5 @@
 -(void)addImagem:(UIImage *)imagem andTexto: (NSString *)texto{
     self.imagem = imagem;
     self.texto = texto;
-    OCTirinhasSingleton *t = [OCTirinhasSingleton sharedTirinhas];
-    [t addTirinha:self];
 }
 @end
