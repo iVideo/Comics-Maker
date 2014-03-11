@@ -66,6 +66,14 @@
     
     filter = nil;
     
+//    // setar o loading
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [DSBezelActivityView newActivityViewForView:view];
+//        // processar a imagem
+//        
+//    });
+    
+    
     OCQuadro *quadro = [[OCQuadro alloc]init];
     [quadro addImagem:_currentImage.image andTexto:nil];
     OCTirinha *t = [[single tirinhas] lastObject];
@@ -81,6 +89,7 @@
         [self.concluido setHidden:YES];
     }
 }
+
 - (IBAction)finalizar:(id)sender {
     OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
     [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];

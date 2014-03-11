@@ -10,8 +10,8 @@
 
 @interface OCQuadro : NSObject
 
-@property (weak, nonatomic) UIImage *imagem;
-@property (weak, nonatomic) NSString *texto;
+@property (strong, nonatomic) UIImage *imagem;
+@property (strong, nonatomic) NSString *texto;
 
 
 //@property (weak, nonatomic) NSMutableArray *baloesDeTexto;
