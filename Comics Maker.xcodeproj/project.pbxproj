@@ -26,6 +26,12 @@
 		A2353ED918C0CC7E00440F0F /* OCQuadro.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353ED818C0CC7E00440F0F /* OCQuadro.m */; };
 		A2353EDC18C0CCD400440F0F /* OCBaloesDeTexto.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353EDB18C0CCD400440F0F /* OCBaloesDeTexto.m */; };
 		A2353EDF18C0CD2B00440F0F /* OCTirinhasSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A2353EDE18C0CD2B00440F0F /* OCTirinhasSingleton.m */; };
+		A244E10018CE3DD400560772 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E0FB18CE3DBD00560772 /* libGPUImage.a */; };
+		A244E10218CE3DDE00560772 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E10118CE3DDE00560772 /* AVFoundation.framework */; };
+		A244E10418CE3DE300560772 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E10318CE3DE300560772 /* CoreMedia.framework */; };
+		A244E10618CE3DE800560772 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E10518CE3DE800560772 /* CoreVideo.framework */; };
+		A244E10818CE3DF500560772 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E10718CE3DF500560772 /* QuartzCore.framework */; };
+		A244E10A18CE3DFE00560772 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E10918CE3DFE00560772 /* OpenGLES.framework */; };
 		AC5D7E4818C9F22400FA8DBB /* ok.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC5D7E4718C9F22400FA8DBB /* ok.jpg */; };
 		AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */; };
 /* End PBXBuildFile section */
@@ -37,6 +43,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = A2353E9818C0A95600440F0F;
 			remoteInfo = "Comics Maker";
+		};
+		A244E0FA18CE3DBD00560772 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A244E0F418CE3DBC00560772 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		A244E0FC18CE3DBD00560772 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A244E0F418CE3DBC00560772 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A34414DDB1EC00852800;
+			remoteInfo = GPUImageTests;
+		};
+		A244E0FE18CE3DC700560772 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A244E0F418CE3DBC00560772 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCF1A33314DDB1EC00852800;
+			remoteInfo = GPUImage;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -70,6 +97,12 @@
 		A2353EDB18C0CCD400440F0F /* OCBaloesDeTexto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCBaloesDeTexto.m; sourceTree = "<group>"; };
 		A2353EDD18C0CD2B00440F0F /* OCTirinhasSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhasSingleton.h; sourceTree = "<group>"; };
 		A2353EDE18C0CD2B00440F0F /* OCTirinhasSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhasSingleton.m; sourceTree = "<group>"; };
+		A244E0F418CE3DBC00560772 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "Comics Maker/Submodules/GPUImage/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
+		A244E10118CE3DDE00560772 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A244E10318CE3DE300560772 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A244E10518CE3DE800560772 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		A244E10718CE3DF500560772 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A244E10918CE3DFE00560772 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		AC5D7E4718C9F22400FA8DBB /* ok.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ok.jpg; path = Imagens/ok.jpg; sourceTree = "<group>"; };
 		AEB2F68C18C8B5970073030D /* OCTirinhaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhaViewController.h; sourceTree = "<group>"; };
 		AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhaViewController.m; sourceTree = "<group>"; };
@@ -80,6 +113,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A244E10A18CE3DFE00560772 /* OpenGLES.framework in Frameworks */,
+				A244E10818CE3DF500560772 /* QuartzCore.framework in Frameworks */,
+				A244E10618CE3DE800560772 /* CoreVideo.framework in Frameworks */,
+				A244E10418CE3DE300560772 /* CoreMedia.framework in Frameworks */,
+				A244E10218CE3DDE00560772 /* AVFoundation.framework in Frameworks */,
+				A244E10018CE3DD400560772 /* libGPUImage.a in Frameworks */,
 				A2353E9F18C0A95600440F0F /* CoreGraphics.framework in Frameworks */,
 				A2353EA118C0A95600440F0F /* UIKit.framework in Frameworks */,
 				A2353E9D18C0A95600440F0F /* Foundation.framework in Frameworks */,
@@ -102,6 +141,7 @@
 		A2353E9018C0A95600440F0F = {
 			isa = PBXGroup;
 			children = (
+				A244E0F418CE3DBC00560772 /* GPUImage.xcodeproj */,
 				A2353EA218C0A95600440F0F /* Comics Maker */,
 				A2353EC118C0A95600440F0F /* Comics MakerTests */,
 				A2353E9B18C0A95600440F0F /* Frameworks */,
@@ -121,6 +161,11 @@
 		A2353E9B18C0A95600440F0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A244E10918CE3DFE00560772 /* OpenGLES.framework */,
+				A244E10718CE3DF500560772 /* QuartzCore.framework */,
+				A244E10518CE3DE800560772 /* CoreVideo.framework */,
+				A244E10318CE3DE300560772 /* CoreMedia.framework */,
+				A244E10118CE3DDE00560772 /* AVFoundation.framework */,
 				A2353E9C18C0A95600440F0F /* Foundation.framework */,
 				A2353E9E18C0A95600440F0F /* CoreGraphics.framework */,
 				A2353EA018C0A95600440F0F /* UIKit.framework */,
@@ -193,6 +238,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		A244E0F518CE3DBC00560772 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A244E0FB18CE3DBD00560772 /* libGPUImage.a */,
+				A244E0FD18CE3DBD00560772 /* GPUImageTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		AC5D7E4918C9F22C00FA8DBB /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +269,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A244E0FF18CE3DC700560772 /* PBXTargetDependency */,
 			);
 			name = "Comics Maker";
 			productName = "Comics Maker";
@@ -265,6 +320,12 @@
 			mainGroup = A2353E9018C0A95600440F0F;
 			productRefGroup = A2353E9A18C0A95600440F0F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A244E0F518CE3DBC00560772 /* Products */;
+					ProjectRef = A244E0F418CE3DBC00560772 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A2353E9818C0A95600440F0F /* Comics Maker */,
@@ -272,6 +333,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A244E0FB18CE3DBD00560772 /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = A244E0FA18CE3DBD00560772 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A244E0FD18CE3DBD00560772 /* GPUImageTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests.octest;
+			remoteRef = A244E0FC18CE3DBD00560772 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A2353E9718C0A95600440F0F /* Resources */ = {
@@ -327,6 +405,11 @@
 			isa = PBXTargetDependency;
 			target = A2353E9818C0A95600440F0F /* Comics Maker */;
 			targetProxy = A2353EBF18C0A95600440F0F /* PBXContainerItemProxy */;
+		};
+		A244E0FF18CE3DC700560772 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage;
+			targetProxy = A244E0FE18CE3DC700560772 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -437,6 +520,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Comics Maker/Comics Maker-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/Users/Emannuel/Comics-Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
 				INFOPLIST_FILE = "Comics Maker/Comics Maker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -450,6 +534,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Comics Maker/Comics Maker-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/Users/Emannuel/Comics-Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
 				INFOPLIST_FILE = "Comics Maker/Comics Maker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

@@ -11,6 +11,7 @@
 #import "OCTirinha.h"
 #import "OCQuadro.h"
 #import "OCTableViewController.h"
+#import "GPUImage.h"
 
 @interface OCViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 

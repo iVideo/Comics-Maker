@@ -49,7 +49,12 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
-    [_currentImage setImage:[info objectForKey:@"UIImagePickerControllerOriginalImage"]];
+    
+    UIImage *filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:[info objectForKey:@"UIImagePickerControllerOriginalImage"]];
+    filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
+    filteredImage = [[[GPUImageSmoothToonFilter alloc] init] imageByFilteringImage:filteredImage];
+    
+    [_currentImage setImage:filteredImage];
     
     OCQuadro *quadro = [[OCQuadro alloc]init];
     [quadro addImagem:_currentImage.image andTexto:nil];
