@@ -46,12 +46,21 @@
     [self presentViewController:picker animated:YES completion:nil];
 }
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    UIImage *filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:[info objectForKey:@"UIImagePickerControllerOriginalImage"]];
+    GPUImageSmoothToonFilter *filter = [[GPUImageSmoothToonFilter alloc] init];
+    filter.threshold = 0.1;
+    
+    UIImage *filteredImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+    filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
     filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
-    filteredImage = [[[GPUImageSmoothToonFilter alloc] init] imageByFilteringImage:filteredImage];
+    filteredImage = [[[GPUImageGrayscaleFilter alloc] init] imageByFilteringImage:filteredImage];
+    filteredImage = [filter imageByFilteringImage:filteredImage];
+    
+    //filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
+    //filteredImage = [[[GPUImageSmoothToonFilter alloc] init] imageByFilteringImage:filteredImage];
     
     [_currentImage setImage:filteredImage];
     
