@@ -10,6 +10,6 @@
 #import "OCTirinha.h"
 #import "OCTirinhasSingleton.h"
 
-@interface OCTableViewController : UITableViewController <UINavigationBarDelegate, UINavigationControllerDelegate>
+@interface OCTableViewController : UITableViewController <UINavigationBarDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property OCTirinhasSingleton *single;
 @end
