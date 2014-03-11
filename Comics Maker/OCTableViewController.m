@@ -97,6 +97,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [[single tirinhas] removeObjectAtIndex:[indexPath row]];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -119,6 +120,7 @@
     [popup showInView:[UIApplication sharedApplication].keyWindow];
     
 }
+
 -(void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (popup.tag) {
         case 1: {

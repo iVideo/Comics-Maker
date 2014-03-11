@@ -33,9 +33,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self navigationItem] setHidesBackButton:YES];
 	// Do any additional setup after loading the view.
     
     [join setImage:[[[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject] tirinhaCompleta]];
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    NSLog(@"Altura da view: %f \n Largura da view: %f",self.view.bounds.size.width,self.view.bounds.size.height);
+    int cw = self.view.frame.size.width;
+    int ch = self.view.frame.size.height;
+    if (fromInterfaceOrientation == UIInterfaceOrientationPortrait) {
+        //[join setFrame:CGRectMake((cw/2)-160, (ch/2)-251, 320, 502)];
+    }
+    else{
+        //[join setFrame:CGRectMake(0, 0, 320, 502)];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
