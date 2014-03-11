@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A3017" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cUg-iN-zw0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cUg-iN-zw0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -169,17 +169,14 @@
         <!--Navigation Controller-->
         <scene sceneID="Gwy-vg-Kbe">
             <objects>
-                <navigationController definesPresentationContext="YES" toolbarHidden="NO" id="cUg-iN-zw0" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="cUg-iN-zw0" sceneMemberID="viewController">
                     <toolbarItems>
                         <barButtonItem systemItem="add" id="hJx-z7-E0j"/>
+                        <barButtonItem title="Item" id="vQs-jU-cEo"/>
                     </toolbarItems>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PAF-es-ZPW">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="L9c-cC-hCZ">
-                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
                         <segue destination="7ox-7x-0pS" kind="relationship" relationship="rootViewController" id="nWM-pi-kPf"/>
                     </connections>

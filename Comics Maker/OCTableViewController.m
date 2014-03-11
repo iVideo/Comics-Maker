@@ -37,10 +37,11 @@
 {
     [super viewDidLoad];
     [[self navigationController] setDelegate:self];
-    
+
+    //Pegando instancia unica do singleton para usar por todo o .m    
     single = [OCTirinhasSingleton sharedTirinhas];
     
-    //Pegando instancia unica do singleton para usar por todo o .m
+
     
 
     // Uncomment the following line to preserve selection between presentations.
