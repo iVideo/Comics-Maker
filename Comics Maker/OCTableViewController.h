@@ -12,5 +12,5 @@
 
 @interface OCTableViewController : UITableViewController <UINavigationBarDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property OCTirinhasSingleton *single;
-- (void)ShareFacebook;
+
 @end

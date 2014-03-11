@@ -124,10 +124,10 @@
         case 1: {
             switch (buttonIndex) {
                 case 0:
-                    [self ShareFacebook];
+                    [self compartilharNoFacebook];
                     break;
                 case 1:
-                    //[self TwitterShare];
+                    [self compartilharNoTwitter];
                     break;
                 case 2:
                     // [self emailContent];
@@ -149,31 +149,29 @@
 }
 
 
-
-- (void)ShareFacebook
+#pragma - mark compartilhamentos
+- (void)compartilharNoFacebook
 {
     SLComposeViewController *fbController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
     {
         SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
-            
             [fbController dismissViewControllerAnimated:YES completion:nil];
-            
             switch(result){
                 case SLComposeViewControllerResultCancelled:
-                default:
-                {
-                    NSLog(@"Cancelled.....");
-                    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs://"]];
-                    
-                }
-                    break;
+                    default:
+                        {
+                            NSLog(@"Cancelled.....");
+                            // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs://"]];
+                        }
+                        break;
                 case SLComposeViewControllerResultDone:
-                {
-                    NSLog(@"Posted....");
+                    {
+                        NSLog(@"Posted....");
+                    }
+                        break;
                 }
-                    break;
-            }};
+            };
         
         OCTirinha *tirinha = [[single tirinhas]objectAtIndex:index];
         
@@ -184,11 +182,47 @@
         [self presentViewController:fbController animated:YES completion:nil];
     }
     else{
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sign in!" message:@"Please first Sign In!" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Login!" message:@"Por favor, efetue login!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert show];
     }
 }
 
+
+-(void)compartilharNoTwitter{
+    SLComposeViewController *fbController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
+            [fbController dismissViewControllerAnimated:YES completion:nil];
+            switch(result){
+                    case SLComposeViewControllerResultCancelled:
+                    default:
+                    {
+                        NSLog(@"Cancelled.....");
+                        // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs://"]];
+                    }
+                        break;
+                    case SLComposeViewControllerResultDone:
+                    {
+                        NSLog(@"Posted....");
+                    }
+                        break;
+                }
+            };
+        
+        OCTirinha *tirinha = [[single tirinhas]objectAtIndex:index];
+        
+        [fbController setInitialText:[tirinha titulo]];
+        [fbController addImage:[tirinha tirinhaCompleta]];
+        
+        [fbController setCompletionHandler:completionHandler];
+        [self presentViewController:fbController animated:YES completion:nil];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Login!" message:@"Por favor, efetue login!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
 
 /*
 // Override to support conditional editing of the table view.
