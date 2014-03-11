@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "OCTirinha.h"
-#import "OCTirinhasSingleton.h"
 
 @interface OCTirinhaViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *join;
+
+@property(nonatomic)CGContextRef ctx;
+@property(strong, nonatomic) OCTirinha* tirinha;
 
 @end
