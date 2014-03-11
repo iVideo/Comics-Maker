@@ -71,6 +71,8 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
+    
     // Configure the cell...
     [[cell textLabel] setText:[NSString stringWithFormat:@"%d",[indexPath row] ]];
     
@@ -78,7 +80,13 @@
     return cell;
 }
 - (IBAction)edit:(id)sender {
-    [[self tableView] setEditing:YES];
+    if ([[self tableView] isEditing]) {
+        [[self tableView] setEditing:NO];
+    }else
+    {
+        [[self tableView] setEditing:YES];
+    }
+
 }
 
 /*

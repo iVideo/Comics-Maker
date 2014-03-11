@@ -10,6 +10,7 @@
 #import "OCTirinhasSingleton.h"
 #import "OCTirinha.h"
 #import "OCQuadro.h"
+#import "OCTableViewController.h"
 
 @interface OCTirinhaViewController ()
 
@@ -35,15 +36,16 @@
 	// Do any additional setup after loading the view.
     
     [join setImage:[[[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject] tirinhaCompleta]];
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)concluido:(id)sender {
+    OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
+    [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
 }
 
 @end
