@@ -91,17 +91,18 @@
     UIImage* third = quad.imagem;
     
     
-    CGSize newSize = CGSizeMake(100, 3000); //size of image view
+    CGSize newSize = CGSizeMake(900, 700); //size of image view
     UIGraphicsBeginImageContext( newSize );
     
     // drawing 1st image
-    [first drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    [first drawInRect:CGRectMake(0,0,newSize.width/3,newSize.height)];
     
-//    // drawing the 2nd image after the 1st
-//    [second drawInRect:CGRectMake(0,190,20,30)] ;
-//    
-//    //drawing the 3rd image after the 2nd
-//    [third drawInRect:CGRectMake(0, 380, 20, 30)];
+    // drawing the 2nd image after the 1st
+    [second drawInRect:CGRectMake(newSize.width/3,0,newSize.width/3,newSize.height)] ;
+
+    //drawing the 3rd image after the 2nd
+    [third drawInRect:CGRectMake(newSize.width*2/3,0,newSize.width/3, newSize.height)];
+
     
     tirinhaCompleta = UIGraphicsGetImageFromCurrentImageContext();
     
