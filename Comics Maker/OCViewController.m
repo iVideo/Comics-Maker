@@ -64,6 +64,8 @@
     
     [_currentImage setImage:filteredImage];
     
+    filter = nil;
+    
     OCQuadro *quadro = [[OCQuadro alloc]init];
     [quadro addImagem:_currentImage.image andTexto:nil];
     OCTirinha *t = [[single tirinhas] lastObject];
