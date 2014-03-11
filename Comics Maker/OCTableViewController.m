@@ -13,17 +13,17 @@
 
 */
 
+#import <Social/Social.h>
 #import "OCTableViewController.h"
 #import "OCTirinhaViewController.h"
 
-
 @interface OCTableViewController ()
-
+@property NSInteger index;
 @end
 
 @implementation OCTableViewController
 @synthesize single;
-
+@synthesize index;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -113,6 +113,7 @@
 
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
+    index = [indexPath row];
     UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Compartilhar" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"Instagram", nil];
     popup.tag = 1;
     [popup showInView:[UIApplication sharedApplication].keyWindow];
@@ -123,7 +124,7 @@
         case 1: {
             switch (buttonIndex) {
                 case 0:
-                    //[self FacebookShare];
+                    [self ShareFacebook];
                     break;
                 case 1:
                     //[self TwitterShare];
@@ -146,6 +147,48 @@
             break;
     }
 }
+
+
+
+- (void)ShareFacebook
+{
+    SLComposeViewController *fbController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    {
+        SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
+            
+            [fbController dismissViewControllerAnimated:YES completion:nil];
+            
+            switch(result){
+                case SLComposeViewControllerResultCancelled:
+                default:
+                {
+                    NSLog(@"Cancelled.....");
+                    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs://"]];
+                    
+                }
+                    break;
+                case SLComposeViewControllerResultDone:
+                {
+                    NSLog(@"Posted....");
+                }
+                    break;
+            }};
+        
+        OCTirinha *tirinha = [[single tirinhas]objectAtIndex:index];
+        
+        [fbController setInitialText:[tirinha titulo]];
+        [fbController addImage:[tirinha tirinhaCompleta]];
+        
+        [fbController setCompletionHandler:completionHandler];
+        [self presentViewController:fbController animated:YES completion:nil];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sign in!" message:@"Please first Sign In!" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
 
 /*
 // Override to support conditional editing of the table view.
