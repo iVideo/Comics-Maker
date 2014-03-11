@@ -7,12 +7,18 @@
 //
 
 #import "OCTirinhaViewController.h"
+#import "OCTirinhasSingleton.h"
+#import "OCTirinha.h"
+#import "OCQuadro.h"
 
 @interface OCTirinhaViewController ()
 
 @end
 
 @implementation OCTirinhaViewController
+@synthesize ctx;
+@synthesize tirinha;
+@synthesize join;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +32,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    
+    [join setImage:[[[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject] tirinhaCompleta]];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
