@@ -406,6 +406,7 @@
 				A2353EAD18C0A95600440F0F /* OCAppDelegate.m in Sources */,
 				A2353EA918C0A95600440F0F /* main.m in Sources */,
 				AEB2F71918CF59B60073030D /* OCTirinhasDoc.m in Sources */,
+				AC1D991118D0AA8D00788C07 /* OCNavigationController.m in Sources */,
 				AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */,
 				AEB2F71618CF59390073030D /* OCTirinhasData.m in Sources */,
 				A2353EB318C0A95600440F0F /* OCViewController.m in Sources */,
