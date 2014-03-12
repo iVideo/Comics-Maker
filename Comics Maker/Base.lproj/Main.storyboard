@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A3017" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cUg-iN-zw0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cUg-iN-zw0">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller - Nova Tirinha-->
@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LZo-xK-Xkg">
-                                <rect key="frame" x="54" y="103" width="213" height="280"/>
+                                <rect key="frame" x="63" y="103" width="194" height="247"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HPS-XO-2xc">
-                                <rect key="frame" x="20" y="387" width="280" height="44"/>
+                                <rect key="frame" x="20" y="354" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem systemItem="camera" id="42C-Yn-Y65">
@@ -37,7 +37,7 @@
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="84W-fe-cQa">
-                                <rect key="frame" x="20" y="431" width="280" height="44"/>
+                                <rect key="frame" x="20" y="398" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem systemItem="search" id="q95-7l-Fyf">
@@ -57,9 +57,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="ZZW-WA-F5p"/>
+                                </connections>
                             </textField>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-qN-M5S">
-                                <rect key="frame" x="126" y="480" width="69" height="63"/>
+                                <rect key="frame" x="126" y="443" width="69" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Concluído" image="ok.jpg">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,6 +71,10 @@
                                     <segue destination="zQv-ir-lhA" kind="push" id="gQ1-nc-HB9"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="46J-B3-dpt">
+                                <rect key="frame" x="150" y="217" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -81,6 +88,7 @@
                     <connections>
                         <outlet property="concluido" destination="AA5-qN-M5S" id="3dO-kx-E7V"/>
                         <outlet property="currentImage" destination="LZo-xK-Xkg" id="XP0-i7-x4E"/>
+                        <outlet property="loading" destination="46J-B3-dpt" id="u4x-EP-4zu"/>
                         <outlet property="proximo" destination="6jb-dO-J0g" id="Gcm-Ur-y7R"/>
                         <outlet property="texto" destination="CFi-C5-o1T" id="uBb-Ye-PKW"/>
                     </connections>
@@ -92,32 +100,56 @@
         <!--Tirinha View Controller-->
         <scene sceneID="oXj-eh-V86">
             <objects>
-                <viewController id="zQv-ir-lhA" customClass="OCTirinhaViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TirinhaViewController" id="zQv-ir-lhA" customClass="OCTirinhaViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dzk-Fy-RvQ"/>
                         <viewControllerLayoutGuide type="bottom" id="fW4-AJ-Az3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pmg-S6-5Gp">
+                    <view key="view" contentMode="scaleAspectFit" id="pmg-S6-5Gp">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-rF-0ry">
-                                <rect key="frame" x="0.0" y="66" width="568" height="254"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" maximumZoomScale="100" translatesAutoresizingMaskIntoConstraints="NO" id="1zq-i7-HKk">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-rF-0ry">
+                                        <rect key="frame" x="0.0" y="0.0" width="569" height="320"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="zQv-ir-lhA" id="nu2-2Y-59z"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6ct-Dl-46e"/>
+                    <navigationItem key="navigationItem" id="6ct-Dl-46e">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="vS2-zQ-oAA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8ue-Yg-I0i">
+                                <rect key="frame" x="426" y="5" width="126" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Concluído">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="concluido:" destination="zQv-ir-lhA" eventType="touchUpInside" id="uUi-fm-Hej"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="join" destination="gO2-rF-0ry" id="SHL-eq-elg"/>
+                        <outlet property="scrollView" destination="1zq-i7-HKk" id="rjJ-L0-Vra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sro-he-LW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="505" y="-35"/>
+            <point key="canvasLocation" x="513" y="82"/>
         </scene>
         <!--Table View Controller - Tirinhas-->
         <scene sceneID="Xuh-jh-Oyd">
@@ -139,6 +171,19 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tirinhas" id="mWp-VB-4ym">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="fw0-fa-gaZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kyo-ze-6xi">
+                                <rect key="frame" x="16" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="edit:" destination="7ox-7x-0pS" eventType="touchUpInside" id="G5O-r8-vIb"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f9Z-3A-ddA">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" id="wkh-YW-sCT"/>
@@ -153,7 +198,11 @@
         <!--Navigation Controller-->
         <scene sceneID="Gwy-vg-Kbe">
             <objects>
-                <navigationController definesPresentationContext="YES" id="cUg-iN-zw0" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="cUg-iN-zw0" customClass="OCNavigationController" sceneMemberID="viewController">
+                    <toolbarItems>
+                        <barButtonItem systemItem="add" id="hJx-z7-E0j"/>
+                        <barButtonItem title="Item" id="vQs-jU-cEo"/>
+                    </toolbarItems>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PAF-es-ZPW">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -51,7 +51,6 @@
     if (quadros == Nil) {
         quadros = [[NSMutableArray alloc]init];
     }
-    NSLog(@"Adicionando quadro na tirinha");
     [quadros addObject:quadro];
 }
 

@@ -17,6 +17,11 @@
 
 @implementation OCViewController
 @synthesize single;
+@synthesize texto;
+
+-(void)viewDidAppear:(BOOL)animated{
+    [[self navigationItem] setHidesBackButton:YES];
+}
 
 - (void)viewDidLoad
 {
@@ -26,8 +31,6 @@
     if (single.quadroAtual==0) {
         OCTirinha *tirinha = [[OCTirinha alloc]init];
         [single addTirinha:tirinha];
-        [[self navigationItem] setHidesBackButton:YES];
-
     }
     single.quadroAtual++;
 }
@@ -78,12 +81,12 @@
     else{
         [self.concluido setHidden:YES];
     }
+    
+    
 }
-- (IBAction)finalizar:(id)sender {
-    OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
-    [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
-}
--(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    NSLog(@"passou por aqui");
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [texto resignFirstResponder];
+    return YES;
 }
 @end
