@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cUg-iN-zw0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller - Nova Tirinha-->
@@ -106,26 +107,26 @@
                         <viewControllerLayoutGuide type="bottom" id="fW4-AJ-Az3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pmg-S6-5Gp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-rF-0ry">
-                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-rF-0ry">
+                                <rect key="frame" x="-1" y="64" width="569" height="256"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="gO2-rF-0ry" secondAttribute="centerX" id="Zfe-zZ-svw"/>
-                            <constraint firstAttribute="centerY" secondItem="gO2-rF-0ry" secondAttribute="centerY" constant="-33" id="bZZ-GC-SN5"/>
-                            <constraint firstAttribute="height" secondItem="gO2-rF-0ry" secondAttribute="height" id="cDG-1t-E1h"/>
-                            <constraint firstAttribute="width" secondItem="gO2-rF-0ry" secondAttribute="width" id="nUX-yk-QCt"/>
+                            <constraint firstItem="gO2-rF-0ry" firstAttribute="width" secondItem="pmg-S6-5Gp" secondAttribute="height" multiplier="40:71" id="E9u-l3-iS0"/>
+                            <constraint firstAttribute="centerX" secondItem="gO2-rF-0ry" secondAttribute="centerX" id="eZx-td-XWC"/>
+                            <constraint firstAttribute="centerY" secondItem="gO2-rF-0ry" secondAttribute="centerY" constant="-32.5" id="rcq-1g-y18"/>
                         </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="6ct-Dl-46e">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="vS2-zQ-oAA">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8ue-Yg-I0i">
-                                <rect key="frame" x="178" y="5" width="126" height="33"/>
+                                <rect key="frame" x="426" y="5" width="126" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Concluído">
@@ -137,7 +138,7 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="join" destination="gO2-rF-0ry" id="SHL-eq-elg"/>
                     </connections>

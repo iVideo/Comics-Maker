@@ -47,7 +47,7 @@
         //[join setFrame:CGRectMake((cw/2)-160, (ch/2)-251, 320, 502)];
     }
     else{
-        //[join setFrame:CGRectMake(0, 0, 320, 502)];
+        //[join setFrame:CGRectMake(0, 0, 320, 200)];
     }
 
 }
