@@ -32,6 +32,7 @@
         OCTirinha *tirinha = [[OCTirinha alloc]init];
         [single addTirinha:tirinha];
     }
+    single.quadroAtual++;
 }
 
 - (IBAction)cameraButton:(id)sender {
@@ -111,7 +112,7 @@
 }
 -(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     
-    single.quadroAtual++;
+    
     
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
