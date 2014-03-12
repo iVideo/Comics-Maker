@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="cUg-iN-zw0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller - Nova Tirinha-->
@@ -106,21 +105,25 @@
                         <viewControllerLayoutGuide type="top" id="Dzk-Fy-RvQ"/>
                         <viewControllerLayoutGuide type="bottom" id="fW4-AJ-Az3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pmg-S6-5Gp">
+                    <view key="view" contentMode="scaleAspectFit" id="pmg-S6-5Gp">
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-rF-0ry">
-                                <rect key="frame" x="-1" y="64" width="569" height="256"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" maximumZoomScale="100" translatesAutoresizingMaskIntoConstraints="NO" id="1zq-i7-HKk">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-rF-0ry">
+                                        <rect key="frame" x="0.0" y="0.0" width="569" height="320"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="zQv-ir-lhA" id="nu2-2Y-59z"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="gO2-rF-0ry" firstAttribute="width" secondItem="pmg-S6-5Gp" secondAttribute="height" multiplier="40:71" id="E9u-l3-iS0"/>
-                            <constraint firstAttribute="centerX" secondItem="gO2-rF-0ry" secondAttribute="centerX" id="eZx-td-XWC"/>
-                            <constraint firstAttribute="centerY" secondItem="gO2-rF-0ry" secondAttribute="centerY" constant="-32.5" id="rcq-1g-y18"/>
-                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="6ct-Dl-46e">
@@ -141,11 +144,12 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="join" destination="gO2-rF-0ry" id="SHL-eq-elg"/>
+                        <outlet property="scrollView" destination="1zq-i7-HKk" id="rjJ-L0-Vra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sro-he-LW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="505" y="-35"/>
+            <point key="canvasLocation" x="513" y="82"/>
         </scene>
         <!--Table View Controller - Tirinhas-->
         <scene sceneID="Xuh-jh-Oyd">
@@ -194,7 +198,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Gwy-vg-Kbe">
             <objects>
-                <navigationController definesPresentationContext="YES" id="cUg-iN-zw0" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="cUg-iN-zw0" customClass="OCNavigationController" sceneMemberID="viewController">
                     <toolbarItems>
                         <barButtonItem systemItem="add" id="hJx-z7-E0j"/>
                         <barButtonItem title="Item" id="vQs-jU-cEo"/>
