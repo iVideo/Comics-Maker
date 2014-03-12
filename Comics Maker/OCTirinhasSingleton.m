@@ -21,6 +21,7 @@
 }
 
 - (id)init {
+    self = [super init];
     self.tirinhas = [[NSMutableArray alloc] init];
     self.quadroAtual = 0;
     return self;
