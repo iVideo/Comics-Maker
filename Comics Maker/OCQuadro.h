@@ -12,10 +12,12 @@
 
 @property (strong, nonatomic) UIImage *imagem;
 @property (strong, nonatomic) NSString *texto;
+@property (strong, nonatomic) NSString *key;
 
 
 //@property (weak, nonatomic) NSMutableArray *baloesDeTexto;
 
-- (id)initWithImagem:(UIImage *)imagem andTexto:(NSString *)texto;
--(void)addImagem:(UIImage *)imagem andTexto: (NSString *)texto;
+- (id)initWithTexto:(NSString *)texto;
+-(void)addImagem:(UIImage *)imagem andTexto:(NSString *)texto andKey:(NSString *)key;
+-(void)addTexto:(NSString *)texto andKey:(NSString *)key;
 @end
