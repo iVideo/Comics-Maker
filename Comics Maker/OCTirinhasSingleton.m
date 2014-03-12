@@ -21,13 +21,16 @@
 }
 
 - (id)init {
-    self.tirinhas = [[NSMutableArray alloc] init];
-    self.quadroAtual = 0;
+    _tirinhas = [[NSMutableArray alloc] init];
+    
+    _quadroAtual = 0;
     return self;
 }
 
 - (void)addTirinha:(NSObject *)tirinha {
     [_tirinhas addObject:tirinha];
+    [_bugDoc saveData];
+    
 }
 
 - (void)removeTirinhaAtIndex:(NSUInteger)indice {

@@ -68,30 +68,22 @@
      (iii) retornar a imagem do contexto contexto.image;
      */
     
-    
-    //    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    //    CGContextSetLineWidth(ctx, 50);
-    //
-    //    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-    //    CGFloat components[] = {0.0, 0.0, 1.0, 1.0};
-    //    CGColorRef color = CGColorCreate(colorspace, components);
-    //    CGContextSetStrokeColorWithColor(ctx, color);
-    //
-    //    CGContextStrokePath(ctx);
-    
     UIImage *tirinhaCompleta;
     
+    //Get the 1st image
     OCQuadro* quad = quadros[0];
     UIImage* first = quad.imagem;
-                      
+    
+    //get the 2nd image
     quad = quadros[1];
     UIImage* second = quad.imagem;
     
+    //get the 3rd image
     quad = quadros[2];
     UIImage* third = quad.imagem;
     
-    
-    CGSize newSize = CGSizeMake(900, 700); //size of image view
+    //create the area of the final image
+    CGSize newSize = CGSizeMake(900, 700);
     UIGraphicsBeginImageContext( newSize );
     
     // drawing 1st image
@@ -107,7 +99,6 @@
     tirinhaCompleta = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
-    
     
     return tirinhaCompleta;
 }
