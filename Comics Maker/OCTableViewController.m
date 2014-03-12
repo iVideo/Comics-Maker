@@ -74,6 +74,8 @@
     
     [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
     
+    
+    
     // Configure the cell...
     [[cell textLabel] setText:[NSString stringWithFormat:@"%d",[indexPath row] ]];
     
