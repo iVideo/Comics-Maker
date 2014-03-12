@@ -19,6 +19,10 @@
 @synthesize single;
 @synthesize texto;
 
+-(void)viewDidAppear:(BOOL)animated{
+    [[self navigationItem] setHidesBackButton:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -27,8 +31,6 @@
     if (single.quadroAtual==0) {
         OCTirinha *tirinha = [[OCTirinha alloc]init];
         [single addTirinha:tirinha];
-        [[self navigationItem] setHidesBackButton:YES];
-
     }
 }
 

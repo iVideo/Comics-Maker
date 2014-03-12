@@ -33,6 +33,7 @@
 		A244E10818CE3DF500560772 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E10718CE3DF500560772 /* QuartzCore.framework */; };
 		A244E10A18CE3DFE00560772 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E10918CE3DFE00560772 /* OpenGLES.framework */; };
 		AC5D7E4818C9F22400FA8DBB /* ok.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC5D7E4718C9F22400FA8DBB /* ok.jpg */; };
+		ACC3A3EC18CF4738003C7438 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC3A3EB18CF4738003C7438 /* Social.framework */; };
 		AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		A244E10718CE3DF500560772 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A244E10918CE3DFE00560772 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		AC5D7E4718C9F22400FA8DBB /* ok.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ok.jpg; path = Imagens/ok.jpg; sourceTree = "<group>"; };
+		ACC3A3EB18CF4738003C7438 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		AEB2F68C18C8B5970073030D /* OCTirinhaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhaViewController.h; sourceTree = "<group>"; };
 		AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhaViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACC3A3EC18CF4738003C7438 /* Social.framework in Frameworks */,
 				A244E10A18CE3DFE00560772 /* OpenGLES.framework in Frameworks */,
 				A244E10818CE3DF500560772 /* QuartzCore.framework in Frameworks */,
 				A244E10618CE3DE800560772 /* CoreVideo.framework in Frameworks */,
@@ -161,6 +164,7 @@
 		A2353E9B18C0A95600440F0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACC3A3EB18CF4738003C7438 /* Social.framework */,
 				A244E10918CE3DFE00560772 /* OpenGLES.framework */,
 				A244E10718CE3DF500560772 /* QuartzCore.framework */,
 				A244E10518CE3DE800560772 /* CoreVideo.framework */,

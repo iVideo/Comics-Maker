@@ -12,4 +12,5 @@
 
 @interface OCTableViewController : UITableViewController <UINavigationBarDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property OCTirinhasSingleton *single;
+
 @end
