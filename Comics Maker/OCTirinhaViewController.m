@@ -77,6 +77,7 @@
     NSString *titulo = [myAlertView textFieldAtIndex:0].text;
     OCTirinha *tira = [[[OCTirinhasSingleton sharedTirinhas]tirinhas] lastObject];
     [tira setTitulo:titulo];
+    [_botaoConcluido setTitle:@"Ok" forState:UIControlStateNormal];
 
 }
 
