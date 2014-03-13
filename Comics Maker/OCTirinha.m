@@ -92,7 +92,7 @@
     [second drawInRect:CGRectMake(newSize.width/3 + 5,10,(newSize.width - 40)/3,(newSize.height - 20))] ;
 
     //drawing the 3rd image after the 2nd
-    [third drawInRect:CGRectMake(newSize.width*2/3 + 5,10,(newSize.width - 40)/3,(newSize.height - 20))];
+    [third drawInRect:CGRectMake(newSize.width*2/3,10,(newSize.width - 40)/3,(newSize.height - 20))];
 
     
     tirinhaCompleta = UIGraphicsGetImageFromCurrentImageContext();
