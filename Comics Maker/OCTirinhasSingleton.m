@@ -29,6 +29,8 @@
 
 - (void)addTirinha:(NSObject *)tirinha {
     [_tirinhas addObject:tirinha];
+    [_bugDoc saveData];
+    
 }
 
 - (void)removeTirinhaAtIndex:(NSUInteger)indice {

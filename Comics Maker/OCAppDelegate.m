@@ -7,12 +7,25 @@
 //
 
 #import "OCAppDelegate.h"
+#import "OCTirinhasSingleton.h"
+#import "OCTirinhasDatabase.h"
+#import "OCTableViewController.h"
 
 @implementation OCAppDelegate
+@synthesize memoryCard;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+//    OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
+//    sing = [memoryCard objectForKey:@"save"];
+    NSMutableArray *loadedComics = [OCTirinhasDatabase loadTirinhasDocs];
+    OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
+    
+    
+//    OCTableViewController  *rootController = (OCTableViewController *) [navigationController.viewControllers objectAtIndex:0];
+//    rootController.bugs = loadedBugs;
     return YES;
 }
 							
@@ -52,6 +65,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+//    OCTirinhasSingleton *sing = [[OCTirinhasSingleton alloc]init];
+//    [memoryCard setObject:sing forKey:@"save"];
 }
 
 @end
