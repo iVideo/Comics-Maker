@@ -12,10 +12,9 @@
 
 @implementation OCQuadro
 
-- (id)initWithImagem:(UIImage *)imagem andTexto:(NSString *)texto{
+- (id)initWithTexto:(NSString *)texto{
     self = [super init];
     if (self) {
-        _imagem = imagem;
         _texto = texto;
         OCTirinhasSingleton *t = [OCTirinhasSingleton sharedTirinhas];
         [t addTirinha:self];
@@ -23,8 +22,17 @@
     return self;
 }
 
--(void)addImagem:(UIImage *)imagem andTexto: (NSString *)texto{
-    self.imagem = imagem;
+-(void)addTexto:(NSString *)texto andKey:(NSString *)key{
     self.texto = texto;
+    self.key = key;
 }
+
+- (UIImage *)imagem {
+    NSString *path = [@"/Documents/" stringByAppendingString:_key];
+    path = [NSHomeDirectory() stringByAppendingString:path];
+    NSFileHandle* myFileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
+    UIImage* loadedImage = [UIImage imageWithData:[myFileHandle readDataToEndOfFile]];
+    return loadedImage;
+}
+
 @end
