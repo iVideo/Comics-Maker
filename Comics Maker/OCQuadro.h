@@ -18,6 +18,5 @@
 //@property (weak, nonatomic) NSMutableArray *baloesDeTexto;
 
 - (id)initWithTexto:(NSString *)texto;
--(void)addImagem:(UIImage *)imagem andTexto:(NSString *)texto andKey:(NSString *)key;
 -(void)addTexto:(NSString *)texto andKey:(NSString *)key;
 @end
