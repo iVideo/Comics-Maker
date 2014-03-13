@@ -35,24 +35,12 @@
     single.quadroAtual++;
 }
 
-- (IBAction)cameraButton:(id)sender {
-    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:picker animated:YES completion:nil];
-}
-
-- (IBAction)pesquisaFotoButton:(id)sender {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:picker animated:YES completion:nil];
-}
 - (IBAction)selecionar:(id)sender {
     UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Tipo de Imagem:" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Tirar Foto",@"Escolher da Biblioteca", nil];
     popup.tag = 1;
     [popup showInView:[UIApplication sharedApplication].keyWindow];
 }
+
 -(void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex{
     UIImagePickerController * picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
@@ -62,11 +50,9 @@
             switch (buttonIndex) {
                 case 0:
                     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                    [self presentViewController:picker animated:YES completion:nil];
                     break;
                 case 1:
                     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                    [self presentViewController:picker animated:YES completion:nil];
                     break;
                 default:
                     break;
@@ -76,6 +62,7 @@
         default:
             break;
     }
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 /*******/
