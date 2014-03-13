@@ -548,7 +548,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Comics Maker/Comics Maker-Prefix.pch";
-				HEADER_SEARCH_PATHS = "/Users/LucasAugustoCordeiro/Desktop/Projects/Comics\\ Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
+				HEADER_SEARCH_PATHS = "/Users/Emannuel/Comics-Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
 				INFOPLIST_FILE = "Comics Maker/Comics Maker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -562,7 +562,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Comics Maker/Comics Maker-Prefix.pch";
-				HEADER_SEARCH_PATHS = "/Users/LucasAugustoCordeiro/Desktop/Projects/Comics\\ Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
+				HEADER_SEARCH_PATHS = "/Users/Emannuel/Comics-Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
 				INFOPLIST_FILE = "Comics Maker/Comics Maker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
