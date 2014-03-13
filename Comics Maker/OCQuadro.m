@@ -32,7 +32,7 @@
     path = [NSHomeDirectory() stringByAppendingString:path];
     NSFileHandle* myFileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
     UIImage* loadedImage = [UIImage imageWithData:[myFileHandle readDataToEndOfFile]];
-    return loadedImage;
+    return [UIImage imageWithCGImage:[loadedImage CGImage] scale:1.0 orientation:3];
 }
 
 @end
