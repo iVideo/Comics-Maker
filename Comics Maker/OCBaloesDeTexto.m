@@ -10,12 +10,25 @@
 
 @implementation OCBaloesDeTexto
 
-- (id)initWithTexto:(NSString *)texto {
+- (id)initWithText:(NSString *)texto {
     self = [super init];
     if (self) {
         _texto = texto;
     }
     return self;
 }
+
+- (id)initWithText:(NSString *)texto andPosition:(CGPoint)inicio andOrigin:(CGPoint)origem {
+    self = [super init];
+    if (self) {
+        _texto = texto;
+        _inicio = inicio;
+        _origem = origem;
+    }
+    
+    return self;
+}
+
+
 
 @end

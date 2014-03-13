@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OCBaloesDeTexto.h"
 
 @interface OCQuadro : NSObject
 

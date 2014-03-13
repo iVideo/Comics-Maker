@@ -82,7 +82,7 @@
     UIImage* third = quad.imagem;
     
     //create the area of the final image
-    CGSize newSize = CGSizeMake(900, 700);
+    CGSize newSize = CGSizeMake(1152, 640);
     UIGraphicsBeginImageContext( newSize );
     
     // drawing 1st imag

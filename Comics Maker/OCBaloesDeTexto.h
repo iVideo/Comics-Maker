@@ -11,7 +11,10 @@
 @interface OCBaloesDeTexto : NSObject
 
 @property (strong, nonatomic) NSString *texto;
+@property CGPoint inicio;
+@property CGPoint origem;
 
-- (id)initWithTexto:(NSString *)texto;
+- (id)initWithText:(NSString *)texto;
+- (id)initWithText:(NSString *)texto andPosition:(CGPoint)inicio andOrigin:(CGPoint)origem;
 
 @end
