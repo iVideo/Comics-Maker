@@ -193,12 +193,12 @@
 				A2353ED218C0BFED00440F0F /* OCTableViewController.m */,
 				AEB2F68C18C8B5970073030D /* OCTirinhaViewController.h */,
 				AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */,
+				AC1D990F18D0AA8D00788C07 /* OCNavigationController.h */,
+				AC1D991018D0AA8D00788C07 /* OCNavigationController.m */,
 				AC5D7E4918C9F22C00FA8DBB /* Imagens */,
 				A2353EE018C0CD3900440F0F /* Model */,
 				A2353EB418C0A95600440F0F /* Images.xcassets */,
 				A2353EA318C0A95600440F0F /* Supporting Files */,
-				AC1D990F18D0AA8D00788C07 /* OCNavigationController.h */,
-				AC1D991018D0AA8D00788C07 /* OCNavigationController.m */,
 			);
 			path = "Comics Maker";
 			sourceTree = "<group>";
