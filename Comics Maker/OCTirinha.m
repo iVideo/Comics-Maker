@@ -54,10 +54,6 @@
     [quadros addObject:quadro];
 }
 
--(NSString *)titulo{
-    return [NSString stringWithFormat:@"Tirinha %d", single.tirinhas.count];
-}
-
 - (UIImage *)tirinhaCompleta {
     /* esse é o getter da tirinhaCompleta. Sempre que
      a gente tentar acessar a propriedade tirinhaCompleta

@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "OCTirinha.h"
 
-@interface OCTirinhaViewController : UIViewController<UIScrollViewDelegate>
+@interface OCTirinhaViewController : UIViewController<UIScrollViewDelegate,UITextFieldDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *join;
 
 @property(nonatomic)CGContextRef ctx;
 @property(strong, nonatomic) OCTirinha* tirinha;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 
 @end
