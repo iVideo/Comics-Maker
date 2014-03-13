@@ -75,9 +75,9 @@
     [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
     
     
-    
+    OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
     // Configure the cell...
-    [[cell textLabel] setText:[NSString stringWithFormat:@"%d",[indexPath row] ]];
+    [[cell textLabel] setText:[tira titulo]];
     
     
     return cell;
@@ -85,9 +85,11 @@
 - (IBAction)edit:(id)sender {
     if ([[self tableView] isEditing]) {
         [[self tableView] setEditing:NO];
+        [_edit setTitle:@"Editar" forState:UIControlStateNormal];
     }else
     {
         [[self tableView] setEditing:YES];
+        [_edit setTitle:@"Ok" forState:UIControlStateNormal];
     }
 
 }
@@ -117,7 +119,7 @@
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
     index = [indexPath row];
-    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Compartilhar" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"Instagram", nil];
+    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Compartilhar" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter", nil];
     popup.tag = 1;
     [popup showInView:[UIApplication sharedApplication].keyWindow];
     

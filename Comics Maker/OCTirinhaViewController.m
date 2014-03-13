@@ -14,11 +14,10 @@
 #import <objc/message.h>
 
 @interface OCTirinhaViewController ()
-
 @end
 
 @implementation OCTirinhaViewController{
-    UIView *vi;
+    UIAlertView *myAlertView;
 }
 @synthesize ctx;
 @synthesize tirinha;
@@ -42,8 +41,8 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
     objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft );
+    [[self navigationItem] setHidesBackButton:YES];
 }
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
@@ -55,16 +54,37 @@
     [super viewDidLoad];
     objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
     [[self navigationItem] setHidesBackButton:YES];
-	// Do any additional setup after loading the view.
     
     [join setImage:[[[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject] tirinhaCompleta]];
-
 }
 
 
 - (IBAction)concluido:(id)sender {
-    OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
-    [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
+    OCTirinha *tira = [[[OCTirinhasSingleton sharedTirinhas]tirinhas] lastObject];
+    if ([tira titulo]==nil) {
+        [self insereTitulo];
+    }
+    else{
+        OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
+        [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
+    }
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==0) {
+        return;
+    }
+    NSString *titulo = [myAlertView textFieldAtIndex:0].text;
+    OCTirinha *tira = [[[OCTirinhasSingleton sharedTirinhas]tirinhas] lastObject];
+    [tira setTitulo:titulo];
+
+}
+
+-(void)insereTitulo{
+    myAlertView = [[UIAlertView alloc]initWithTitle:@"Informe um nome:" message:nil delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Ok", nil];
+    [myAlertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [myAlertView show];
+}
+
 
 @end
