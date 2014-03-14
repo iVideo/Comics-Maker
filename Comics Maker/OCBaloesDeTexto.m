@@ -29,6 +29,12 @@
     return self;
 }
 
+- (UIImage *)balaoDesenhado {
+    UIImage *balaoCompleto;
+    
+    return balaoCompleto;
+}
+
 
 
 @end

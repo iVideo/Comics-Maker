@@ -120,7 +120,7 @@
            [_currentImage setImage:filteredImage];
             OCQuadro *quadro = [[OCQuadro alloc]init];
             //[quadro addImagem:_currentImage.image andTexto:nil andKey:[NSString stringWithFormat:@"tirinha_%d_quadro_%d.png", single.tirinhas.count - 1, single.quadroAtual != 0 ? single.quadroAtual - 1 : 2]];
-            [quadro addTexto:nil andKey:[NSString stringWithFormat:@"tirinha_%d_quadro_%d.png", single.tirinhas.count - 1, single.quadroAtual != 0 ? single.quadroAtual - 1 : 2]];
+            [quadro addTexto:nil andKey:[NSString stringWithFormat:@"tirinha_%d_quadro_%d.jpg", single.tirinhas.count - 1, single.quadroAtual != 0 ? single.quadroAtual - 1 : 2]];
             OCTirinha *t = [[single tirinhas] lastObject];
             [t adicionaQuadroNoArrayDeQuadros:quadro];
 
@@ -142,7 +142,7 @@
 
 
 - (void)savingImageToDisk:(UIImage *)imagem {
-    NSString *imageName = [NSString stringWithFormat:@"/Documents/tirinha_%d_quadro_%d.png", single.tirinhas.count - 1, single.quadroAtual != 0 ? single.quadroAtual - 1 : 2];
+    NSString *imageName = [NSString stringWithFormat:@"/Documents/tirinha_%d_quadro_%d.jpg", single.tirinhas.count - 1, single.quadroAtual != 0 ? single.quadroAtual - 1 : 2];
     NSString* path = [NSHomeDirectory() stringByAppendingString:imageName];
     
     BOOL ok = [[NSFileManager defaultManager] createFileAtPath:path
@@ -155,7 +155,7 @@
     else
     {
         NSFileHandle* myFileHandle = [NSFileHandle fileHandleForWritingAtPath:path];
-        [myFileHandle writeData:UIImagePNGRepresentation(imagem)];
+        [myFileHandle writeData:UIImageJPEGRepresentation(imagem, 1.0)];
         [myFileHandle closeFile];
     }
 }
