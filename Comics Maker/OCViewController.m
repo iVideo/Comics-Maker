@@ -2,7 +2,7 @@
 //  OCViewController.m
 //  Comics Maker
 //
-//  Created by -----> Lucas Augusto Cordeiro <-----, Emannuel Fernandes de Oliveira Carvalho e Rodrigo Soldi on 2/28/14.
+//  Created by Emannuel Fernandes de Oliveira Carvalho e Rodrigo Soldi on 2/28/14.
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
@@ -20,7 +20,12 @@
 @synthesize texto;
 
 -(void)viewDidAppear:(BOOL)animated{
-    [[self navigationItem] setHidesBackButton:YES];
+    if (single.quadroAtual==1) {
+        [[self navigationItem] setHidesBackButton:NO];
+    }else{
+        [[self navigationItem] setHidesBackButton:YES];
+    }
+
 }
 
 - (void)viewDidLoad
@@ -50,9 +55,11 @@
             switch (buttonIndex) {
                 case 0:
                     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    [self presentViewController:picker animated:YES completion:nil];
                     break;
                 case 1:
                     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    [self presentViewController:picker animated:YES completion:nil];
                     break;
                 default:
                     break;
@@ -62,7 +69,7 @@
         default:
             break;
     }
-    [self presentViewController:picker animated:YES completion:nil];
+
 }
 
 /*******/
@@ -181,12 +188,6 @@
      [_loading startAnimating];
 }
 
-
--(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    
-    
-    
-}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [texto resignFirstResponder];
     return YES;

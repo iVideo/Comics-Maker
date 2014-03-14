@@ -2,7 +2,7 @@
 //  OCTableViewController.m
 //  Comics Maker
 //
-//  Created by -----> Lucas Augusto Cordeiro <-----, Emannuel Fernandes de Oliveira Carvalho e Rodrigo Soldi on 2/28/14.
+//  Created by Emannuel Fernandes de Oliveira Carvalho e Rodrigo Soldi on 2/28/14.
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
@@ -39,7 +39,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    single.quadroAtual=0;
+}
 
 #pragma mark - Table view data source
 
@@ -64,7 +66,6 @@
     
     [[single tirinhas] replaceObjectAtIndex:[fromIndexPath row] withObject:to];
     [[single tirinhas]replaceObjectAtIndex:[toIndexPath row] withObject:from];
-    
 }
 
 
