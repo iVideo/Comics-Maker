@@ -32,7 +32,12 @@
     path = [NSHomeDirectory() stringByAppendingString:path];
     NSFileHandle* myFileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
     UIImage* loadedImage = [UIImage imageWithData:[myFileHandle readDataToEndOfFile]];
+    [self drawBaloesDeTexto:loadedImage];
     return loadedImage;
+}
+
+- (void)drawBaloesDeTexto:(UIImage *)imagem {
+    
 }
 
 @end

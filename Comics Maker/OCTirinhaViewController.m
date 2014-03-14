@@ -55,12 +55,16 @@
     objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
     [[self navigationItem] setHidesBackButton:YES];
     
-    [join setImage:[[[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject] tirinhaCompleta]];
+    if (!tirinha) {
+        tirinha = [[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject];
+    }
+    
+    [join setImage:[tirinha tirinhaCompleta]];
 }
 
 
 - (IBAction)concluido:(id)sender {
-    OCTirinha *tira = [[[OCTirinhasSingleton sharedTirinhas]tirinhas] lastObject];
+    OCTirinha *tira = [[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject];
     if ([tira titulo]==nil) {
         [self insereTitulo];
     }
