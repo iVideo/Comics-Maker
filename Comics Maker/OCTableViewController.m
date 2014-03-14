@@ -100,6 +100,10 @@
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [[single tirinhas] removeObjectAtIndex:[indexPath row]];
+        
+        //Delete from memory peristence by Lucas
+        OCTirinhasDoc *doc = [[single tirinhas] objectAtIndex:indexPath.row];
+        [doc deleteDoc];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

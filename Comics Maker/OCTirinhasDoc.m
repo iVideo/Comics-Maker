@@ -12,14 +12,13 @@
 
 #define kDataKey        @"Data"
 #define kDataFile       @"data.plist"
-//#define kThumbImageFile @"thumbImage.png"
-//#define kFullImageFile  @"fullImage.png"
+#define kFullImageFile  @"fullImage.png"
 
 @implementation OCTirinhasDoc
 @synthesize docPath = _docPath;
+@synthesize data = _data;
 
-//@synthesize thumbImage = _thumbImage;
-//@synthesize fullImage = _fullImage;
+@synthesize fullImage = _fullImage;
 
 - (id)init {
     if ((self = [super init])) {
@@ -34,13 +33,13 @@
     return self;
 }
 
-//- (id)initWithTitle:(NSString*)title rating:(float)rating thumbImage:(UIImage *)thumbImage fullImage:(UIImage *)fullImage {
-//    if ((self = [super init])) {
-//        _data = [[OCTirinhasData alloc] initWithTitle:title rating:rating];
-//        
-//    }
-//    return self;
-//}
+- (id)initWithTitle:(NSString*)title rating:(float)rating thumbImage:(UIImage *)thumbImage fullImage:(UIImage *)fullImage {
+    if ((self = [super init])) {
+        _data = [[OCTirinhasData alloc] initWithTitle:title rating:rating];
+        
+    }
+    return self;
+}
 
 - (void)dealloc {
 //    _data = nil;
@@ -64,7 +63,7 @@
     
 }
 
-- (OCTirinhasData *)data {
+- (OCTirinhasData *)data{
     
     if (_data != nil) return _data;
     
@@ -82,14 +81,14 @@
 
 - (void)saveData {
     
-    if (_data == nil) return;
+    //if (_data == nil) return;
     
     [self createDataPath];
     
     NSString *dataPath = [_docPath stringByAppendingPathComponent:kDataFile];
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    [archiver encodeObject:_data forKey:kDataKey];
+    [archiver encodeObject:[self data] forKey:kDataKey];
     [archiver finishEncoding];
     [data writeToFile:dataPath atomically:YES];
 }
@@ -106,42 +105,7 @@
 }
 
 
-//- (UIImage *)thumbImage {
-//    
-//    if (_thumbImage != nil) return _thumbImage;
-//    
-//    NSString *thumbImagePath = [_docPath stringByAppendingPathComponent:kThumbImageFile];
-//    return [UIImage imageWithContentsOfFile:thumbImagePath];
-//    
-//}
-//
-//- (UIImage *)fullImage {
-//    
-//    if (_fullImage != nil) return _fullImage;
-//    
-//    NSString *fullImagePath = [_docPath stringByAppendingPathComponent:kFullImageFile];
-//    return [UIImage imageWithContentsOfFile:fullImagePath];
-//    
-//}
-//
-//- (void)saveImages {
-//    
-//    if (_thumbImage == nil || _fullImage == nil) return;
-//    
-//    [self createDataPath];
-//    
-//    NSString *thumbImagePath = [_docPath stringByAppendingPathComponent:kThumbImageFile];
-//    NSData *thumbImageData = UIImagePNGRepresentation(_thumbImage);
-//    [thumbImageData writeToFile:thumbImagePath atomically:YES];
-//    
-//    NSString *fullImagePath = [_docPath stringByAppendingPathComponent:kFullImageFile];
-//    NSData *fullImageData = UIImagePNGRepresentation(_fullImage);
-//    [fullImageData writeToFile:fullImagePath atomically:YES];
-//    
-//    self.thumbImage = nil;
-//    self.fullImage = nil;
-//    
-//}
+
 
 
 
