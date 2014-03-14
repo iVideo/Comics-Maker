@@ -25,9 +25,28 @@
 @synthesize single;
 @synthesize index;
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(BOOL)shouldAutorotate
+{
+    return YES;
+}
+//
+//-(NSUInteger)supportedInterfaceOrientations
+//{
+//    return UIInterfaceOrientationPortrait;
+//}
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+        objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait );
+    
     [[self navigationController] setDelegate:self];
 
     //Pegando instancia unica do singleton para usar por todo o .m    
