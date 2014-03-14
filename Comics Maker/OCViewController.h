@@ -21,5 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *texto;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *proximo;
 @property OCTirinhasSingleton *single;
+@property (weak, nonatomic) IBOutlet UIButton *selecionar;
+
 
 @end

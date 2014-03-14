@@ -111,6 +111,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     OCTirinhaViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"TirinhaViewController"];
     [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:tirinha, nil] animated:YES];
+    [[tirinha botaoConcluido] setTitle:@"Ok" forState:UIControlStateNormal];
     
     OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
     [[tirinha join] setImage:[tira tirinhaCompleta]];

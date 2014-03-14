@@ -16,42 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3l9-KV-utL">
+                                <rect key="frame" x="7" y="107" width="305" height="336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="slr_camera_filled-50.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selecionar:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="v1k-Fg-1z6"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LZo-xK-Xkg">
-                                <rect key="frame" x="63" y="103" width="194" height="247"/>
+                                <rect key="frame" x="7" y="103" width="305" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HPS-XO-2xc">
-                                <rect key="frame" x="20" y="354" width="280" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem systemItem="camera" id="42C-Yn-Y65">
-                                        <connections>
-                                            <action selector="cameraButton:" destination="vXZ-lx-hvc" id="3MF-TJ-X76"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Tirar uma foto" width="232" style="plain" id="sjv-MS-JEk">
-                                        <connections>
-                                            <action selector="cameraButton:" destination="vXZ-lx-hvc" id="t00-GY-7bP"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="84W-fe-cQa">
-                                <rect key="frame" x="20" y="398" width="280" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem systemItem="search" id="q95-7l-Fyf">
-                                        <connections>
-                                            <action selector="pesquisaFotoButton:" destination="vXZ-lx-hvc" id="VPS-EZ-j3r"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Pesquisar uma foto" width="236" style="plain" id="wDS-fU-86S">
-                                        <connections>
-                                            <action selector="pesquisaFotoButton:" destination="vXZ-lx-hvc" id="h3m-Ix-2vn"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CFi-C5-o1T">
                                 <rect key="frame" x="20" y="69" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -62,9 +40,9 @@
                                 </connections>
                             </textField>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-qN-M5S">
-                                <rect key="frame" x="126" y="443" width="69" height="63"/>
+                                <rect key="frame" x="131" y="450" width="58" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Concluído" image="ok.jpg">
+                                <state key="normal" title="Concluído" backgroundImage="ok.jpg">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -72,12 +50,13 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="46J-B3-dpt">
-                                <rect key="frame" x="150" y="217" width="20" height="20"/>
+                                <rect key="frame" x="150" y="273" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Nova Tirinha" id="Huk-rh-NCT">
                         <barButtonItem key="rightBarButtonItem" title="Próximo" id="6jb-dO-J0g">
                             <connections>
@@ -85,11 +64,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="concluido" destination="AA5-qN-M5S" id="3dO-kx-E7V"/>
                         <outlet property="currentImage" destination="LZo-xK-Xkg" id="XP0-i7-x4E"/>
                         <outlet property="loading" destination="46J-B3-dpt" id="u4x-EP-4zu"/>
                         <outlet property="proximo" destination="6jb-dO-J0g" id="Gcm-Ur-y7R"/>
+                        <outlet property="selecionar" destination="3l9-KV-utL" id="k2q-1v-WSr"/>
                         <outlet property="texto" destination="CFi-C5-o1T" id="uBb-Ye-PKW"/>
                     </connections>
                 </viewController>
@@ -133,7 +114,7 @@
                                 <rect key="frame" x="426" y="5" width="126" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Concluído">
+                                <state key="normal" title="Inserir Título">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -144,6 +125,7 @@
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="botaoConcluido" destination="8ue-Yg-I0i" id="4DL-rP-MfG"/>
                         <outlet property="join" destination="gO2-rF-0ry" id="SHL-eq-elg"/>
                         <outlet property="scrollView" destination="1zq-i7-HKk" id="rjJ-L0-Vra"/>
                     </connections>
@@ -221,6 +203,7 @@
     </scenes>
     <resources>
         <image name="ok.jpg" width="298" height="296"/>
+        <image name="slr_camera_filled-50.png" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
