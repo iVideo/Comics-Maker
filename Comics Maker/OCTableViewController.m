@@ -82,6 +82,8 @@
     
     return cell;
 }
+
+
 - (IBAction)edit:(id)sender {
     if ([[self tableView] isEditing]) {
         [[self tableView] setEditing:NO];
@@ -113,8 +115,9 @@
     [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:tirinha, nil] animated:YES];
     [[tirinha botaoConcluido] setTitle:@"Ok" forState:UIControlStateNormal];
     
-    OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
-    [[tirinha join] setImage:[tira tirinhaCompleta]];
+    OCTirinha *tira = [[single tirinhas] objectAtIndex:[indexPath row]];
+    tirinha.tirinha = tira;
+    //[[tirinha join] setImage:[tira tirinhaCompleta]];
 }
 
 

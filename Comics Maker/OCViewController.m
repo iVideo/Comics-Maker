@@ -187,6 +187,7 @@
     
     
 }
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [texto resignFirstResponder];
     return YES;
