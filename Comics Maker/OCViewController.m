@@ -28,9 +28,12 @@
 
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     single = [OCTirinhasSingleton sharedTirinhas];
     [_proximo setEnabled:NO];
     if (single.quadroAtual==0) {
