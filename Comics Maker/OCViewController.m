@@ -28,8 +28,6 @@
 
 }
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -156,6 +154,7 @@
                 [single setQuadroAtual:0];
                 [self.concluido setHidden:NO];
                 [self.proximo setEnabled:NO];
+                [[self navigationItem] setTitle:@""];
             }
             else{
                 [self.concluido setHidden:YES];
@@ -192,7 +191,7 @@
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [texto resignFirstResponder];
+    [textField resignFirstResponder];
     return YES;
 }
 @end

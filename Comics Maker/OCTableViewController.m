@@ -102,13 +102,9 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
-    
-    
     OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
     // Configure the cell...
     [[cell textLabel] setText:[tira titulo]];
-    
     
     return cell;
 }
@@ -164,15 +160,6 @@
                     break;
                 case 1:
                     [self compartilharNoTwitter];
-                    break;
-                case 2:
-                    // [self emailContent];
-                    break;
-                case 3:
-                    // [self saveContent];
-                    break;
-                case 4:
-                    // [self rateAppYes];
                     break;
                 default:
                     break;
