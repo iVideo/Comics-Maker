@@ -7,7 +7,7 @@
         <!--View Controller - Nova Tirinha-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="OCViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="novaTirinha" id="vXZ-lx-hvc" customClass="OCViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g82-Ml-gcU"/>
                         <viewControllerLayoutGuide type="bottom" id="qi1-jo-ljp"/>
@@ -98,6 +98,31 @@
         <scene sceneID="oXj-eh-V86">
             <objects>
                 <viewController storyboardIdentifier="TirinhaViewController" id="zQv-ir-lhA" customClass="OCTirinhaViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dzk-Fy-RvQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="fW4-AJ-Az3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleAspectFit" id="pmg-S6-5Gp">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" maximumZoomScale="100" translatesAutoresizingMaskIntoConstraints="NO" id="1zq-i7-HKk">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-rF-0ry">
+                                        <rect key="frame" x="0.0" y="0.0" width="569" height="271"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="zQv-ir-lhA" id="nu2-2Y-59z"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
                     <navigationItem key="navigationItem" id="6ct-Dl-46e">
                         <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="vS2-zQ-oAA">
@@ -117,6 +142,8 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="botaoConcluido" destination="8ue-Yg-I0i" id="4DL-rP-MfG"/>
+                        <outlet property="join" destination="gO2-rF-0ry" id="SHL-eq-elg"/>
+                        <outlet property="scrollView" destination="1zq-i7-HKk" id="rjJ-L0-Vra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sro-he-LW4" userLabel="First Responder" sceneMemberID="firstResponder"/>

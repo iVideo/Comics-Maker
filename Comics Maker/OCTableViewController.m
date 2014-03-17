@@ -16,6 +16,7 @@
 #import <Social/Social.h>
 #import "OCTableViewController.h"
 #import "OCTirinhaViewController.h"
+#import "OCViewController.h"
 
 
 @interface OCTableViewController ()
@@ -109,21 +110,55 @@
 
 
 - (IBAction)edit:(id)sender {
+    
     if ([[self tableView] isEditing]) {
         [[self tableView] setEditing:NO];
         [_edit setTitle:@"Editar" forState:UIControlStateNormal];
         [[self navigationItem] setTitle:tituloTable];
+        
+        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(criaTirinha)] ;
+        [[self navigationItem] setRightBarButtonItem:barButtonItem];
+        
     }
     else
     {
         [[self tableView] setEditing:YES];
         [_edit setTitle:@"OK" forState:UIControlStateNormal];
         tituloTable = [[self navigationItem] title];
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc]init];
+        [barButton setTarget:self];
+        [barButton setAction:@selector(deletaTodasTirinhas)];
+        [[self navigationItem] setRightBarButtonItem:barButton];
+        [[[self navigationItem] rightBarButtonItem]setTintColor:[UIColor redColor]];
+        [[[self navigationItem] rightBarButtonItem] setImage:nil];
+        [[[self navigationItem] rightBarButtonItem] setTitle:@"Apagar tudo"];
+        
         [[self navigationItem] setTitle:[[[[[self navigationItem] title] stringByAppendingString:@" ("] stringByAppendingString:[NSString stringWithFormat:@"%d",single.tirinhas.count]]stringByAppendingString:@")"]];
     }
 
 }
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
+{
+    if ([actionSheet tag]==2) {
+        for (UIView *subview in actionSheet.subviews) {
+            if ([subview isKindOfClass:[UIButton class]]) {
+                UIButton *button = (UIButton *)subview;
+                [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            }
+        }
+    }
+}
 
+-(void)deletaTodasTirinhas{
+    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Deletar Todas As Tirinhas", nil];
+    popup.tag = 2;
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+}
+
+-(void)criaTirinha{
+    OCViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"novaTirinha"];
+    [[self navigationController] pushViewController:tirinha animated:YES];
+}
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -138,10 +173,10 @@
     OCTirinhaViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"TirinhaViewController"];
     [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:tirinha, nil] animated:YES];
     [[tirinha botaoConcluido] setTitle:@"Ok" forState:UIControlStateNormal];
-    
+
     OCTirinha *tira = [[single tirinhas] objectAtIndex:[indexPath row]];
     tirinha.tirinha = tira;
-    //[[tirinha join] setImage:[tira tirinhaCompleta]];
+    [[tirinha navigationItem] setTitle: [tira titulo]];
 }
 
 
@@ -168,6 +203,15 @@
             }
             break;
         }
+        case 2:
+            switch (buttonIndex) {
+                case 0:
+                    [[single tirinhas] removeAllObjects];
+                    [[self tableView] reloadData];
+                    break;
+                default:
+                    break;
+            }
         default:
             break;
     }
