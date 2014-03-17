@@ -7,17 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OCBaloesDeTexto.h"
 
 @interface OCQuadro : NSObject
 
 @property (strong, nonatomic) UIImage *imagem;
 @property (strong, nonatomic) NSString *texto;
 @property (strong, nonatomic) NSString *key;
+@property (strong, nonatomic) NSMutableArray *baloes;
 
 
 //@property (weak, nonatomic) NSMutableArray *baloesDeTexto;
 
 - (id)initWithTexto:(NSString *)texto;
--(void)addImagem:(UIImage *)imagem andTexto:(NSString *)texto andKey:(NSString *)key;
 -(void)addTexto:(NSString *)texto andKey:(NSString *)key;
+
 @end

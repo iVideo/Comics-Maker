@@ -13,13 +13,14 @@
 #import "OCTableViewController.h"
 #import "GPUImage.h"
 
-@interface OCViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
+@interface OCViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loading;
 @property (weak, nonatomic) IBOutlet UIButton *concluido;
 @property (weak, nonatomic) IBOutlet UIImageView *currentImage;
-@property (weak, nonatomic) IBOutlet UITextField *texto;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *proximo;
 @property OCTirinhasSingleton *single;
+@property (weak, nonatomic) IBOutlet UIButton *selecionar;
+
 
 @end

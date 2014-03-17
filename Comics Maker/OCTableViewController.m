@@ -2,7 +2,7 @@
 //  OCTableViewController.m
 //  Comics Maker
 //
-//  Created by -----> Lucas Augusto Cordeiro <-----, Emannuel Fernandes de Oliveira Carvalho e Rodrigo Soldi on 2/28/14.
+//  Created by Emannuel Fernandes de Oliveira Carvalho e Rodrigo Soldi on 2/28/14.
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
@@ -25,25 +25,32 @@
 @synthesize single;
 @synthesize index;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+-(BOOL)shouldAutorotate
+{
+    return YES;
+}
+//
+//-(NSUInteger)supportedInterfaceOrientations
+//{
+//    return UIInterfaceOrientationPortrait;
+//}
+
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+        objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait );
+    
     [[self navigationController] setDelegate:self];
 
     //Pegando instancia unica do singleton para usar por todo o .m    
     single = [OCTirinhasSingleton sharedTirinhas];
-    
-
-    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -51,7 +58,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    single.quadroAtual=0;
+}
 
 #pragma mark - Table view data source
 
@@ -67,27 +76,48 @@
     return [[single tirinhas] count];
 }
 
+
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+    OCTirinha *from = [[single tirinhas]objectAtIndex:[fromIndexPath row]];
+    OCTirinha *to = [[single tirinhas]objectAtIndex:[toIndexPath row]];
+    
+    [[single tirinhas] replaceObjectAtIndex:[fromIndexPath row] withObject:to];
+    [[single tirinhas]replaceObjectAtIndex:[toIndexPath row] withObject:from];
+}
+
+
+
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+     // Return NO if you do not want the item to be re-orderable.
+     return YES;
+ }
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
-    
-    
-    
+    OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
     // Configure the cell...
-    [[cell textLabel] setText:[NSString stringWithFormat:@"%d",[indexPath row] ]];
-    
+    [[cell textLabel] setText:[tira titulo]];
     
     return cell;
 }
+
+
 - (IBAction)edit:(id)sender {
     if ([[self tableView] isEditing]) {
         [[self tableView] setEditing:NO];
+        [_edit setTitle:@"Editar" forState:UIControlStateNormal];
     }else
     {
         [[self tableView] setEditing:YES];
+        [_edit setTitle:@"Ok" forState:UIControlStateNormal];
     }
 
 }
@@ -97,8 +127,6 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [[single tirinhas] removeObjectAtIndex:[indexPath row]];
         
         //Delete from memory peristence by Lucas
@@ -113,15 +141,17 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     OCTirinhaViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"TirinhaViewController"];
     [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:tirinha, nil] animated:YES];
+    [[tirinha botaoConcluido] setTitle:@"Ok" forState:UIControlStateNormal];
     
-    OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
-    [[tirinha join] setImage:[tira tirinhaCompleta]];
+    OCTirinha *tira = [[single tirinhas] objectAtIndex:[indexPath row]];
+    tirinha.tirinha = tira;
+    //[[tirinha join] setImage:[tira tirinhaCompleta]];
 }
 
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
     index = [indexPath row];
-    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Compartilhar" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter",@"Instagram", nil];
+    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Compartilhar" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter", nil];
     popup.tag = 1;
     [popup showInView:[UIApplication sharedApplication].keyWindow];
     
@@ -136,15 +166,6 @@
                     break;
                 case 1:
                     [self compartilharNoTwitter];
-                    break;
-                case 2:
-                    // [self emailContent];
-                    break;
-                case 3:
-                    // [self saveContent];
-                    break;
-                case 4:
-                    // [self rateAppYes];
                     break;
                 default:
                     break;
@@ -244,21 +265,7 @@
 /*
 
 
-*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

@@ -2,7 +2,7 @@
 //  OCViewController.m
 //  Comics Maker
 //
-//  Created by -----> Lucas Augusto Cordeiro <-----, Emannuel Fernandes de Oliveira Carvalho e Rodrigo Soldi on 2/28/14.
+//  Created by Emannuel Fernandes de Oliveira Carvalho e Rodrigo Soldi on 2/28/14.
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
@@ -20,12 +20,18 @@
 @synthesize texto;
 
 -(void)viewDidAppear:(BOOL)animated{
-    [[self navigationItem] setHidesBackButton:YES];
+    if (single.quadroAtual==1) {
+        [[self navigationItem] setHidesBackButton:NO];
+    }else{
+        [[self navigationItem] setHidesBackButton:YES];
+    }
+
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     single = [OCTirinhasSingleton sharedTirinhas];
     [_proximo setEnabled:NO];
     if (single.quadroAtual==0) {
@@ -35,18 +41,36 @@
     single.quadroAtual++;
 }
 
-- (IBAction)cameraButton:(id)sender {
-    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:picker animated:YES completion:nil];
+- (IBAction)selecionar:(id)sender {
+    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Tipo de Imagem:" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Tirar Foto",@"Escolher da Biblioteca", nil];
+    popup.tag = 1;
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
 }
 
-- (IBAction)pesquisaFotoButton:(id)sender {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+-(void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex{
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:picker animated:YES completion:nil];
+    
+    switch (popup.tag) {
+        case 1: {
+            switch (buttonIndex) {
+                case 0:
+                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    [self presentViewController:picker animated:YES completion:nil];
+                    break;
+                case 1:
+                    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    [self presentViewController:picker animated:YES completion:nil];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        }
+        default:
+            break;
+    }
+
 }
 
 /*******/
@@ -90,6 +114,7 @@
 /**********/
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    [_selecionar setImage:nil forState:UIControlStateNormal];
     [picker dismissViewControllerAnimated:YES completion:nil];
     [self showSpinner];
 
@@ -120,7 +145,7 @@
            [_currentImage setImage:filteredImage];
             OCQuadro *quadro = [[OCQuadro alloc]init];
             //[quadro addImagem:_currentImage.image andTexto:nil andKey:[NSString stringWithFormat:@"tirinha_%d_quadro_%d.png", single.tirinhas.count - 1, single.quadroAtual != 0 ? single.quadroAtual - 1 : 2]];
-            [quadro addTexto:nil andKey:[NSString stringWithFormat:@"tirinha_%d_quadro_%d.png", single.tirinhas.count - 1, single.quadroAtual != 0 ? single.quadroAtual - 1 : 2]];
+            [quadro addTexto:nil andKey:[NSString stringWithFormat:@"tirinha_%d_quadro_%d.jpg", single.tirinhas.count - 1, single.quadroAtual != 0 ? single.quadroAtual - 1 : 2]];
             OCTirinha *t = [[single tirinhas] lastObject];
             [t adicionaQuadroNoArrayDeQuadros:quadro];
 
@@ -129,6 +154,7 @@
                 [single setQuadroAtual:0];
                 [self.concluido setHidden:NO];
                 [self.proximo setEnabled:NO];
+                [[self navigationItem] setTitle:@""];
             }
             else{
                 [self.concluido setHidden:YES];
@@ -142,7 +168,7 @@
 
 
 - (void)savingImageToDisk:(UIImage *)imagem {
-    NSString *imageName = [NSString stringWithFormat:@"/Documents/tirinha_%d_quadro_%d.png", single.tirinhas.count - 1, single.quadroAtual != 0 ? single.quadroAtual - 1 : 2];
+    NSString *imageName = [NSString stringWithFormat:@"/Documents/tirinha_%d_quadro_%d.jpg", single.tirinhas.count - 1, single.quadroAtual != 0 ? single.quadroAtual - 1 : 2];
     NSString* path = [NSHomeDirectory() stringByAppendingString:imageName];
     
     BOOL ok = [[NSFileManager defaultManager] createFileAtPath:path
@@ -155,7 +181,7 @@
     else
     {
         NSFileHandle* myFileHandle = [NSFileHandle fileHandleForWritingAtPath:path];
-        [myFileHandle writeData:UIImagePNGRepresentation(imagem)];
+        [myFileHandle writeData:UIImageJPEGRepresentation(imagem, 1.0)];
         [myFileHandle closeFile];
     }
 }
@@ -164,14 +190,8 @@
      [_loading startAnimating];
 }
 
-
--(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    
-    
-    
-}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [texto resignFirstResponder];
+    [textField resignFirstResponder];
     return YES;
 }
 @end

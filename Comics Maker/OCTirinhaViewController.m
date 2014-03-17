@@ -14,25 +14,15 @@
 #import <objc/message.h>
 
 @interface OCTirinhaViewController ()
-
 @end
 
 @implementation OCTirinhaViewController{
-    UIView *vi;
+    UIAlertView *myAlertView;
 }
 @synthesize ctx;
 @synthesize tirinha;
 @synthesize join;
 @synthesize scrollView;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -49,94 +39,58 @@
     return UIInterfaceOrientationMaskLandscapeLeft;
 }
 
-
-
 -(void)viewDidAppear:(BOOL)animated
 {
-    
-            objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft );
+    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft );
+    [[self navigationItem] setHidesBackButton:YES];
 }
-
-            
-            
-//-(BOOL)shouldAutorotate
-//{
-//    
-//    return NO;
-//    
-//}
-//
-//-(NSUInteger)supportedInterfaceOrientations
-//{
-//    
-//    return UIInterfaceOrientationMaskLandscape;
-//    
-//}
-//
-//- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-//{
-//    
-//    return UIInterfaceOrientationLandscapeLeft;
-//    
-//}
-
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return join;
-}
--(void)setContentSizeForScrollView
-{
-    scrollView.contentSize = CGSizeMake(join.frame.size.width, join.frame.size.height);
-    //scrollview.minimumZoomScale = 1.0;
-    //scrollview.maximumZoomScale = 5.0;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
+    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
     [[self navigationItem] setHidesBackButton:YES];
-	// Do any additional setup after loading the view.
     
-    [join setImage:[[[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject] tirinhaCompleta]];
+    if (!tirinha) {
+        tirinha = [[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject];
+    }
     
-    //scrollview = [[UIScrollView alloc]initWithFrame:self.view.frame];
-    
-//    [scrollview setDelegate:self];
-//    [scrollview setPagingEnabled:NO];
-//    [[self view] addSubview: scrollview];
-//    
-//    CGRect bigRect = join.frame;
-//    bigRect.size.width *= 5.0;
-//    bigRect.size.height *= 5.0;
-//    
-//    [scrollview setMinimumZoomScale:1.0];
-//    [scrollview setMaximumZoomScale:10.0];
-//    
-//    [scrollview addSubview:join];
-//    [scrollview setContentSize:bigRect.size];
+    [join setImage:[tirinha tirinhaCompleta]];
 }
 
-//-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-//    int cw = self.view.frame.size.width;
-//    int ch = self.view.frame.size.height;
-//    if (fromInterfaceOrientation == UIInterfaceOrientationPortrait) {
-//        //[join setFrame:CGRectMake((cw/2)-285, (ch/2)-108, 570, 268)];
-//        //[scrollView setFrame:CGRectMake((cw/2)-285, (ch/2)-108, 570, 268)];
-//    }
-//}
-
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 - (IBAction)concluido:(id)sender {
-    OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
-    [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
+    OCTirinha *tira = [[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject];
+    if ([tira titulo]==nil) {
+        [self insereTitulo];
+    }
+    else{
+        UIImageWriteToSavedPhotosAlbum([join image], nil, nil, nil);
+        OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
+        [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
+    }
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==0) {
+        return;
+    }
+    NSString *titulo = [myAlertView textFieldAtIndex:0].text;
+    OCTirinha *tira = [[[OCTirinhasSingleton sharedTirinhas]tirinhas] lastObject];
+    [tira setTitulo:titulo];
+    [_botaoConcluido setTitle:@"Ok" forState:UIControlStateNormal];
+
+}
+
+-(void)insereTitulo{
+    myAlertView = [[UIAlertView alloc]initWithTitle:@"Informe um nome:" message:nil delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Ok", nil];
+    [myAlertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [myAlertView show];
+}
+
 
 @end

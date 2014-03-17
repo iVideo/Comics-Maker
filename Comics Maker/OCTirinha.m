@@ -56,10 +56,6 @@
     [quadros addObject:quadro];
 }
 
--(NSString *)titulo{
-    return [NSString stringWithFormat:@"Tirinha %d", single.tirinhas.count];
-}
-
 - (UIImage *)tirinhaCompleta {
     /* esse é o getter da tirinhaCompleta. Sempre que
      a gente tentar acessar a propriedade tirinhaCompleta
@@ -84,17 +80,17 @@
     UIImage* third = quad.imagem;
     
     //create the area of the final image
-    CGSize newSize = CGSizeMake(900, 700);
+    CGSize newSize = CGSizeMake(1152, 640);
     UIGraphicsBeginImageContext( newSize );
     
-    // drawing 1st image
-    [first drawInRect:CGRectMake(0,0,newSize.width/3,newSize.height)];
+    // drawing 1st imag
+    [first drawInRect:CGRectMake(10,10,(newSize.width - 40)/3,(newSize.height - 20))];
     
     // drawing the 2nd image after the 1st
-    [second drawInRect:CGRectMake(newSize.width/3,0,newSize.width/3,newSize.height)] ;
+    [second drawInRect:CGRectMake(newSize.width/3 + 5,10,(newSize.width - 40)/3,(newSize.height - 20))] ;
 
     //drawing the 3rd image after the 2nd
-    [third drawInRect:CGRectMake(newSize.width*2/3,0,newSize.width/3, newSize.height)];
+    [third drawInRect:CGRectMake(newSize.width*2/3,10,(newSize.width - 40)/3,(newSize.height - 20))];
 
     
     tirinhaCompleta = UIGraphicsGetImageFromCurrentImageContext();
