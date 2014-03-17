@@ -17,7 +17,6 @@
 
 @implementation OCViewController
 @synthesize single;
-@synthesize texto;
 
 -(void)viewDidAppear:(BOOL)animated{
     if (single.quadroAtual==1) {

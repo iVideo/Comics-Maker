@@ -8,7 +8,6 @@
 
 #import "OCAppDelegate.h"
 #import "OCTirinhasSingleton.h"
-#import "OCTirinhasDatabase.h"
 #import "OCTableViewController.h"
 
 @implementation OCAppDelegate
@@ -20,7 +19,6 @@
     // Override point for customization after application launch.
 //    OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
 //    sing = [memoryCard objectForKey:@"save"];
-    NSMutableArray *loadedComics = [OCTirinhasDatabase loadTirinhasDocs];
     OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
     
     

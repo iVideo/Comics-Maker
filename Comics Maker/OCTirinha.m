@@ -9,12 +9,10 @@
 #import "OCTirinha.h"
 #import "OCTirinhasSingleton.h"
 #import "OCQuadro.h"
-#import "OCTirinhasDoc.h"
 
 @implementation OCTirinha
 @synthesize quadros;
 @synthesize single;
-@synthesize doc = _doc;
 
 - (id)initWithQuadros:(NSMutableArray *)q {
     self = [super init];
