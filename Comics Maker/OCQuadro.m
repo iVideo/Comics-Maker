@@ -31,13 +31,21 @@
     NSString *path = [@"/Documents/" stringByAppendingString:_key];
     path = [NSHomeDirectory() stringByAppendingString:path];
     NSFileHandle* myFileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
-    UIImage* loadedImage = [UIImage imageWithData:[myFileHandle readDataToEndOfFile]];
-    [self drawBaloesDeTexto:loadedImage];
+    UIImage *loadedImage = [UIImage imageWithData:[myFileHandle readDataToEndOfFile]];
+    loadedImage = [self drawBaloesDeTexto:loadedImage];
     return loadedImage;
 }
 
-- (void)drawBaloesDeTexto:(UIImage *)imagem {
+- (UIImage *)drawBaloesDeTexto:(UIImage *)imagem {
     
+//    CGSize newSize = CGSizeMake(imagem.size.height, imagem.size.width);
+//    UIGraphicsBeginImageContext(newSize);
+//    [imagem drawInRect:CGRectMake(0, 0, imagem.size.width, imagem.size.height)];
+//    UIImage *balaoDeTexto = [UIImage imageNamed:@"retangulo.png"];
+//    [balaoDeTexto drawInRect:CGRectMake(50, 50, 600, 200)];
+//    return UIGraphicsGetImageFromCurrentImageContext();
+    
+    return imagem;
 }
 
 @end
