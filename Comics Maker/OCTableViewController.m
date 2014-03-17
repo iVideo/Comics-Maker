@@ -52,6 +52,7 @@
         objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait );
     
     [[self navigationController] setDelegate:self];
+    [[self tableView] setAllowsMultipleSelection:YES];
 
     //Pegando instancia unica do singleton para usar por todo o .m    
     single = [OCTirinhasSingleton sharedTirinhas];
@@ -105,9 +106,9 @@
     OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[tira titulo]];
     
+    
     return cell;
 }
-
 
 - (IBAction)edit:(id)sender {
     
@@ -118,7 +119,6 @@
         
         UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(criaTirinha)] ;
         [[self navigationItem] setRightBarButtonItem:barButtonItem];
-        
     }
     else
     {
@@ -144,6 +144,7 @@
             if ([subview isKindOfClass:[UIButton class]]) {
                 UIButton *button = (UIButton *)subview;
                 [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+                return;
             }
         }
     }
