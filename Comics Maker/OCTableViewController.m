@@ -17,6 +17,7 @@
 #import "OCTableViewController.h"
 #import "OCTirinhaViewController.h"
 
+
 @interface OCTableViewController ()
 @property NSInteger index;
 @end
@@ -103,7 +104,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
-    // Configure the cell...
     [[cell textLabel] setText:[tira titulo]];
     
     return cell;
