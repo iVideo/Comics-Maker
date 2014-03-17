@@ -103,7 +103,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
-    // Configure the cell...
     [[cell textLabel] setText:[tira titulo]];
     
     return cell;
