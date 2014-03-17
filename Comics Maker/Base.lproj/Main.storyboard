@@ -37,6 +37,7 @@
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-qN-M5S">
                                 <rect key="frame" x="130" y="448" width="60" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.91605839416058399" green="1" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="2000px-ok_x_nuvola_green.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -59,7 +60,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.9164575729927007" green="1" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Bm9-h9-jwK" appends="YES" id="4Uk-jf-4U6"/>
@@ -97,31 +98,6 @@
         <scene sceneID="oXj-eh-V86">
             <objects>
                 <viewController storyboardIdentifier="TirinhaViewController" id="zQv-ir-lhA" customClass="OCTirinhaViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Dzk-Fy-RvQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="fW4-AJ-Az3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleAspectFit" id="pmg-S6-5Gp">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" maximumZoomScale="100" translatesAutoresizingMaskIntoConstraints="NO" id="1zq-i7-HKk">
-                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-rF-0ry">
-                                        <rect key="frame" x="0.0" y="0.0" width="569" height="271"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <connections>
-                                    <outlet property="delegate" destination="zQv-ir-lhA" id="nu2-2Y-59z"/>
-                                </connections>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
                     <navigationItem key="navigationItem" id="6ct-Dl-46e">
                         <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="vS2-zQ-oAA">
@@ -141,8 +117,6 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="botaoConcluido" destination="8ue-Yg-I0i" id="4DL-rP-MfG"/>
-                        <outlet property="join" destination="gO2-rF-0ry" id="SHL-eq-elg"/>
-                        <outlet property="scrollView" destination="1zq-i7-HKk" id="rjJ-L0-Vra"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sro-he-LW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,7 +156,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="f9Z-3A-ddA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="f9Z-3A-ddA">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" id="wkh-YW-sCT"/>
                             </connections>

@@ -20,11 +20,13 @@
 
 @interface OCTableViewController ()
 @property NSInteger index;
+@property NSString *tituloTable;
 @end
 
 @implementation OCTableViewController
 @synthesize single;
 @synthesize index;
+@synthesize tituloTable;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -88,12 +90,8 @@
     [[single tirinhas]replaceObjectAtIndex:[toIndexPath row] withObject:from];
 }
 
-
-
- // Override to support conditional rearranging of the table view.
  - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
  {
-     // Return NO if you do not want the item to be re-orderable.
      return YES;
  }
 
@@ -114,10 +112,14 @@
     if ([[self tableView] isEditing]) {
         [[self tableView] setEditing:NO];
         [_edit setTitle:@"Editar" forState:UIControlStateNormal];
-    }else
+        [[self navigationItem] setTitle:tituloTable];
+    }
+    else
     {
         [[self tableView] setEditing:YES];
-        [_edit setTitle:@"Ok" forState:UIControlStateNormal];
+        [_edit setTitle:@"OK" forState:UIControlStateNormal];
+        tituloTable = [[self navigationItem] title];
+        [[self navigationItem] setTitle:[[[[[self navigationItem] title] stringByAppendingString:@" ("] stringByAppendingString:[NSString stringWithFormat:@"%d",single.tirinhas.count]]stringByAppendingString:@")"]];
     }
 
 }
