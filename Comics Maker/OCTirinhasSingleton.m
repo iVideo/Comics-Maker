@@ -9,6 +9,7 @@
 #import "OCTirinhasSingleton.h"
 #import "OCTirinha.h"
 
+
 @implementation OCTirinhasSingleton
 
 + (id)sharedTirinhas {
@@ -24,13 +25,12 @@
     self = [super init];
     self.tirinhas = [[NSMutableArray alloc] init];
     self.quadroAtual = 0;
+    
     return self;
 }
 
 - (void)addTirinha:(NSObject *)tirinha {
     [_tirinhas addObject:tirinha];
-    [_bugDoc saveData];
-    
 }
 
 - (void)removeTirinhaAtIndex:(NSUInteger)indice {

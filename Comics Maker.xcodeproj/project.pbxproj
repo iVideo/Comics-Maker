@@ -42,10 +42,8 @@
 		AC62596318D1FA66004D6F02 /* slr_camera_filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AC62596218D1FA66004D6F02 /* slr_camera_filled-50.png */; };
 		AC62596818D1FF8B004D6F02 /* 2000px-ok_x_nuvola_green.png in Resources */ = {isa = PBXBuildFile; fileRef = AC62596718D1FF8B004D6F02 /* 2000px-ok_x_nuvola_green.png */; };
 		ACC3A3EC18CF4738003C7438 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC3A3EB18CF4738003C7438 /* Social.framework */; };
+		AEAA9BF218D337AC00D33414 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAA9BF118D337AC00D33414 /* libsqlite3.0.dylib */; };
 		AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */; };
-		AEB2F71618CF59390073030D /* OCTirinhasData.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB2F71518CF59390073030D /* OCTirinhasData.m */; };
-		AEB2F71918CF59B60073030D /* OCTirinhasDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB2F71818CF59B60073030D /* OCTirinhasDoc.m */; };
-		AEB2F71C18CF59C90073030D /* OCTirinhasDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB2F71B18CF59C90073030D /* OCTirinhasDatabase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,14 +125,9 @@
 		AC62596218D1FA66004D6F02 /* slr_camera_filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slr_camera_filled-50.png"; sourceTree = "<group>"; };
 		AC62596718D1FF8B004D6F02 /* 2000px-ok_x_nuvola_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2000px-ok_x_nuvola_green.png"; sourceTree = "<group>"; };
 		ACC3A3EB18CF4738003C7438 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		AEAA9BF118D337AC00D33414 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		AEB2F68C18C8B5970073030D /* OCTirinhaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhaViewController.h; sourceTree = "<group>"; };
 		AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhaViewController.m; sourceTree = "<group>"; };
-		AEB2F71418CF59390073030D /* OCTirinhasData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhasData.h; sourceTree = "<group>"; };
-		AEB2F71518CF59390073030D /* OCTirinhasData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhasData.m; sourceTree = "<group>"; };
-		AEB2F71718CF59B60073030D /* OCTirinhasDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhasDoc.h; sourceTree = "<group>"; };
-		AEB2F71818CF59B60073030D /* OCTirinhasDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhasDoc.m; sourceTree = "<group>"; };
-		AEB2F71A18CF59C90073030D /* OCTirinhasDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhasDatabase.h; sourceTree = "<group>"; };
-		AEB2F71B18CF59C90073030D /* OCTirinhasDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhasDatabase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEAA9BF218D337AC00D33414 /* libsqlite3.0.dylib in Frameworks */,
 				ACC3A3EC18CF4738003C7438 /* Social.framework in Frameworks */,
 				A244E10A18CE3DFE00560772 /* OpenGLES.framework in Frameworks */,
 				A244E10818CE3DF500560772 /* QuartzCore.framework in Frameworks */,
@@ -191,6 +185,7 @@
 		A2353E9B18C0A95600440F0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEAA9BF118D337AC00D33414 /* libsqlite3.0.dylib */,
 				ACC3A3EB18CF4738003C7438 /* Social.framework */,
 				A244E10918CE3DFE00560772 /* OpenGLES.framework */,
 				A244E10718CE3DF500560772 /* QuartzCore.framework */,
@@ -269,12 +264,6 @@
 				A2353EDB18C0CCD400440F0F /* OCBaloesDeTexto.m */,
 				A2353EDD18C0CD2B00440F0F /* OCTirinhasSingleton.h */,
 				A2353EDE18C0CD2B00440F0F /* OCTirinhasSingleton.m */,
-				AEB2F71418CF59390073030D /* OCTirinhasData.h */,
-				AEB2F71518CF59390073030D /* OCTirinhasData.m */,
-				AEB2F71718CF59B60073030D /* OCTirinhasDoc.h */,
-				AEB2F71818CF59B60073030D /* OCTirinhasDoc.m */,
-				AEB2F71A18CF59C90073030D /* OCTirinhasDatabase.h */,
-				AEB2F71B18CF59C90073030D /* OCTirinhasDatabase.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -435,13 +424,10 @@
 				A2353EAD18C0A95600440F0F /* OCAppDelegate.m in Sources */,
 				A2976BA918D7184000D331EC /* OCMyImageView.m in Sources */,
 				A2353EA918C0A95600440F0F /* main.m in Sources */,
-				AEB2F71918CF59B60073030D /* OCTirinhasDoc.m in Sources */,
 				AC1D991118D0AA8D00788C07 /* OCNavigationController.m in Sources */,
 				AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */,
-				AEB2F71618CF59390073030D /* OCTirinhasData.m in Sources */,
 				A2353EB318C0A95600440F0F /* OCViewController.m in Sources */,
 				A2353ED318C0BFED00440F0F /* OCTableViewController.m in Sources */,
-				AEB2F71C18CF59C90073030D /* OCTirinhasDatabase.m in Sources */,
 				A2353ED918C0CC7E00440F0F /* OCQuadro.m in Sources */,
 				A2353EDC18C0CCD400440F0F /* OCBaloesDeTexto.m in Sources */,
 				A2353EDF18C0CD2B00440F0F /* OCTirinhasSingleton.m in Sources */,

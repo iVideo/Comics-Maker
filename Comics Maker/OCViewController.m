@@ -17,7 +17,6 @@
 
 @implementation OCViewController
 @synthesize single;
-@synthesize texto;
 
 -(void)viewDidAppear:(BOOL)animated{
     if (single.quadroAtual==1) {
@@ -25,14 +24,15 @@
     }else{
         [[self navigationItem] setHidesBackButton:YES];
     }
-
 }
-
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIGestureRecognizer *tap = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
+    [tap setDelegate:self];
+    [[self currentImage] addGestureRecognizer:tap];
     
     single = [OCTirinhasSingleton sharedTirinhas];
     [_proximo setEnabled:NO];
@@ -42,6 +42,10 @@
     }
     single.quadroAtual++;
 }
+-(BOOL)shouldAutorotate{
+    return NO;
+}
+
 
 - (IBAction)selecionar:(id)sender {
     UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Tipo de Imagem:" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Tirar Foto",@"Escolher da Biblioteca", nil];
@@ -52,7 +56,7 @@
 -(void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex{
     UIImagePickerController * picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
-    
+    [picker setAllowsEditing:YES];
     switch (popup.tag) {
         case 1: {
             switch (buttonIndex) {
@@ -75,48 +79,9 @@
 
 }
 
-/*******/
-
-//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-//    [picker dismissViewControllerAnimated:YES completion:nil];
-//    
-//    GPUImageSmoothToonFilter *filter = [[GPUImageSmoothToonFilter alloc] init];
-//    filter.threshold = 0.1;
-//    
-//    UIImage *filteredImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-//    
-//    filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
-//    filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
-//    filteredImage = [[[GPUImageGrayscaleFilter alloc] init] imageByFilteringImage:filteredImage];
-//    filteredImage = [filter imageByFilteringImage:filteredImage];
-//    
-//    //filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
-//    //filteredImage = [[[GPUImageSmoothToonFilter alloc] init] imageByFilteringImage:filteredImage];
-//    
-//    [_currentImage setImage:filteredImage];
-//    
-//    OCQuadro *quadro = [[OCQuadro alloc]init];
-//    [quadro addImagem:_currentImage.image andTexto:nil];
-//    OCTirinha *t = [[single tirinhas] lastObject];
-//    [t adicionaQuadroNoArrayDeQuadros:quadro];
-//    
-//    [_proximo setEnabled:YES];
-//    if (single.quadroAtual>=3) {
-//        [single setQuadroAtual:0];
-//        [self.concluido setHidden:NO];
-//        [self.proximo setEnabled:NO];
-//    }
-//    else {
-//        [self.concluido setHidden:YES];
-//    }
-//    
-//    
-//}
-
-/**********/
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [_selecionar setImage:nil forState:UIControlStateNormal];
+    [_selecionar setHidden:YES];
     [picker dismissViewControllerAnimated:YES completion:nil];
     [self showSpinner];
 
@@ -127,7 +92,7 @@
         GPUImageSmoothToonFilter *filter = [[GPUImageSmoothToonFilter alloc] init];
         filter.threshold = 0.1;
         
-        UIImage *filteredImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        UIImage *filteredImage = [info objectForKey:@"UIImagePickerControllerEditedImage"];
         
         filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
         filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
@@ -136,8 +101,6 @@
         
         //filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
         //filteredImage = [[[GPUImageSmoothToonFilter alloc] init] imageByFilteringImage:filteredImage];
-        
-        
         
         filter = nil;
         
@@ -156,6 +119,7 @@
                 [single setQuadroAtual:0];
                 [self.concluido setHidden:NO];
                 [self.proximo setEnabled:NO];
+                [[self navigationItem] setTitle:@""];
             }
             else{
                 [self.concluido setHidden:YES];
@@ -192,7 +156,20 @@
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [texto resignFirstResponder];
+    [textField resignFirstResponder];
     return YES;
 }
+
+
+//Pegando tap para inserir os baloes
+- (IBAction)tap:(UITapGestureRecognizer *)sender {
+    CGPoint tapPoint = [sender locationInView:_currentImage];
+    int tapX = (int) tapPoint.x;
+    int tapY = (int) tapPoint.y;
+    
+    NSLog(@"X: %d     Y: %d",tapX,tapY);
+}
+- (IBAction)inserirBalao:(id)sender {
+}
+
 @end

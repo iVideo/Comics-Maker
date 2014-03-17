@@ -19,6 +19,7 @@
 @property OCQuadro *quadro;
 @property OCTirinhasSingleton *single;
 
+
 - (id)initWithQuadros:(NSMutableArray *)quadros;
 - (void)replaceQuadroAtIndex:(NSUInteger)indice withQuadro:(OCQuadro *)quadro;
 - (void)setImage:(UIImage *)imagem forQuadroAtIndex:(NSUInteger)indice;
