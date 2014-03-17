@@ -31,6 +31,10 @@
 {
     [super viewDidLoad];
     
+    UIGestureRecognizer *tap = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
+    [tap setDelegate:self];
+    [[self currentImage] addGestureRecognizer:tap];
+    
     single = [OCTirinhasSingleton sharedTirinhas];
     [_proximo setEnabled:NO];
     if (single.quadroAtual==0) {
@@ -55,6 +59,8 @@
             switch (buttonIndex) {
                 case 0:
                     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    [picker setShowsCameraControls:YES];
+                    [picker setAllowsEditing:YES];
                     [self presentViewController:picker animated:YES completion:nil];
                     break;
                 case 1:
@@ -114,6 +120,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [_selecionar setImage:nil forState:UIControlStateNormal];
+    [_selecionar setHidden:YES];
     [picker dismissViewControllerAnimated:YES completion:nil];
     [self showSpinner];
 
@@ -193,4 +200,15 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+
+//Pegando tap para inserir os baloes
+- (IBAction)tap:(UITapGestureRecognizer *)sender {
+    CGPoint tapPoint = [sender locationInView:_currentImage];
+    int tapX = (int) tapPoint.x;
+    int tapY = (int) tapPoint.y;
+    
+    NSLog(@"X: %d     Y: %d",tapX,tapY);
+}
+
 @end

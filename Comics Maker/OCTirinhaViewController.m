@@ -58,7 +58,6 @@
     if (!tirinha) {
         tirinha = [[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject];
     }
-    
     [join setImage:[tirinha tirinhaCompleta]];
 }
 
