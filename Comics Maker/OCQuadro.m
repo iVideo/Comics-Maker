@@ -38,14 +38,38 @@
 
 - (UIImage *)drawBaloesDeTexto:(UIImage *)imagem {
     
-//    CGSize newSize = CGSizeMake(imagem.size.height, imagem.size.width);
-//    UIGraphicsBeginImageContext(newSize);
-//    [imagem drawInRect:CGRectMake(0, 0, imagem.size.width, imagem.size.height)];
-//    UIImage *balaoDeTexto = [UIImage imageNamed:@"retangulo.png"];
-//    [balaoDeTexto drawInRect:CGRectMake(50, 50, 600, 200)];
-//    return UIGraphicsGetImageFromCurrentImageContext();
+    // getting context from image and drawing the image on it
+    CGSize newSize = CGSizeMake(imagem.size.height, imagem.size.width);
+    UIGraphicsBeginImageContext(newSize);
+    CGRect rect = CGRectMake(0, 0, imagem.size.width, imagem.size.height);
+    [imagem drawInRect:rect];
     
-    return imagem;
+    // calculating the bubble speech width and height
+    _texto = @"A";
+    int width = _texto.length * 20;
+    int height = (_texto.length / 20 + 10) * 20;
+    width = (width > 400) ? width : 400;
+    height = (height > 200) ? height : 200;
+    
+    // including the text in the bubble
+    UIFont *font = [UIFont fontWithName:@"Arial" size:4.0];
+    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     font, NSFontAttributeName,
+                                     [NSNumber numberWithFloat:1.0], NSBaselineOffsetAttributeName,
+                                     nil];
+    
+    // drawing the bubble speech
+    UIImage *balaoDeTexto = [UIImage imageNamed:@"retangulo.png"];
+    [balaoDeTexto drawInRect:CGRectMake(50, 50, width, height)];
+    
+    // writing the text
+    [_texto drawInRect:CGRectIntegral(rect) withAttributes:attrsDictionary];
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return img;
+    
+    //return imagem;
 }
 
 @end

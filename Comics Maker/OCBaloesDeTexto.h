@@ -11,8 +11,8 @@
 @interface OCBaloesDeTexto : NSObject
 
 @property (strong, nonatomic) NSString *texto;
-@property CGPoint inicio;
-@property CGPoint origem;
+@property CGPoint inicio; // canto superior esquerdo do balao
+@property CGPoint origem; // ponto de onde sai a flecha para o balao
 
 - (id)initWithText:(NSString *)texto;
 - (id)initWithText:(NSString *)texto andPosition:(CGPoint)inicio andOrigin:(CGPoint)origem;
