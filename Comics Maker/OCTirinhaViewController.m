@@ -70,6 +70,8 @@
     }
     else{
         UIImageWriteToSavedPhotosAlbum([join image], nil, nil, nil);
+        
+        
         OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
         [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
     }
