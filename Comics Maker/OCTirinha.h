@@ -10,7 +10,10 @@
 #import "OCQuadro.h"
 #import "OCTirinhasSingleton.h"
 
-@interface OCTirinha : NSObject
+@interface OCTirinha : NSObject{
+    OCTirinhasDoc *_doc;
+
+}
 
 @property (strong, nonatomic) NSMutableArray *quadros;
 @property (strong, nonatomic) UIImage *tirinhaCompleta;
@@ -18,6 +21,7 @@
 @property NSString *autor;
 @property OCQuadro *quadro;
 @property OCTirinhasSingleton *single;
+@property (retain)OCTirinhasDoc* doc;
 
 - (id)initWithQuadros:(NSMutableArray *)quadros;
 - (void)replaceQuadroAtIndex:(NSUInteger)indice withQuadro:(OCQuadro *)quadro;

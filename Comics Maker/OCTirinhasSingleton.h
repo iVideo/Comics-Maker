@@ -9,14 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "OCTirinhasDoc.h"
 
+
 @interface OCTirinhasSingleton : NSObject{
-    OCTirinhasDoc *_bugDoc;
+    OCTirinhasDoc *_tDoc;
 
 }
 
 @property (strong, nonatomic) NSMutableArray *tirinhas;
 @property (nonatomic) NSInteger quadroAtual;
-@property (retain) OCTirinhasDoc* _bugDoc;
+@property (retain) OCTirinhasDoc* _tDoc;
 + (id)sharedTirinhas;
 - (void)addTirinha:(NSObject *)tirinha;
 - (void)removeTirinhaAtIndex:(NSUInteger)indice;

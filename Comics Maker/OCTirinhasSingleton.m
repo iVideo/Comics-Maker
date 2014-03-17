@@ -8,6 +8,8 @@
 
 #import "OCTirinhasSingleton.h"
 #import "OCTirinha.h"
+#import "OCTirinhasData.h"
+#import "OCTirinhasDatabase.h"
 
 @implementation OCTirinhasSingleton
 
@@ -24,12 +26,16 @@
     self = [super init];
     self.tirinhas = [[NSMutableArray alloc] init];
     self.quadroAtual = 0;
+    
+    self.tirinhas = [OCTirinhasDatabase loadTirinhasDocs];
     return self;
 }
 
 - (void)addTirinha:(NSObject *)tirinha {
     [_tirinhas addObject:tirinha];
-    [_bugDoc saveData];
+    _tDoc = [[OCTirinhasDoc alloc]init];
+    
+    [_tDoc saveData];
     
 }
 
