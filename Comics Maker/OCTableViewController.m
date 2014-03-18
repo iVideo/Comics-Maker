@@ -195,6 +195,7 @@
             switch (buttonIndex) {
                 case 0:
                     [self compartilharNoFacebook];
+                    //[self presentViewController:fbController animated:YES completion:nil];
                     break;
                 case 1:
                     [self compartilharNoTwitter];
