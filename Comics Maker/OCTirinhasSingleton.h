@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GPUImage.h>
 
 
 @interface OCTirinhasSingleton : NSObject <NSCoding>
@@ -16,5 +17,5 @@
 + (id)sharedTirinhas;
 - (void)addTirinha:(NSObject *)tirinha;
 - (void)removeTirinhaAtIndex:(NSUInteger)indice;
-
+-(UIImage *)renderizarImagem : (UIImage *)imagem;
 @end

@@ -16,15 +16,18 @@
 #import <Social/Social.h>
 #import "OCTableViewController.h"
 #import "OCTirinhaViewController.h"
+#import "OCViewController.h"
 
 
 @interface OCTableViewController ()
 @property NSInteger index;
+@property NSString *tituloTable;
 @end
 
 @implementation OCTableViewController
 @synthesize single;
 @synthesize index;
+@synthesize tituloTable;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -49,6 +52,7 @@
         objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait );
     
     [[self navigationController] setDelegate:self];
+    [[self tableView] setAllowsMultipleSelection:YES];
 
     //Pegando instancia unica do singleton para usar por todo o .m    
     single = [OCTirinhasSingleton sharedTirinhas];
@@ -91,12 +95,8 @@
     [[single tirinhas]replaceObjectAtIndex:[toIndexPath row] withObject:from];
 }
 
-
-
- // Override to support conditional rearranging of the table view.
  - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
  {
-     // Return NO if you do not want the item to be re-orderable.
      return YES;
  }
 
@@ -109,22 +109,60 @@
     OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[tira titulo]];
     
+    
     return cell;
 }
 
-
 - (IBAction)edit:(id)sender {
+    
     if ([[self tableView] isEditing]) {
         [[self tableView] setEditing:NO];
         [_edit setTitle:@"Editar" forState:UIControlStateNormal];
-    }else
+        [[self navigationItem] setTitle:tituloTable];
+        
+        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(criaTirinha)] ;
+        [[self navigationItem] setRightBarButtonItem:barButtonItem];
+    }
+    else
     {
         [[self tableView] setEditing:YES];
-        [_edit setTitle:@"Ok" forState:UIControlStateNormal];
+        [_edit setTitle:@"OK" forState:UIControlStateNormal];
+        tituloTable = [[self navigationItem] title];
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc]init];
+        [barButton setTarget:self];
+        [barButton setAction:@selector(deletaTodasTirinhas)];
+        [[self navigationItem] setRightBarButtonItem:barButton];
+        [[[self navigationItem] rightBarButtonItem]setTintColor:[UIColor redColor]];
+        [[[self navigationItem] rightBarButtonItem] setImage:nil];
+        [[[self navigationItem] rightBarButtonItem] setTitle:@"Apagar tudo"];
+        
+        [[self navigationItem] setTitle:[[[[[self navigationItem] title] stringByAppendingString:@" ("] stringByAppendingString:[NSString stringWithFormat:@"%d",single.tirinhas.count]]stringByAppendingString:@")"]];
     }
 
 }
+- (void)willPresentActionSheet:(UIActionSheet *)actionSheet
+{
+    if ([actionSheet tag]==2) {
+        for (UIView *subview in actionSheet.subviews) {
+            if ([subview isKindOfClass:[UIButton class]]) {
+                UIButton *button = (UIButton *)subview;
+                [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+                return;
+            }
+        }
+    }
+}
 
+-(void)deletaTodasTirinhas{
+    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Deletar Todas As Tirinhas", nil];
+    popup.tag = 2;
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+}
+
+-(void)criaTirinha{
+    OCViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"novaTirinha"];
+    [[self navigationController] pushViewController:tirinha animated:YES];
+}
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -139,10 +177,10 @@
     OCTirinhaViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"TirinhaViewController"];
     [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:tirinha, nil] animated:YES];
     [[tirinha botaoConcluido] setTitle:@"Ok" forState:UIControlStateNormal];
-    
+
     OCTirinha *tira = [[single tirinhas] objectAtIndex:[indexPath row]];
     tirinha.tirinha = tira;
-    //[[tirinha join] setImage:[tira tirinhaCompleta]];
+    [[tirinha navigationItem] setTitle: [tira titulo]];
 }
 
 
@@ -169,6 +207,15 @@
             }
             break;
         }
+        case 2:
+            switch (buttonIndex) {
+                case 0:
+                    [[single tirinhas] removeAllObjects];
+                    [[self tableView] reloadData];
+                    break;
+                default:
+                    break;
+            }
         default:
             break;
     }
