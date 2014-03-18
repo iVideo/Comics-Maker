@@ -166,10 +166,18 @@
     CGPoint tapPoint = [sender locationInView:_currentImage];
     int tapX = (int) tapPoint.x;
     int tapY = (int) tapPoint.y;
+    OCTirinha *t = single.tirinhas.lastObject;
+    OCQuadro *q = [t.quadros lastObject];
+    [q addBalaoComTexto:@"Texto de teste" noPonto:tapPoint];
+    
     
     NSLog(@"X: %d     Y: %d",tapX,tapY);
 }
+
 - (IBAction)inserirBalao:(id)sender {
+    OCTirinha *t = single.tirinhas.lastObject;
+    OCQuadro *q = [t.quadros lastObject];
+    [q setFalas:YES];
 }
 
 @end
