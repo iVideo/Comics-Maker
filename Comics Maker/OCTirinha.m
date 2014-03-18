@@ -14,6 +14,24 @@
 @synthesize quadros;
 @synthesize single;
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        quadros = [decoder decodeObjectForKey:@"quadros"];
+        _quadro = [decoder decodeObjectForKey:@"quadro"];
+        _titulo = [decoder decodeObjectForKey:@"titulo"];
+        _autor = [decoder decodeObjectForKey:@"autor"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:quadros forKey:@"quadros"];
+    [encoder encodeObject:_quadro forKey:@"quadro"];
+    [encoder encodeObject:_titulo forKey:@"titulo"];
+    [encoder encodeObject:_autor forKey:@"autor"];
+    
+}
+
 - (id)initWithQuadros:(NSMutableArray *)q {
     self = [super init];
     if (self)

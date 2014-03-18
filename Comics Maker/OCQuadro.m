@@ -12,6 +12,18 @@
 
 @implementation OCQuadro
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        _texto = [decoder decodeObjectForKey:@"texto"];
+        _key = [decoder decodeObjectForKey:@"key"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:_texto forKey:@"texto"];
+    [encoder encodeObject:_key forKey:@"key"];
+}
 - (id)initWithTexto:(NSString *)texto{
     self = [super init];
     if (self) {

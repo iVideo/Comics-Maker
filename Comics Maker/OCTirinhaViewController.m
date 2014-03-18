@@ -63,13 +63,25 @@
 
 
 - (IBAction)concluido:(id)sender {
-    OCTirinha *tira = [[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject];
+    NSMutableArray* sing = [[OCTirinhasSingleton sharedTirinhas] tirinhas];
+    OCTirinha *tira = [sing lastObject];
     if ([tira titulo]==nil) {
         [self insereTitulo];
     }
     else{
         UIImageWriteToSavedPhotosAlbum([join image], nil, nil, nil);
+        // Determine Path
+//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//        NSString *path = [ [paths objectAtIndex:0] stringByAppendingPathComponent:@"archive.dat"];
+//        
+//        // Archive Array
+//        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:sing];
+//        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"sing"];
+//
+        //[data writeToFile:path options:NSDataWritingAtomic error:nil];
         
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:sing];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
         
         OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
         [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];

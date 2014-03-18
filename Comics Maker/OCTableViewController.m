@@ -52,6 +52,9 @@
 
     //Pegando instancia unica do singleton para usar por todo o .m    
     single = [OCTirinhasSingleton sharedTirinhas];
+    
+    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"notes"];
+    [single setTirinhas : [NSKeyedUnarchiver unarchiveObjectWithData:notesData] ];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

@@ -10,7 +10,7 @@
 #import "OCQuadro.h"
 #import "OCTirinhasSingleton.h"
 
-@interface OCTirinha : NSObject
+@interface OCTirinha : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSMutableArray *quadros;
 @property (strong, nonatomic) UIImage *tirinhaCompleta;
