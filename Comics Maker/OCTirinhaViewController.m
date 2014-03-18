@@ -68,7 +68,6 @@
         [self insereTitulo];
     }
     else{
-        UIImageWriteToSavedPhotosAlbum([join image], nil, nil, nil);
         OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
         [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
     }
@@ -81,8 +80,17 @@
     NSString *titulo = [myAlertView textFieldAtIndex:0].text;
     OCTirinha *tira = [[[OCTirinhasSingleton sharedTirinhas]tirinhas] lastObject];
     [tira setTitulo:titulo];
+    [[self navigationItem] setTitle:titulo];
     [_botaoConcluido setTitle:@"Ok" forState:UIControlStateNormal];
+    UIImageWriteToSavedPhotosAlbum([join image], nil, nil, nil);
+    UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Salvo na biblioteca" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+    
+    [alerta show];
+    [self performSelector:@selector(test:) withObject:alerta afterDelay:1.2];
+}
 
+-(void)test:(UIAlertView *)x {
+	[x dismissWithClickedButtonIndex:-1 animated:YES];
 }
 
 -(void)insereTitulo{

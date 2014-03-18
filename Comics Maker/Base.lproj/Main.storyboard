@@ -7,7 +7,7 @@
         <!--View Controller - Nova Tirinha-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="OCViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="novaTirinha" id="vXZ-lx-hvc" customClass="OCViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g82-Ml-gcU"/>
                         <viewControllerLayoutGuide type="bottom" id="qi1-jo-ljp"/>
@@ -37,6 +37,7 @@
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-qN-M5S">
                                 <rect key="frame" x="130" y="448" width="60" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.91605839416058399" green="1" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="2000px-ok_x_nuvola_green.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -59,7 +60,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.95686274509803915" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Bm9-h9-jwK" appends="YES" id="4Uk-jf-4U6"/>
@@ -165,6 +166,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="0.95646099452554745" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -182,7 +184,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="f9Z-3A-ddA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="f9Z-3A-ddA">
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" id="wkh-YW-sCT"/>
                             </connections>
@@ -206,7 +208,7 @@
                     </toolbarItems>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PAF-es-ZPW">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.10196078431372549" green="0.83921568627450982" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.28407276459854014" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="7ox-7x-0pS" kind="relationship" relationship="rootViewController" id="nWM-pi-kPf"/>
