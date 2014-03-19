@@ -122,7 +122,7 @@
     if ([[self tableView] isEditing]) {
         [[self tableView] setEditing:NO];
         [_edit setTitle:@"Editar" forState:UIControlStateNormal];
-        [[self navigationItem] setTitle:@"Tirinha"];
+        [[self navigationItem] setTitle:@"Tirinhas"];
         
         UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(criaTirinha)] ;
         [[self navigationItem] setRightBarButtonItem:barButtonItem];
@@ -223,7 +223,6 @@
                     [[single tirinhas] removeAllObjects];
                     data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
                     [[NSUserDefaults standardUserDefaults]setObject:data forKey:@"notes"];
-                    [[self tableView] setEditing:NO];
                     [[self tableView] reloadData];
                     
                     break;

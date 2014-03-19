@@ -39,7 +39,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91605839416058399" green="1" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="2000px-ok_x_nuvola_green.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="zQv-ir-lhA" kind="push" id="gQ1-nc-HB9"/>
@@ -59,6 +60,12 @@
                                     <action selector="inserirBalao:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="24r-xi-kEG"/>
                                 </connections>
                             </button>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5pu-5x-j2b">
+                                <rect key="frame" x="20" y="103" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -98,6 +105,7 @@
                         <outlet property="loading" destination="46J-B3-dpt" id="u4x-EP-4zu"/>
                         <outlet property="proximo" destination="6jb-dO-J0g" id="Gcm-Ur-y7R"/>
                         <outlet property="selecionar" destination="3l9-KV-utL" id="k2q-1v-WSr"/>
+                        <outlet property="textoBalao" destination="5pu-5x-j2b" id="VnH-9Q-Zzd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -108,7 +116,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="574" y="-766"/>
+            <point key="canvasLocation" x="512" y="-818"/>
         </scene>
         <!--Tirinha View Controller-->
         <scene sceneID="oXj-eh-V86">
@@ -165,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sro-he-LW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="552" y="53"/>
+            <point key="canvasLocation" x="1098" y="-694"/>
         </scene>
         <!--Testa View Controller-->
         <scene sceneID="4PI-x3-akd">
@@ -188,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMI-lE-OeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-458" y="-786"/>
+            <point key="canvasLocation" x="-524" y="-818"/>
         </scene>
         <!--Table View Controller - Tirinhas-->
         <scene sceneID="Xuh-jh-Oyd">
@@ -238,7 +246,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWE-nV-ebY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4" y="-766"/>
+            <point key="canvasLocation" x="-16" y="-1080"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gwy-vg-Kbe">
@@ -258,7 +266,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kja-RC-veV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-814" y="-810"/>
+            <point key="canvasLocation" x="-998" y="-818"/>
         </scene>
         <!--Primeira View-->
         <scene sceneID="Tlq-QL-sES">
@@ -291,7 +299,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWw-Qw-zMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34" y="-87"/>
+            <point key="canvasLocation" x="-16" y="-347"/>
         </scene>
     </scenes>
     <resources>
@@ -304,6 +312,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wkh-YW-sCT"/>
+        <segue reference="wTy-Ci-W20"/>
     </inferredMetricsTieBreakers>
 </document>
