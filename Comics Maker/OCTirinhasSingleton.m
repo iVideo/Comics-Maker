@@ -8,6 +8,7 @@
 
 #import "OCTirinhasSingleton.h"
 #import "OCTirinha.h"
+#import <Social/Social.h>
 
 
 @implementation OCTirinhasSingleton
@@ -87,6 +88,42 @@
         NSFileHandle* myFileHandle = [NSFileHandle fileHandleForWritingAtPath:path];
         [myFileHandle writeData:UIImageJPEGRepresentation(imagem, 1.0)];
         [myFileHandle closeFile];
+    }
+
+}
+
+-(void)compartilharNoFacebook: (NSInteger)indice{
+    SLComposeViewController *fbController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    {
+        SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
+            [fbController dismissViewControllerAnimated:YES completion:nil];
+            switch(result){
+                case SLComposeViewControllerResultCancelled:
+                default:
+                {
+                    NSLog(@"Cancelled.....");
+                    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs://"]];
+                }
+                    break;
+                case SLComposeViewControllerResultDone:
+                {
+                    NSLog(@"Posted....");
+                }
+                    break;
+            }
+        };
+        
+        OCTirinha *tirinha = [[self tirinhas]objectAtIndex:indice];
+        
+        [fbController setInitialText:[tirinha titulo]];
+        [fbController addImage:[tirinha tirinhaCompleta]];
+        
+        [fbController setCompletionHandler:completionHandler];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Login!" message:@"Por favor, efetue login!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
     }
 
 }

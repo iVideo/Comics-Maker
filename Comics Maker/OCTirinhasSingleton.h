@@ -18,4 +18,5 @@
 - (void)addTirinha:(NSObject *)tirinha;
 - (void)removeTirinhaAtIndex:(NSUInteger)indice;
 -(UIImage *)renderizarImagem : (UIImage *)imagem;
+-(void)compartilharNoFacebook: (NSInteger)indice;
 @end

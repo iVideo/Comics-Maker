@@ -50,7 +50,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait );
+    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait );
+    
+
     
     [[self navigationController] setDelegate:self];
     [[self tableView] setAllowsMultipleSelection:YES];
@@ -70,6 +72,10 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     single.quadroAtual=0;
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 #pragma mark - Table view data source
@@ -201,6 +207,7 @@
             switch (buttonIndex) {
                 case 0:
                     [self compartilharNoFacebook];
+                    //[self presentViewController:fbController animated:YES completion:nil];
                     break;
                 case 1:
                     [self compartilharNoTwitter];
