@@ -27,7 +27,8 @@
 - (void)viewDidLoad
 {
     OCTirinhasSingleton *single = [OCTirinhasSingleton sharedTirinhas];
-    
+    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"notes"];
+    [single setTirinhas : [NSKeyedUnarchiver unarchiveObjectWithData:notesData] ];
     if (single.tirinhas.count==0) {
         [self performSegueWithIdentifier:@"vazio" sender:self];
     }

@@ -75,6 +75,10 @@
         [self.navigationController pushViewController:table animated:YES];
         //[self performSegueWithIdentifier:@"tabela" sender:self];
         //[self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:testa,nil]animated:YES];
+        
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:sing];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
+        
     }
 }
 
