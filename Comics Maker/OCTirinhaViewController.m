@@ -11,6 +11,7 @@
 #import "OCTirinha.h"
 #import "OCQuadro.h"
 #import "OCTableViewController.h"
+#import "testaViewController.h"
 #import <objc/message.h>
 
 @interface OCTirinhaViewController ()
@@ -68,8 +69,11 @@
         [self insereTitulo];
     }
     else{
-        OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
-        [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
+        //testaViewController *testa = [[testaViewController alloc]init];
+        OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
+        [self.navigationController pushViewController:table animated:YES];
+        //[self performSegueWithIdentifier:@"tabela" sender:self];
+        //[self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:testa,nil]animated:YES];
     }
 }
 

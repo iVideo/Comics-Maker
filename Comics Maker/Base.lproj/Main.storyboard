@@ -68,6 +68,20 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Nova Tirinha" id="Huk-rh-NCT">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" style="plain" id="FbQ-dY-ONK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nhX-1X-KeP">
+                                <rect key="frame" x="16" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelar:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WMY-fa-Jx2"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Próximo" id="6jb-dO-J0g">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -151,12 +165,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sro-he-LW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="513" y="82"/>
+            <point key="canvasLocation" x="552" y="53"/>
+        </scene>
+        <!--Testa View Controller-->
+        <scene sceneID="4PI-x3-akd">
+            <objects>
+                <viewController id="EK9-g4-hT0" customClass="testaViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KW4-qK-kbF"/>
+                        <viewControllerLayoutGuide type="bottom" id="aPf-6G-ODW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xSw-fN-Gz2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gVS-ke-jUS"/>
+                    <connections>
+                        <segue destination="7ox-7x-0pS" kind="push" identifier="tabela" id="vC4-s5-Zbm"/>
+                        <segue destination="LOi-rW-ydi" kind="push" identifier="vazio" id="Bip-qe-xVA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kMI-lE-OeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-458" y="-786"/>
         </scene>
         <!--Table View Controller - Tirinhas-->
         <scene sceneID="Xuh-jh-Oyd">
             <objects>
-                <tableViewController title="Tirinhas" id="7ox-7x-0pS" customClass="OCTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TabelaView" title="Tirinhas" id="7ox-7x-0pS" customClass="OCTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="V0e-9X-g9w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -216,12 +253,12 @@
                         <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="7ox-7x-0pS" kind="relationship" relationship="rootViewController" id="nWM-pi-kPf"/>
+                        <segue destination="EK9-g4-hT0" kind="relationship" relationship="rootViewController" id="Tgv-3O-tsx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kja-RC-veV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-530" y="-766"/>
+            <point key="canvasLocation" x="-814" y="-810"/>
         </scene>
         <!--Primeira View-->
         <scene sceneID="Tlq-QL-sES">
@@ -244,16 +281,17 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="modal" id="60b-4I-U7b"/>
+                                    <segue destination="vXZ-lx-hvc" kind="push" id="wTy-Ci-W20"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="LA0-qg-X6g"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TWw-Qw-zMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-530" y="-115"/>
+            <point key="canvasLocation" x="34" y="-87"/>
         </scene>
     </scenes>
     <resources>
@@ -266,6 +304,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="60b-4I-U7b"/>
+        <segue reference="wkh-YW-sCT"/>
     </inferredMetricsTieBreakers>
 </document>
