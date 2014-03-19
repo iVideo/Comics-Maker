@@ -156,7 +156,7 @@
         <!--Table View Controller - Tirinhas-->
         <scene sceneID="Xuh-jh-Oyd">
             <objects>
-                <tableViewController storyboardIdentifier="TabelaViewController" title="Tirinhas" id="7ox-7x-0pS" customClass="OCTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Tirinhas" id="7ox-7x-0pS" customClass="OCTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="V0e-9X-g9w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,7 +206,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Gwy-vg-Kbe">
             <objects>
-                <navigationController definesPresentationContext="YES" id="cUg-iN-zw0" customClass="OCNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TabelaViewController" definesPresentationContext="YES" id="cUg-iN-zw0" customClass="OCNavigationController" sceneMemberID="viewController">
                     <toolbarItems>
                         <barButtonItem systemItem="add" id="hJx-z7-E0j"/>
                         <barButtonItem title="Item" id="vQs-jU-cEo"/>
@@ -243,6 +243,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" id="60b-4I-U7b"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -263,6 +266,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wkh-YW-sCT"/>
+        <segue reference="60b-4I-U7b"/>
     </inferredMetricsTieBreakers>
 </document>
