@@ -1,18 +1,19 @@
 //
-//  OCPrimeiraView.m
+//  testaViewController.m
 //  Comics Maker
 //
 //  Created by Rodrigo Soldi Lopes on 19/03/14.
 //  Copyright (c) 2014 Rodrigo Soldi Lopes. All rights reserved.
 //
 
-#import "OCPrimeiraView.h"
+#import "testaViewController.h"
+#import "OCTirinhasSingleton.h"
 
-@interface OCPrimeiraView ()
+@interface testaViewController ()
 
 @end
 
-@implementation OCPrimeiraView
+@implementation testaViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,6 +26,16 @@
 
 - (void)viewDidLoad
 {
+    OCTirinhasSingleton *single = [OCTirinhasSingleton sharedTirinhas];
+    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"notes"];
+    [single setTirinhas : [NSKeyedUnarchiver unarchiveObjectWithData:notesData] ];
+    if (single.tirinhas.count==0) {
+        [self performSegueWithIdentifier:@"vazio" sender:self];
+    }
+    else{
+        [self performSegueWithIdentifier:@"tabela" sender:self];
+    }
+    
     [super viewDidLoad];
     [[self navigationItem] setHidesBackButton:YES];
     // Do any additional setup after loading the view.

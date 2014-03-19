@@ -30,4 +30,8 @@
     return self.topViewController.supportedInterfaceOrientations;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
 @end

@@ -23,6 +23,20 @@
     OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
     
     
+//    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController *viewController;
+//    
+//    if(sing.tirinhas.count==0)
+//        viewController = [storyboard instantiateViewControllerWithIdentifier:@"primeiraView"];
+//    else
+//        viewController = [storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
+//    
+//    self.window.rootViewController = viewController;
+//    [self.window makeKeyAndVisible];
+    
+    
 //    OCTableViewController  *rootController = (OCTableViewController *) [navigationController.viewControllers objectAtIndex:0];
 //    rootController.bugs = loadedBugs;
     return YES;

@@ -19,11 +19,11 @@
 @synthesize single;
 
 -(void)viewDidAppear:(BOOL)animated{
-    if (single.quadroAtual==1) {
-        [[self navigationItem] setHidesBackButton:NO];
-    }else{
-        [[self navigationItem] setHidesBackButton:YES];
-    }
+//    if (single.quadroAtual==1) {
+//        [[self navigationItem] setHidesBackButton:NO];
+//    }else{
+//        [[self navigationItem] setHidesBackButton:YES];
+//    }
 }
 
 - (void)viewDidLoad
@@ -116,6 +116,11 @@
 }
 - (IBAction)inserirBalao:(id)sender {
 
+}
+- (IBAction)cancelar:(id)sender {
+    [[single tirinhas] removeLastObject];
+    OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
+    [self.navigationController pushViewController:table animated:YES];
 }
 
 @end

@@ -61,8 +61,8 @@
     single = [OCTirinhasSingleton sharedTirinhas];
     
     data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
-    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"notes"];
-    [single setTirinhas : [NSKeyedUnarchiver unarchiveObjectWithData:notesData] ];
+//    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"notes"];
+//    [single setTirinhas : [NSKeyedUnarchiver unarchiveObjectWithData:notesData] ];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -140,7 +140,7 @@
         [barButton setTarget:self];
         [barButton setAction:@selector(deletaTodasTirinhas)];
         [[self navigationItem] setRightBarButtonItem:barButton];
-        [[[self navigationItem] rightBarButtonItem]setTintColor:[UIColor redColor]];
+        [[[self navigationItem] rightBarButtonItem]setTintColor:[UIColor whiteColor]];
         [[[self navigationItem] rightBarButtonItem] setImage:nil];
         [[[self navigationItem] rightBarButtonItem] setTitle:@"Apagar tudo"];
         

@@ -11,6 +11,7 @@
 #import "OCTirinha.h"
 #import "OCQuadro.h"
 #import "OCTableViewController.h"
+#import "testaViewController.h"
 #import <objc/message.h>
 
 @interface OCTirinhaViewController ()
@@ -69,22 +70,15 @@
         [self insereTitulo];
     }
     else{
-        UIImageWriteToSavedPhotosAlbum([join image], nil, nil, nil);
-        // Determine Path
-//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//        NSString *path = [ [paths objectAtIndex:0] stringByAppendingPathComponent:@"archive.dat"];
-//        
-//        // Archive Array
-//        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:sing];
-//        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"sing"];
-//
-        //[data writeToFile:path options:NSDataWritingAtomic error:nil];
+        //testaViewController *testa = [[testaViewController alloc]init];
+        OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
+        [self.navigationController pushViewController:table animated:YES];
+        //[self performSegueWithIdentifier:@"tabela" sender:self];
+        //[self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:testa,nil]animated:YES];
         
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:sing];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
         
-        OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
-        [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
     }
 }
 
