@@ -28,6 +28,7 @@
 @synthesize single;
 @synthesize index;
 @synthesize tituloTable;
+@synthesize data;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -58,6 +59,10 @@
 
     //Pegando instancia unica do singleton para usar por todo o .m    
     single = [OCTirinhasSingleton sharedTirinhas];
+    
+    data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
+    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"notes"];
+    [single setTirinhas : [NSKeyedUnarchiver unarchiveObjectWithData:notesData] ];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -173,6 +178,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[single tirinhas] removeObjectAtIndex:[indexPath row]];
         [tableView reloadData];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
     }
 }
 
@@ -215,7 +221,9 @@
             switch (buttonIndex) {
                 case 0:
                     [[single tirinhas] removeAllObjects];
+                    [[NSUserDefaults standardUserDefaults]setObject:data forKey:@"notes"];
                     [[self tableView] reloadData];
+                    
                     break;
                 default:
                     break;

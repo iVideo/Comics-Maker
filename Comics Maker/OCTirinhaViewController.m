@@ -64,7 +64,8 @@
 
 
 - (IBAction)concluido:(id)sender {
-    OCTirinha *tira = [[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject];
+    NSMutableArray* sing = [[OCTirinhasSingleton sharedTirinhas] tirinhas];
+    OCTirinha *tira = [sing lastObject];
     if ([tira titulo]==nil) {
         [self insereTitulo];
     }

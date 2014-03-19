@@ -10,7 +10,7 @@
 #import <GPUImage.h>
 
 
-@interface OCTirinhasSingleton : NSObject
+@interface OCTirinhasSingleton : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSMutableArray *tirinhas;
 @property (nonatomic) NSInteger quadroAtual;
