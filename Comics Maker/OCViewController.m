@@ -19,16 +19,18 @@
 @synthesize single;
 
 -(void)viewDidAppear:(BOOL)animated{
-    if (single.quadroAtual==1) {
-        [[self navigationItem] setHidesBackButton:NO];
-    }else{
-        [[self navigationItem] setHidesBackButton:YES];
-    }
+//    if (single.quadroAtual==1) {
+//        [[self navigationItem] setHidesBackButton:NO];
+//    }else{
+//        [[self navigationItem] setHidesBackButton:YES];
+//    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     UIGestureRecognizer *tap = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
     [tap setDelegate:self];

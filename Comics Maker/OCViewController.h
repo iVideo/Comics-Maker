@@ -13,7 +13,7 @@
 #import "OCTableViewController.h"
 #import "GPUImage.h"
 
-@interface OCViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIGestureRecognizerDelegate>
+@interface OCViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIActionSheetDelegate, UIGestureRecognizerDelegate, NSCoding>
 
 @property NSUInteger switchInserirBalao;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loading;
@@ -23,6 +23,7 @@
 @property OCTirinhasSingleton *single;
 @property (weak, nonatomic) IBOutlet UIButton *selecionar;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *gesture;
+@property (weak, nonatomic) IBOutlet UIButton *botaoInserirBalao;
 
 
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "OCBaloesDeTexto.h"
 
-@interface OCQuadro : NSObject
+@interface OCQuadro : NSObject <NSCoding>
 
 @property (strong, nonatomic) UIImage *imagem;
 @property (strong, nonatomic) NSString *texto;

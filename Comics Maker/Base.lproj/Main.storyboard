@@ -60,7 +60,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.95686274509803915" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Bm9-h9-jwK" appends="YES" id="4Uk-jf-4U6"/>
@@ -68,7 +68,22 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Nova Tirinha" id="Huk-rh-NCT">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" style="plain" id="FbQ-dY-ONK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nhX-1X-KeP">
+                                <rect key="frame" x="16" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelar:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WMY-fa-Jx2"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Próximo" id="6jb-dO-J0g">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" id="K86-qU-rw8"/>
                             </connections>
@@ -76,6 +91,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="botaoInserirBalao" destination="ugq-Fs-1tN" id="cmk-1b-v6g"/>
                         <outlet property="concluido" destination="AA5-qN-M5S" id="3dO-kx-E7V"/>
                         <outlet property="currentImage" destination="LZo-xK-Xkg" id="XP0-i7-x4E"/>
                         <outlet property="gesture" destination="Bm9-h9-jwK" id="NQm-FA-yY3"/>
@@ -131,6 +147,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Inserir Título">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -148,12 +165,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sro-he-LW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="513" y="82"/>
+            <point key="canvasLocation" x="552" y="53"/>
+        </scene>
+        <!--Testa View Controller-->
+        <scene sceneID="4PI-x3-akd">
+            <objects>
+                <viewController id="EK9-g4-hT0" customClass="testaViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KW4-qK-kbF"/>
+                        <viewControllerLayoutGuide type="bottom" id="aPf-6G-ODW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xSw-fN-Gz2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gVS-ke-jUS"/>
+                    <connections>
+                        <segue destination="7ox-7x-0pS" kind="push" identifier="tabela" id="vC4-s5-Zbm"/>
+                        <segue destination="LOi-rW-ydi" kind="push" identifier="vazio" id="Bip-qe-xVA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kMI-lE-OeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-458" y="-786"/>
         </scene>
         <!--Table View Controller - Tirinhas-->
         <scene sceneID="Xuh-jh-Oyd">
             <objects>
-                <tableViewController storyboardIdentifier="TabelaViewController" title="Tirinhas" id="7ox-7x-0pS" customClass="OCTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TabelaView" title="Tirinhas" id="7ox-7x-0pS" customClass="OCTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="V0e-9X-g9w">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,7 +206,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="0.95646099452554745" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -177,6 +217,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Editar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -185,6 +226,7 @@
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="f9Z-3A-ddA">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" id="wkh-YW-sCT"/>
                             </connections>
@@ -201,22 +243,55 @@
         <!--Navigation Controller-->
         <scene sceneID="Gwy-vg-Kbe">
             <objects>
-                <navigationController definesPresentationContext="YES" id="cUg-iN-zw0" customClass="OCNavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TabelaViewController" definesPresentationContext="YES" id="cUg-iN-zw0" customClass="OCNavigationController" sceneMemberID="viewController">
                     <toolbarItems>
                         <barButtonItem systemItem="add" id="hJx-z7-E0j"/>
                         <barButtonItem title="Item" id="vQs-jU-cEo"/>
                     </toolbarItems>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PAF-es-ZPW">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.28407276459854014" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="7ox-7x-0pS" kind="relationship" relationship="rootViewController" id="nWM-pi-kPf"/>
+                        <segue destination="EK9-g4-hT0" kind="relationship" relationship="rootViewController" id="Tgv-3O-tsx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kja-RC-veV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-530" y="-766"/>
+            <point key="canvasLocation" x="-814" y="-810"/>
+        </scene>
+        <!--Primeira View-->
+        <scene sceneID="Tlq-QL-sES">
+            <objects>
+                <viewController storyboardIdentifier="primeiraView" id="LOi-rW-ydi" customClass="OCPrimeiraView" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yJk-gK-hl2"/>
+                        <viewControllerLayoutGuide type="bottom" id="FT2-eM-brr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z5x-8m-2Dq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWM-Lg-RdO">
+                                <rect key="frame" x="20" y="239" width="280" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="27"/>
+                                <state key="normal" title="Crie a sua primeira tirinha">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="push" id="wTy-Ci-W20"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LA0-qg-X6g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TWw-Qw-zMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34" y="-87"/>
         </scene>
     </scenes>
     <resources>

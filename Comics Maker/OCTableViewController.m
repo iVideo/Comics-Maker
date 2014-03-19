@@ -28,6 +28,7 @@
 @synthesize single;
 @synthesize index;
 @synthesize tituloTable;
+@synthesize data;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -49,13 +50,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait );
+    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait );
+    
+
     
     [[self navigationController] setDelegate:self];
     [[self tableView] setAllowsMultipleSelection:YES];
 
     //Pegando instancia unica do singleton para usar por todo o .m    
     single = [OCTirinhasSingleton sharedTirinhas];
+    
+    data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
+    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"notes"];
+    [single setTirinhas : [NSKeyedUnarchiver unarchiveObjectWithData:notesData] ];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -65,6 +72,10 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     single.quadroAtual=0;
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 #pragma mark - Table view data source
@@ -129,7 +140,7 @@
         [barButton setTarget:self];
         [barButton setAction:@selector(deletaTodasTirinhas)];
         [[self navigationItem] setRightBarButtonItem:barButton];
-        [[[self navigationItem] rightBarButtonItem]setTintColor:[UIColor redColor]];
+        [[[self navigationItem] rightBarButtonItem]setTintColor:[UIColor whiteColor]];
         [[[self navigationItem] rightBarButtonItem] setImage:nil];
         [[[self navigationItem] rightBarButtonItem] setTitle:@"Apagar tudo"];
         
@@ -167,6 +178,9 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[single tirinhas] removeObjectAtIndex:[indexPath row]];
         [tableView reloadData];
+        data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
+
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
     }
 }
 
@@ -195,6 +209,7 @@
             switch (buttonIndex) {
                 case 0:
                     [self compartilharNoFacebook];
+                    //[self presentViewController:fbController animated:YES completion:nil];
                     break;
                 case 1:
                     [self compartilharNoTwitter];
@@ -208,7 +223,10 @@
             switch (buttonIndex) {
                 case 0:
                     [[single tirinhas] removeAllObjects];
+                    data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
+                    [[NSUserDefaults standardUserDefaults]setObject:data forKey:@"notes"];
                     [[self tableView] reloadData];
+                    
                     break;
                 default:
                     break;

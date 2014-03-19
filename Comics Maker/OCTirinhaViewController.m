@@ -11,6 +11,7 @@
 #import "OCTirinha.h"
 #import "OCQuadro.h"
 #import "OCTableViewController.h"
+#import "testaViewController.h"
 #import <objc/message.h>
 
 @interface OCTirinhaViewController ()
@@ -63,13 +64,21 @@
 
 
 - (IBAction)concluido:(id)sender {
-    OCTirinha *tira = [[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject];
+    NSMutableArray* sing = [[OCTirinhasSingleton sharedTirinhas] tirinhas];
+    OCTirinha *tira = [sing lastObject];
     if ([tira titulo]==nil) {
         [self insereTitulo];
     }
     else{
-        OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaViewController"];
-        [self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:table,nil]animated:YES];
+        //testaViewController *testa = [[testaViewController alloc]init];
+        OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
+        [self.navigationController pushViewController:table animated:YES];
+        //[self performSegueWithIdentifier:@"tabela" sender:self];
+        //[self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:testa,nil]animated:YES];
+        
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:sing];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
+        
     }
 }
 
