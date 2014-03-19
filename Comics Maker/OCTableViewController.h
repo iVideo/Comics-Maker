@@ -12,6 +12,7 @@
 
 @interface OCTableViewController : UITableViewController <UINavigationBarDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, NSCoding>
 @property OCTirinhasSingleton *single;
+@property NSData* data;
 @property (weak, nonatomic) IBOutlet UIButton *edit;
 
 @end
