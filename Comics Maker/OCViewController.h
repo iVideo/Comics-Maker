@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *selecionar;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *gesture;
 @property (weak, nonatomic) IBOutlet UIButton *botaoInserirBalao;
+@property (weak, nonatomic) IBOutlet UITextField *textoBalao;
 
 
 @end
