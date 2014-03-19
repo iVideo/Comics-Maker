@@ -52,8 +52,6 @@
     [super viewDidLoad];
     objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait );
     
-
-    
     [[self navigationController] setDelegate:self];
     [[self tableView] setAllowsMultipleSelection:YES];
 
@@ -61,8 +59,6 @@
     single = [OCTirinhasSingleton sharedTirinhas];
     
     data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
-//    NSData *notesData = [[NSUserDefaults standardUserDefaults] objectForKey:@"notes"];
-//    [single setTirinhas : [NSKeyedUnarchiver unarchiveObjectWithData:notesData] ];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -126,7 +122,7 @@
     if ([[self tableView] isEditing]) {
         [[self tableView] setEditing:NO];
         [_edit setTitle:@"Editar" forState:UIControlStateNormal];
-        [[self navigationItem] setTitle:tituloTable];
+        [[self navigationItem] setTitle:@"Tirinha"];
         
         UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(criaTirinha)] ;
         [[self navigationItem] setRightBarButtonItem:barButtonItem];
@@ -179,6 +175,8 @@
         [[single tirinhas] removeObjectAtIndex:[indexPath row]];
         [tableView reloadData];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
+        
+        [[self navigationItem] setTitle:[[[@"Tirinhas" stringByAppendingString:@" ("] stringByAppendingString:[NSString stringWithFormat:@"%d",single.tirinhas.count]]stringByAppendingString:@")"]];
     }
 }
 
@@ -222,6 +220,7 @@
                 case 0:
                     [[single tirinhas] removeAllObjects];
                     [[NSUserDefaults standardUserDefaults]setObject:data forKey:@"notes"];
+                    [[self tableView] setEditing:NO];
                     [[self tableView] reloadData];
                     
                     break;
