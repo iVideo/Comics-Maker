@@ -31,6 +31,9 @@
 }
 
 - (void)addTirinha:(NSObject *)tirinha {
+    if (!_tirinhas) {
+        self.tirinhas = [[NSMutableArray alloc] init];
+    }
     [_tirinhas addObject:tirinha];
 }
 
@@ -93,7 +96,7 @@
     
     CGContextBeginPath(ctx);
     CGContextMoveToPoint(ctx, point.x, point.y);
-    CGContextAddLineToPoint(ctx, _balaoAtual.inicio.x + _balaoAtual.width / 2, _balaoAtual.inicio.y + _balaoAtual.height);
+    CGContextAddLineToPoint(ctx, _balaoAtual.inicio.x + _balaoAtual.width / 2, _balaoAtual.inicio.y > point.y ? _balaoAtual.inicio.y : _balaoAtual.inicio.y + _balaoAtual.height);
     CGContextStrokePath(ctx);
 
 	// make image out of bitmap context

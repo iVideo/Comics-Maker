@@ -146,5 +146,10 @@
         _switchInserirBalao = 0;
     }
 }
+- (IBAction)cancelar:(id)sender {
+    [[single tirinhas] removeLastObject];
+    OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
+    [self.navigationController pushViewController:table animated:YES];
+}
 
 @end

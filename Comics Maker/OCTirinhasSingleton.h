@@ -23,4 +23,5 @@
 -(UIImage *)renderizarImagem : (UIImage *)imagem;
 - (UIImage *)imageByInsertingOrigemAtPoint:(CGPoint)point forBalao:(OCBaloesDeTexto *)balao atIndex:(NSUInteger)index andQuadro:(NSUInteger)quadro;
 - (UIImage *)imageByInsertingBalao:(OCBaloesDeTexto *)balao atIndex:(NSUInteger)index andQuadro:(NSUInteger)quadro;
+-(void)compartilharNoFacebook: (NSInteger)indice;
 @end
