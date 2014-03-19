@@ -92,7 +92,7 @@
 
 }
 
--(SLComposeViewController *)compartilharNoFacebook: (NSInteger)indice{
+-(void)compartilharNoFacebook: (NSInteger)indice{
     SLComposeViewController *fbController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
     {
@@ -120,7 +120,6 @@
         [fbController addImage:[tirinha tirinhaCompleta]];
         
         [fbController setCompletionHandler:completionHandler];
-        return fbController;
     }
     else{
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Login!" message:@"Por favor, efetue login!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];

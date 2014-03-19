@@ -22,6 +22,7 @@
 @property OCTirinhasSingleton *single;
 @property (weak, nonatomic) IBOutlet UIButton *selecionar;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *gesture;
+@property (weak, nonatomic) IBOutlet UIButton *botaoInserirBalao;
 
 
 @end

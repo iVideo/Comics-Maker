@@ -9,6 +9,7 @@
 #import "OCAppDelegate.h"
 #import "OCTirinhasSingleton.h"
 #import "OCTableViewController.h"
+#import "OCPrimeiraView.h"
 
 @implementation OCAppDelegate
 @synthesize memoryCard;

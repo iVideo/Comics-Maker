@@ -30,6 +30,8 @@
 {
     [super viewDidLoad];
     
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
     UIGestureRecognizer *tap = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
     [tap setDelegate:self];
     [[self currentImage] addGestureRecognizer:tap];
@@ -113,6 +115,7 @@
     NSLog(@"X: %d     Y: %d",tapX,tapY);
 }
 - (IBAction)inserirBalao:(id)sender {
+
 }
 
 @end

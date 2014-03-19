@@ -34,6 +34,7 @@
 		A244E10A18CE3DFE00560772 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E10918CE3DFE00560772 /* OpenGLES.framework */; };
 		AC1D991118D0AA8D00788C07 /* OCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D991018D0AA8D00788C07 /* OCNavigationController.m */; };
 		AC31E15518D31DD100AF483A /* ok copy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC31E15418D31DD100AF483A /* ok copy.jpg */; };
+		AC599C8D18D9BBB2007325B6 /* OCPrimeiraView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC599C8C18D9BBB2007325B6 /* OCPrimeiraView.m */; };
 		AC5D7E4818C9F22400FA8DBB /* ok.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC5D7E4718C9F22400FA8DBB /* ok.jpg */; };
 		AC62595F18D1F62E004D6F02 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = AC62595E18D1F62E004D6F02 /* camera.png */; };
 		AC62596118D1FA4D004D6F02 /* slr_camera_filled-256.png in Resources */ = {isa = PBXBuildFile; fileRef = AC62596018D1FA4D004D6F02 /* slr_camera_filled-256.png */; };
@@ -114,6 +115,8 @@
 		AC1D990F18D0AA8D00788C07 /* OCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCNavigationController.h; sourceTree = "<group>"; };
 		AC1D991018D0AA8D00788C07 /* OCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCNavigationController.m; sourceTree = "<group>"; };
 		AC31E15418D31DD100AF483A /* ok copy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ok copy.jpg"; sourceTree = "<group>"; };
+		AC599C8B18D9BBB2007325B6 /* OCPrimeiraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCPrimeiraView.h; sourceTree = "<group>"; };
+		AC599C8C18D9BBB2007325B6 /* OCPrimeiraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCPrimeiraView.m; sourceTree = "<group>"; };
 		AC5D7E4718C9F22400FA8DBB /* ok.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ok.jpg; path = Imagens/ok.jpg; sourceTree = "<group>"; };
 		AC62595E18D1F62E004D6F02 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		AC62596018D1FA4D004D6F02 /* slr_camera_filled-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slr_camera_filled-256.png"; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				A2353EAE18C0A95600440F0F /* Main.storyboard */,
 				A2353EAB18C0A95600440F0F /* OCAppDelegate.h */,
 				A2353EAC18C0A95600440F0F /* OCAppDelegate.m */,
+				AC599C8B18D9BBB2007325B6 /* OCPrimeiraView.h */,
+				AC599C8C18D9BBB2007325B6 /* OCPrimeiraView.m */,
 				A2353EB118C0A95600440F0F /* OCViewController.h */,
 				A2353EB218C0A95600440F0F /* OCViewController.m */,
 				A2353ED118C0BFED00440F0F /* OCTableViewController.h */,
@@ -418,6 +423,7 @@
 				AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */,
 				A2353EB318C0A95600440F0F /* OCViewController.m in Sources */,
 				A2353ED318C0BFED00440F0F /* OCTableViewController.m in Sources */,
+				AC599C8D18D9BBB2007325B6 /* OCPrimeiraView.m in Sources */,
 				A2353ED918C0CC7E00440F0F /* OCQuadro.m in Sources */,
 				A2353EDC18C0CCD400440F0F /* OCBaloesDeTexto.m in Sources */,
 				A2353EDF18C0CD2B00440F0F /* OCTirinhasSingleton.m in Sources */,
