@@ -43,14 +43,14 @@
     //dispatch_queue_t myQueue = dispatch_queue_create("ImageQueue",NULL);
     //dispatch_async(myQueue, ^{
         
-        GPUImageSmoothToonFilter *filter = [[GPUImageSmoothToonFilter alloc] init];
+        GPUImageToonFilter *filter = [[GPUImageToonFilter alloc] init];
         filter.threshold = 0.1;
         
         UIImage *filteredImage = imagem;
         
-        filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
-        filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
-        filteredImage = [[[GPUImageGrayscaleFilter alloc] init] imageByFilteringImage:filteredImage];
+//        filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
+//        filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
+       filteredImage = [[[GPUImageGrayscaleFilter alloc] init] imageByFilteringImage:filteredImage];
         filteredImage = [filter imageByFilteringImage:filteredImage];
         
         //filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
