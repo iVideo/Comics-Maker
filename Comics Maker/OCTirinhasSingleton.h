@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import <GPUImage.h>
+#import "OCBaloesDeTexto.h"
 
 
 @interface OCTirinhasSingleton : NSObject
 
 @property (strong, nonatomic) NSMutableArray *tirinhas;
 @property (nonatomic) NSInteger quadroAtual;
+@property (strong, nonatomic) OCBaloesDeTexto *balaoAtual;
 + (id)sharedTirinhas;
 - (void)addTirinha:(NSObject *)tirinha;
 - (void)removeTirinhaAtIndex:(NSUInteger)indice;
+- (void)salvarImagemNoDisco:(UIImage *)imagem;
 -(UIImage *)renderizarImagem : (UIImage *)imagem;
+- (UIImage *)imageByInsertingOrigemAtPoint:(CGPoint)point forBalao:(OCBaloesDeTexto *)balao atIndex:(NSUInteger)index andQuadro:(NSUInteger)quadro;
+- (UIImage *)imageByInsertingBalao:(OCBaloesDeTexto *)balao atIndex:(NSUInteger)index andQuadro:(NSUInteger)quadro;
 @end

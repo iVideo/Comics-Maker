@@ -13,6 +13,8 @@
 @property (strong, nonatomic) NSString *texto;
 @property CGPoint inicio; // canto superior esquerdo do balao
 @property CGPoint origem; // ponto de onde sai a flecha para o balao
+@property NSUInteger width;
+@property NSUInteger height;
 
 - (id)initWithText:(NSString *)texto;
 - (id)initWithText:(NSString *)texto andPosition:(CGPoint)inicio andOrigin:(CGPoint)origem;

@@ -46,9 +46,11 @@
         filter.threshold = 0.1;
         
         UIImage *filteredImage = imagem;
-        
-        filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
+    
+//        filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
         filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
+//        filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
+//        filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
         filteredImage = [[[GPUImageGrayscaleFilter alloc] init] imageByFilteringImage:filteredImage];
         filteredImage = [filter imageByFilteringImage:filteredImage];
         
@@ -70,6 +72,104 @@
     return filteredImage;
 
 }
+
+- (UIImage *)imageByInsertingOrigemAtPoint:(CGPoint)point forBalao:(OCBaloesDeTexto *)balao atIndex:(NSUInteger)index andQuadro:(NSUInteger)quadro {
+    
+    OCQuadro *q = [[[_tirinhas objectAtIndex:index] quadros] objectAtIndex:quadro];
+    UIImage *image = q.imagem;
+
+    // begin a graphics context of sufficient size
+	UIGraphicsBeginImageContext(image.size);
+    
+	// draw original image into the context
+	[image drawAtPoint:CGPointZero];
+    
+	// get the context for CoreGraphics
+	CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+	// set stroking color and draw circle
+	[[UIColor blackColor] setStroke];
+    
+    CGContextBeginPath(ctx);
+    CGContextMoveToPoint(ctx, point.x, point.y);
+    CGContextAddLineToPoint(ctx, _balaoAtual.inicio.x + _balaoAtual.width / 2, _balaoAtual.inicio.y + _balaoAtual.height);
+    CGContextStrokePath(ctx);
+
+	// make image out of bitmap context
+	UIImage *retImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+	// free the context
+	UIGraphicsEndImageContext();
+    
+	return retImage;
+}
+
+- (UIImage *)imageByInsertingBalao:(OCBaloesDeTexto *)balao atIndex:(NSUInteger)index andQuadro:(NSUInteger)quadro {
+    
+    _balaoAtual = balao;
+    
+    OCQuadro *q = [[[_tirinhas objectAtIndex:index] quadros] objectAtIndex:quadro];
+    UIImage *image = q.imagem;
+    
+    int width = balao.texto.length < 50 ? balao.texto.length * 10 : 400;
+    int height = (balao.texto.length / 50 + 1) * 50;
+    
+    if (width < 200) width = 200;
+    if (height < 100) height = 100;
+   
+    balao.width = width;
+    balao.height = height;
+    
+    UIGraphicsBeginImageContext(image.size);
+    
+	// draw original image into the context
+	[image drawAtPoint:CGPointZero];
+    
+	// get the context for CoreGraphics
+	CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+	// set stroking color and draw circle
+	[[UIColor blackColor] setStroke];
+    
+	// make circle rect 5 px from border
+	CGRect balaoRect = CGRectMake(balao.inicio.x, balao.inicio.y,
+                                   width,
+                                   height);
+    
+	//balaoRect = CGRectInset(balaoRect, 5, 5);
+    
+    UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:16.0f];
+    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                     font, NSFontAttributeName,
+                                     [NSNumber numberWithFloat:1.0], NSBaselineOffsetAttributeName,
+                                     nil];
+    
+    
+    
+    
+	// draw circle
+    CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
+    CGContextFillEllipseInRect(ctx, balaoRect);
+	CGContextStrokeEllipseInRect(ctx, balaoRect);
+    [balao.texto drawInRect:CGRectMake(balao.inicio.x + 30, balao.inicio.y + 30, width - 60, height - 60) withAttributes:attrsDictionary];
+    
+    /***/
+    
+//    CGContextBeginPath(ctx);
+//    CGContextMoveToPoint(ctx, balao.inicio.x, balao.inicio.y);
+//    CGContextAddLineToPoint(ctx, balao.inicio.x + balao.width / 2, balao.inicio.y + balao.height);
+//    CGContextStrokePath(ctx);
+    
+    /***/
+	// make image out of bitmap context
+	UIImage *retImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+	// free the context
+	UIGraphicsEndImageContext();
+    
+	return retImage;
+}
+
 
 -(void)salvarImagemNoDisco:(UIImage *)imagem{
     NSString *imageName = [NSString stringWithFormat:@"/Documents/tirinha_%d_quadro_%d.jpg", self.tirinhas.count - 1, self.quadroAtual != 0 ? self.quadroAtual - 1 : 2];
