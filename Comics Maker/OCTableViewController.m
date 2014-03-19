@@ -174,6 +174,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[single tirinhas] removeObjectAtIndex:[indexPath row]];
         [tableView reloadData];
+        data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
+
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
         
         [[self navigationItem] setTitle:[[[@"Tirinhas" stringByAppendingString:@" ("] stringByAppendingString:[NSString stringWithFormat:@"%d",single.tirinhas.count]]stringByAppendingString:@")"]];
@@ -219,6 +221,7 @@
             switch (buttonIndex) {
                 case 0:
                     [[single tirinhas] removeAllObjects];
+                    data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
                     [[NSUserDefaults standardUserDefaults]setObject:data forKey:@"notes"];
                     [[self tableView] setEditing:NO];
                     [[self tableView] reloadData];
