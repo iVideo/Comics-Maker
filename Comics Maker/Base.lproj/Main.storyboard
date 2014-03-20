@@ -78,6 +78,9 @@
                     <navigationItem key="navigationItem" title="Nova Tirinha" id="Huk-rh-NCT">
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="FbQ-dY-ONK">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelar:" destination="vXZ-lx-hvc" id="ZSf-NZ-Q5E"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Próximo" id="6jb-dO-J0g">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
