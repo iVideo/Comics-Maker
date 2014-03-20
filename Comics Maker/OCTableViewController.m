@@ -112,8 +112,7 @@
     
     OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[tira titulo]];
-    
-    
+    [[cell imageView] setImage:[tira tirinhaCompleta]];
     return cell;
 }
 

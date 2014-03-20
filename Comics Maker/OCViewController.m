@@ -29,9 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [_textoBalao setDelegate:self];
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    
+    [[[self navigationController] navigationBar] setHidden:NO];
     UIGestureRecognizer *tap = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
     [tap setDelegate:self];
     [[self currentImage] addGestureRecognizer:tap];
