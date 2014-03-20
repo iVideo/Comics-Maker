@@ -47,14 +47,17 @@
     //dispatch_async(myQueue, ^{
         
         GPUImageToonFilter *filter = [[GPUImageToonFilter alloc] init];
-        filter.threshold = 0.1;
-        
-        UIImage *filteredImage = imagem;
+        filter.threshold = 0.3;
+    filter.quantizationLevels = 10.0;
     
 //        filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
 //        filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
 //        filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
+//        filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
+        UIImage *filteredImage = imagem;
+        
         filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
+        //filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
         filteredImage = [[[GPUImageGrayscaleFilter alloc] init] imageByFilteringImage:filteredImage];
         filteredImage = [filter imageByFilteringImage:filteredImage];
         

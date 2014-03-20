@@ -39,13 +39,6 @@
 {
     return YES;
 }
-//
-//-(NSUInteger)supportedInterfaceOrientations
-//{
-//    return UIInterfaceOrientationPortrait;
-//}
-
-
 
 - (void)viewDidLoad
 {
@@ -113,10 +106,12 @@
     OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:[tira titulo]];
     [[cell imageView] setImage:[tira tirinhaCompleta]];
+    
     return cell;
 }
 
-- (IBAction)edit:(id)sender {
+- (IBAction)edit:(id)sender
+{
     
     if ([[self tableView] isEditing]) {
         [[self tableView] setEditing:NO];
@@ -125,6 +120,7 @@
         
         UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(criaTirinha)] ;
         [[self navigationItem] setRightBarButtonItem:barButtonItem];
+        [[[self navigationItem] rightBarButtonItem] setTintColor:[UIColor whiteColor]];
     }
     else
     {
@@ -323,7 +319,7 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
