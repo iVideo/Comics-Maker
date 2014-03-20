@@ -45,7 +45,7 @@
         
         GPUImageToonFilter *filter = [[GPUImageToonFilter alloc] init];
         filter.threshold = 0.3;
-    filter.quantizationLevels = 11.0;
+    filter.quantizationLevels = 10.0;
     
         UIImage *filteredImage = imagem;
         
