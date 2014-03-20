@@ -52,9 +52,9 @@
         UIImage *filteredImage = imagem;
     
 //        filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
-        filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
 //        filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
-//        filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
+//        filteredImage = [[[GPUImageGaussianBlurFilter alloc] init] imageByFilteringImage:filteredImage];
+        filteredImage = [[[GPUImageHighlightShadowFilter alloc] init] imageByFilteringImage:filteredImage];
         filteredImage = [[[GPUImageGrayscaleFilter alloc] init] imageByFilteringImage:filteredImage];
         filteredImage = [filter imageByFilteringImage:filteredImage];
         
@@ -135,12 +135,16 @@
                                    width,
                                    height);
     
-	//balaoRect = CGRectInset(balaoRect, 5, 5);
-    
     UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:16.0f];
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    /// Set line break mode
+    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+    /// Set text alignment
+    paragraphStyle.alignment = NSTextAlignmentRight;
     NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                      font, NSFontAttributeName,
                                      [NSNumber numberWithFloat:1.0], NSBaselineOffsetAttributeName,
+                                     NSParagraphStyleAttributeName, paragraphStyle,
                                      nil];
     
     
@@ -150,8 +154,8 @@
     CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
     CGContextFillEllipseInRect(ctx, balaoRect);
 	CGContextStrokeEllipseInRect(ctx, balaoRect);
-    [balao.texto drawInRect:CGRectMake(balao.inicio.x + 30, balao.inicio.y + 30, width - 60, height - 60) withAttributes:attrsDictionary];
-    
+    [balao.texto drawInRect:CGRectMake(balao.inicio.x + 30, balao.inicio.y + 50, width - 60, height - 60) withAttributes:attrsDictionary];
+
     /***/
     
 //    CGContextBeginPath(ctx);
