@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSMutableArray *tirinhas;
 @property (nonatomic) NSInteger quadroAtual;
 @property (strong, nonatomic) OCBaloesDeTexto *balaoAtual;
+
 + (id)sharedTirinhas;
 - (void)addTirinha:(NSObject *)tirinha;
 - (void)removeTirinhaAtIndex:(NSUInteger)indice;

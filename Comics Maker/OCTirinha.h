@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) NSMutableArray *quadros;
 @property (strong, nonatomic) UIImage *tirinhaCompleta;
+@property (strong, nonatomic) UIImage *tirinhaPequena;
 @property (strong,nonatomic) NSString *titulo;
 @property NSString *autor;
 @property OCQuadro *quadro;
