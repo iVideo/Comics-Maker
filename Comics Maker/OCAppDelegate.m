@@ -20,7 +20,6 @@
     // Override point for customization after application launch.
 //    OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
 //    sing = [memoryCard objectForKey:@"save"];
-    OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
     
     
 //    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
