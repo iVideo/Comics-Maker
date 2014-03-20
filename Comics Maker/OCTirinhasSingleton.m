@@ -81,25 +81,20 @@
     
     OCQuadro *q = [[[_tirinhas objectAtIndex:index] quadros] objectAtIndex:quadro];
     UIImage *image = q.imagem;
-
-    // begin a graphics context of sufficient size
 	UIGraphicsBeginImageContext(image.size);
-    
-	// draw original image into the context
 	[image drawAtPoint:CGPointZero];
-    
-	// get the context for CoreGraphics
 	CGContextRef ctx = UIGraphicsGetCurrentContext();
-    
-	// set stroking color and draw circle
 	[[UIColor blackColor] setStroke];
-    
     CGContextBeginPath(ctx);
-    CGContextMoveToPoint(ctx, point.x, point.y);
-    CGContextAddLineToPoint(ctx, _balaoAtual.inicio.x + _balaoAtual.width / 2, _balaoAtual.inicio.y > point.y ? _balaoAtual.inicio.y : _balaoAtual.inicio.y + _balaoAtual.height);
+    
+    CGContextMoveToPoint(ctx, (_balaoAtual.inicio.x + _balaoAtual.width / 2) - 15, _balaoAtual.inicio.y > point.y ? _balaoAtual.inicio.y + 7 : _balaoAtual.inicio.y + _balaoAtual.height - 7);
+    CGContextAddLineToPoint(ctx, point.x, point.y);
+    CGContextAddLineToPoint(ctx, (_balaoAtual.inicio.x + _balaoAtual.width / 2) + 15, _balaoAtual.inicio.y > point.y ? _balaoAtual.inicio.y + 7 : _balaoAtual.inicio.y + _balaoAtual.height - 7);
+    CGContextClosePath(ctx);
+    CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
+    CGContextFillPath(ctx);
     CGContextStrokePath(ctx);
-
-	// make image out of bitmap context
+    
 	UIImage *retImage = UIGraphicsGetImageFromCurrentImageContext();
     
 	// free the context
