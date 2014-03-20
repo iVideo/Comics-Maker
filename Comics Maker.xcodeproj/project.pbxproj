@@ -32,6 +32,8 @@
 		A244E10618CE3DE800560772 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E10518CE3DE800560772 /* CoreVideo.framework */; };
 		A244E10818CE3DF500560772 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E10718CE3DF500560772 /* QuartzCore.framework */; };
 		A244E10A18CE3DFE00560772 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A244E10918CE3DFE00560772 /* OpenGLES.framework */; };
+		A2976BA918D7184000D331EC /* OCMyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2976BA818D7184000D331EC /* OCMyImageView.m */; };
+		A2976BAD18D72B3400D331EC /* retangulo.png in Resources */ = {isa = PBXBuildFile; fileRef = A2976BAC18D72B3400D331EC /* retangulo.png */; };
 		AC1D991118D0AA8D00788C07 /* OCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D991018D0AA8D00788C07 /* OCNavigationController.m */; };
 		AC31E15518D31DD100AF483A /* ok copy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC31E15418D31DD100AF483A /* ok copy.jpg */; };
 		AC599C8D18D9BBB2007325B6 /* OCPrimeiraView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC599C8C18D9BBB2007325B6 /* OCPrimeiraView.m */; };
@@ -114,6 +116,9 @@
 		A244E10518CE3DE800560772 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		A244E10718CE3DF500560772 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A244E10918CE3DFE00560772 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A2976BA718D7184000D331EC /* OCMyImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMyImageView.h; sourceTree = "<group>"; };
+		A2976BA818D7184000D331EC /* OCMyImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMyImageView.m; sourceTree = "<group>"; };
+		A2976BAC18D72B3400D331EC /* retangulo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = retangulo.png; path = ../../Downloads/retangulo.png; sourceTree = "<group>"; };
 		AC1D990F18D0AA8D00788C07 /* OCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCNavigationController.h; sourceTree = "<group>"; };
 		AC1D991018D0AA8D00788C07 /* OCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCNavigationController.m; sourceTree = "<group>"; };
 		AC31E15418D31DD100AF483A /* ok copy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ok copy.jpg"; sourceTree = "<group>"; };
@@ -222,6 +227,8 @@
 				AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */,
 				AC1D990F18D0AA8D00788C07 /* OCNavigationController.h */,
 				AC1D991018D0AA8D00788C07 /* OCNavigationController.m */,
+				A2976BA718D7184000D331EC /* OCMyImageView.h */,
+				A2976BA818D7184000D331EC /* OCMyImageView.m */,
 				AC5D7E4918C9F22C00FA8DBB /* Imagens */,
 				A2353EE018C0CD3900440F0F /* Model */,
 				AE3D0CCC18D72CDB00807222 /* Data */,
@@ -287,6 +294,7 @@
 		AC5D7E4918C9F22C00FA8DBB /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				A2976BAC18D72B3400D331EC /* retangulo.png */,
 				AC62595E18D1F62E004D6F02 /* camera.png */,
 				AC62596718D1FF8B004D6F02 /* 2000px-ok_x_nuvola_green.png */,
 				AC62596218D1FA66004D6F02 /* slr_camera_filled-50.png */,
@@ -355,6 +363,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 				TargetAttributes = {
+					A2353E9818C0A95600440F0F = {
+						DevelopmentTeam = KKKTBJ9APM;
+					};
 					A2353EB918C0A95600440F0F = {
 						TestTargetID = A2353E9818C0A95600440F0F;
 					};
@@ -415,6 +426,7 @@
 				AC62595F18D1F62E004D6F02 /* camera.png in Resources */,
 				A2353EA718C0A95600440F0F /* InfoPlist.strings in Resources */,
 				AC62596318D1FA66004D6F02 /* slr_camera_filled-50.png in Resources */,
+				A2976BAD18D72B3400D331EC /* retangulo.png in Resources */,
 				A2353EB018C0A95600440F0F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +449,7 @@
 				AC599C9018D9C3B9007325B6 /* testaViewController.m in Sources */,
 				A2353ED618C0CC6600440F0F /* OCTirinha.m in Sources */,
 				A2353EAD18C0A95600440F0F /* OCAppDelegate.m in Sources */,
+				A2976BA918D7184000D331EC /* OCMyImageView.m in Sources */,
 				A2353EA918C0A95600440F0F /* main.m in Sources */,
 				AC1D991118D0AA8D00788C07 /* OCNavigationController.m in Sources */,
 				AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */,
@@ -578,11 +591,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Comics Maker/Comics Maker-Prefix.pch";
-				HEADER_SEARCH_PATHS = "/Users/LucasAugustoCordeiro/Desktop/Projects/Comics\\ Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
+				HEADER_SEARCH_PATHS = "/Users/Emannuel/Comics-Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
 				INFOPLIST_FILE = "Comics Maker/Comics Maker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -592,11 +608,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Comics Maker/Comics Maker-Prefix.pch";
-				HEADER_SEARCH_PATHS = "/Users/LucasAugustoCordeiro/Desktop/Projects/Comics\\ Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
+				HEADER_SEARCH_PATHS = "/Users/Emannuel/Comics-Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
 				INFOPLIST_FILE = "Comics Maker/Comics Maker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

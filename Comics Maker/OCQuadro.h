@@ -14,12 +14,14 @@
 @property (strong, nonatomic) UIImage *imagem;
 @property (strong, nonatomic) NSString *texto;
 @property (strong, nonatomic) NSString *key;
+@property (getter = temFalas, setter = setFalas:) BOOL falas;
 @property (strong, nonatomic) NSMutableArray *baloes;
 
 
 //@property (weak, nonatomic) NSMutableArray *baloesDeTexto;
 
 - (id)initWithTexto:(NSString *)texto;
--(void)addTexto:(NSString *)texto andKey:(NSString *)key;
+- (void)addTexto:(NSString *)texto andKey:(NSString *)key;
+- (void)addBalaoComTexto:(NSString *)texto noPonto:(CGPoint)ponto;
 
 @end
