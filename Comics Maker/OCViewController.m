@@ -123,7 +123,8 @@
         // depois de colocar o texto e dar OK:
         [single salvarImagemNoDisco:_currentImage.image];
         /***/
-        
+        //_switchInserirBalao = 2;
+        [_botaoInserirBalao setTitle:@"Inserir origem" forState:UIControlStateNormal];
     }
     else if (_switchInserirBalao == 2) {
         CGPoint tapPoint = [sender locationInView:_currentImage];
@@ -133,6 +134,8 @@
         OCBaloesDeTexto *balao = [[OCBaloesDeTexto alloc] initWithText:@"Texto está aqui" andPosition:CGPointMake(tapX, tapY) andOrigin:CGPointMake(tapX, tapY)];
         _currentImage.image = [single imageByInsertingOrigemAtPoint:CGPointMake(tapX, tapY) forBalao:balao atIndex:(single.tirinhas.count - 1) andQuadro:(single.quadroAtual == 0 ? 2 : single.quadroAtual - 1)];
         [single salvarImagemNoDisco:_currentImage.image];
+        //_switchInserirBalao = 0;
+        [_botaoInserirBalao setTitle:@"Próximo quadro" forState:UIControlStateNormal];
     }
 
 }
