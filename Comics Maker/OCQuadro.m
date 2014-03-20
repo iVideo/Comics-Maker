@@ -43,13 +43,56 @@
     NSString *path = [@"/Documents/" stringByAppendingString:_key];
     path = [NSHomeDirectory() stringByAppendingString:path];
     NSFileHandle* myFileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
-    UIImage* loadedImage = [UIImage imageWithData:[myFileHandle readDataToEndOfFile]];
-    [self drawBaloesDeTexto:loadedImage];
+    UIImage *loadedImage = [UIImage imageWithData:[myFileHandle readDataToEndOfFile]];
     return loadedImage;
 }
 
-- (void)drawBaloesDeTexto:(UIImage *)imagem {
+- (UIImage *)drawBaloesDeTexto:(UIImage *)imagem {
     
+    if (!self.temFalas) {
+        return imagem;
+    }
+    
+    // getting context from image and drawing the image on it
+    CGSize newSize = CGSizeMake(imagem.size.height, imagem.size.width);
+    UIGraphicsBeginImageContext(newSize);
+    CGRect rect = CGRectMake(0, 0, imagem.size.width, imagem.size.height);
+    [imagem drawInRect:rect];
+    
+    NSLog(@"entrou no for pra escrever o texto");
+    // calculating the bubble speech width and height
+    _texto = @"Aqui vai o texto!";
+    int width = _texto.length * 20;
+    int height = (_texto.length / 20 + 10) * 20;
+    width = (width > 400) ? width : 400;
+    height = (height > 200) ? height : 200;
+    
+    // including the text in the bubble
+    UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:16.0f];
+    NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    font, NSFontAttributeName,
+                                    [NSNumber numberWithFloat:1.0], NSBaselineOffsetAttributeName,
+                                    nil];
+    
+    // drawing the bubble speech
+    UIImage *balaoDeTexto = [UIImage imageNamed:@"retangulo.png"];
+    [balaoDeTexto drawInRect:CGRectMake(50, 50, width, height)];
+        
+    // writing the text
+    [_texto drawInRect:CGRectIntegral(CGRectMake(50, 50, width, height)) withAttributes:attrsDictionary];
+
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
+    return img;
+    
+    //return imagem;
+}
+
+- (void)addBalaoComTexto:(NSString *)texto noPonto:(CGPoint)ponto {
+    OCBaloesDeTexto *b = [[OCBaloesDeTexto alloc] initWithText:texto andPosition:ponto andOrigin:ponto];
+    [_baloes addObject:b];
 }
 
 @end
