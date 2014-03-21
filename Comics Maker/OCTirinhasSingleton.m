@@ -90,6 +90,8 @@
 	[[UIColor blackColor] setStroke];
     CGContextBeginPath(ctx);
     
+    // testar se é lateral ou não. Caso a origem seja lateral, igualar a x ou a x + width e usar (y + height / 2)
+    
     CGContextMoveToPoint(ctx, (_balaoAtual.inicio.x + _balaoAtual.width / 2) - 15, _balaoAtual.inicio.y > point.y ? _balaoAtual.inicio.y + 7 : _balaoAtual.inicio.y + _balaoAtual.height - 7);
     CGContextAddLineToPoint(ctx, point.x, point.y);
     CGContextAddLineToPoint(ctx, (_balaoAtual.inicio.x + _balaoAtual.width / 2) + 15, _balaoAtual.inicio.y > point.y ? _balaoAtual.inicio.y + 7 : _balaoAtual.inicio.y + _balaoAtual.height - 7);
@@ -157,7 +159,7 @@
     CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
     CGContextFillEllipseInRect(ctx, balaoRect);
 	CGContextStrokeEllipseInRect(ctx, balaoRect);
-    [balao.texto drawInRect:CGRectMake(balao.inicio.x + 30, balao.inicio.y + 50, width - 60, height - 60) withAttributes:attrsDictionary];
+    [balao.texto drawInRect:CGRectMake(balao.inicio.x + 30, balao.inicio.y + 30, width - 60, height - 60) withAttributes:attrsDictionary];
 
     /***/
     
