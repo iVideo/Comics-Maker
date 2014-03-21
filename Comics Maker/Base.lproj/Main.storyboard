@@ -38,7 +38,7 @@
                                 <rect key="frame" x="130" y="448" width="60" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91605839416058399" green="1" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="2000px-ok_x_nuvola_green.png">
+                                <state key="normal" image="ok_logo.png">
                                     <color key="titleColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -341,7 +341,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="2000px-ok_x_nuvola_green.png" width="500" height="500"/>
         <image name="IMG_1925.JPG" width="1152" height="640"/>
         <image name="IMG_1926.JPG" width="1152" height="640"/>
         <image name="IMG_1927.JPG" width="1152" height="640"/>
@@ -349,6 +348,7 @@
         <image name="IMG_1935.JPG" width="1152" height="640"/>
         <image name="IMG_1936.JPG" width="1152" height="640"/>
         <image name="IMG_1937.JPG" width="1152" height="640"/>
+        <image name="ok_logo.png" width="616" height="649"/>
         <image name="slr_camera_filled-50.png" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -357,6 +357,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wkh-YW-sCT"/>
+        <segue reference="wTy-Ci-W20"/>
     </inferredMetricsTieBreakers>
 </document>
