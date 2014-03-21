@@ -85,6 +85,8 @@
 
 }
 
+
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [_selecionar setHidden:YES];
     [_textoBalao setHidden:NO];

@@ -188,30 +188,9 @@
 }
 
 
--(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    index = [indexPath row];
-    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Compartilhar" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter", nil];
-    popup.tag = 1;
-    [popup showInView:[UIApplication sharedApplication].keyWindow];
-    
-}
-
 -(void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (popup.tag) {
-        case 1: {
-            switch (buttonIndex) {
-                case 0:
-                    [self compartilharNoFacebook];
-                    //[self presentViewController:fbController animated:YES completion:nil];
-                    break;
-                case 1:
-                    [self compartilharNoTwitter];
-                    break;
-                default:
-                    break;
-            }
-            break;
-        }
+        case 1:
         case 2:
             switch (buttonIndex) {
                 case 0:
@@ -226,82 +205,6 @@
             }
         default:
             break;
-    }
-}
-
-
-#pragma - mark compartilhamentos
-- (void)compartilharNoFacebook
-{
-    SLComposeViewController *fbController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
-    {
-        SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
-            [fbController dismissViewControllerAnimated:YES completion:nil];
-            switch(result){
-                case SLComposeViewControllerResultCancelled:
-                    default:
-                        {
-                            NSLog(@"Cancelled.....");
-                            // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs://"]];
-                        }
-                        break;
-                case SLComposeViewControllerResultDone:
-                    {
-                        NSLog(@"Posted....");
-                    }
-                        break;
-                }
-            };
-        
-        OCTirinha *tirinha = [[single tirinhas]objectAtIndex:index];
-        
-        [fbController setInitialText:[tirinha titulo]];
-        [fbController addImage:[tirinha tirinhaCompleta]];
-        
-        [fbController setCompletionHandler:completionHandler];
-        [self presentViewController:fbController animated:YES completion:nil];
-    }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Login!" message:@"Por favor, efetue login!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-}
-
-
--(void)compartilharNoTwitter{
-    SLComposeViewController *fbController=[SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-    {
-        SLComposeViewControllerCompletionHandler __block completionHandler=^(SLComposeViewControllerResult result){
-            [fbController dismissViewControllerAnimated:YES completion:nil];
-            switch(result){
-                    case SLComposeViewControllerResultCancelled:
-                    default:
-                    {
-                        NSLog(@"Cancelled.....");
-                        // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs://"]];
-                    }
-                        break;
-                    case SLComposeViewControllerResultDone:
-                    {
-                        NSLog(@"Posted....");
-                    }
-                        break;
-                }
-            };
-        
-        OCTirinha *tirinha = [[single tirinhas]objectAtIndex:index];
-        
-        [fbController setInitialText:[tirinha titulo]];
-        [fbController addImage:[tirinha tirinhaCompleta]];
-        
-        [fbController setCompletionHandler:completionHandler];
-        [self presentViewController:fbController animated:YES completion:nil];
-    }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Login!" message:@"Por favor, efetue login!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
     }
 }
 

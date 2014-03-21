@@ -377,7 +377,7 @@
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 				TargetAttributes = {
 					A2353E9818C0A95600440F0F = {
-						DevelopmentTeam = KKKTBJ9APM;
+						DevelopmentTeam = V2YTJ2SSE4;
 					};
 					A2353EB918C0A95600440F0F = {
 						TestTargetID = A2353E9818C0A95600440F0F;
