@@ -119,8 +119,8 @@
     
     if (_switchInserirBalao == 1) {
         CGPoint tapPoint = [sender locationInView:_currentImage];
-        int tapX = (int) tapPoint.x * 2;
-        int tapY = (int) tapPoint.y * 2;
+        int tapX = (int) tapPoint.x;
+        int tapY = (int) tapPoint.y;
         OCBaloesDeTexto *balao = [[OCBaloesDeTexto alloc] initWithText:_texto andPosition:CGPointMake(tapX, tapY) andOrigin:CGPointMake(tapX, tapY)];
         _currentImage.image = [single imageByInsertingBalao:balao atIndex:(single.tirinhas.count - 1) andQuadro:(single.quadroAtual == 0 ? 2 : single.quadroAtual - 1)];
         [single salvarImagemNoDisco:_currentImage.image];
@@ -128,8 +128,8 @@
     }
     else if (_switchInserirBalao == 2) {
         CGPoint tapPoint = [sender locationInView:_currentImage];
-        int tapX = (int) tapPoint.x * 2;
-        int tapY = (int) tapPoint.y * 2;
+        int tapX = (int) tapPoint.x;
+        int tapY = (int) tapPoint.y;
         OCBaloesDeTexto *balao = [[OCBaloesDeTexto alloc] initWithText:@"Texto está aqui" andPosition:CGPointMake(tapX, tapY) andOrigin:CGPointMake(tapX, tapY)];
         _currentImage.image = [single imageByInsertingOrigemAtPoint:CGPointMake(tapX, tapY) forBalao:balao atIndex:(single.tirinhas.count - 1) andQuadro:(single.quadroAtual == 0 ? 2 : single.quadroAtual - 1)];
         [single salvarImagemNoDisco:_currentImage.image];
