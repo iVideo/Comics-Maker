@@ -115,12 +115,19 @@
 
 //Pegando tap para inserir os baloes
 - (IBAction)tap:(UITapGestureRecognizer *)sender {
+    int scaleTouch = 2;
     
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        scaleTouch = 1;
+    }
     
     if (_switchInserirBalao == 1) {
         CGPoint tapPoint = [sender locationInView:_currentImage];
-        int tapX = (int) tapPoint.x;
-        int tapY = (int) tapPoint.y;
+        
+        
+        
+        int tapX = (int) tapPoint.x * scaleTouch;
+        int tapY = (int) tapPoint.y * scaleTouch;
         OCBaloesDeTexto *balao = [[OCBaloesDeTexto alloc] initWithText:_texto andPosition:CGPointMake(tapX, tapY) andOrigin:CGPointMake(tapX, tapY)];
         _currentImage.image = [single imageByInsertingBalao:balao atIndex:(single.tirinhas.count - 1) andQuadro:(single.quadroAtual == 0 ? 2 : single.quadroAtual - 1)];
         [single salvarImagemNoDisco:_currentImage.image];
@@ -128,8 +135,10 @@
     }
     else if (_switchInserirBalao == 2) {
         CGPoint tapPoint = [sender locationInView:_currentImage];
-        int tapX = (int) tapPoint.x;
-        int tapY = (int) tapPoint.y;
+        
+        
+        int tapX = (int) tapPoint.x * scaleTouch;
+        int tapY = (int) tapPoint.y * scaleTouch;
         OCBaloesDeTexto *balao = [[OCBaloesDeTexto alloc] initWithText:@"Texto está aqui" andPosition:CGPointMake(tapX, tapY) andOrigin:CGPointMake(tapX, tapY)];
         _currentImage.image = [single imageByInsertingOrigemAtPoint:CGPointMake(tapX, tapY) forBalao:balao atIndex:(single.tirinhas.count - 1) andQuadro:(single.quadroAtual == 0 ? 2 : single.quadroAtual - 1)];
         [single salvarImagemNoDisco:_currentImage.image];
