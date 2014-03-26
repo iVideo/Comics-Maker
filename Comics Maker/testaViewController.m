@@ -34,6 +34,7 @@
     }
     else{
         [self performSegueWithIdentifier:@"tabela" sender:self];
+        // Estou na 2.0
     }
     
     [super viewDidLoad];
