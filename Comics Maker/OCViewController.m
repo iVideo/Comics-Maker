@@ -140,6 +140,18 @@
 
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"inicio do touch");
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"movendo");
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"fim do touch");
+}
+
 - (IBAction)inserirBalao:(id)sender {
     if (_switchInserirBalao == 0) {
         _switchInserirBalao = 1;
