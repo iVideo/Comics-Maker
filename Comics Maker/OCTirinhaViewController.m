@@ -26,24 +26,33 @@
 @synthesize join;
 @synthesize scrollView;
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+//}
+//
+//-(BOOL)shouldAutorotate
+//{
+//    return YES;
+//}
+//
+//-(NSUInteger)supportedInterfaceOrientations
+//{
+//    return UIInterfaceOrientationMaskLandscapeLeft;
+//}
 
--(BOOL)shouldAutorotate
-{
-    return YES;
-}
-
--(NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskLandscapeLeft;
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+        [join setFrame: CGRectMake(0, 170, 320, 108)];
+    }
+    else{
+        [join setFrame:CGRectMake(45, 143, 480, 162)];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft );
+    //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft );
     [[self navigationItem] setHidesBackButton:YES];
 }
 
@@ -54,7 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
+    //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
     [[self navigationItem] setHidesBackButton:YES];
     
     if (!tirinha) {
