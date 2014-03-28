@@ -8,6 +8,7 @@
 
 #import "OCViewController.h"
 #import "OCTirinhaViewController.h"
+#import "OCMontaTirinhaViewController.h"
 
 
 
@@ -17,14 +18,6 @@
 
 @implementation OCViewController
 @synthesize single;
-
--(void)viewDidAppear:(BOOL)animated{
-//    if (single.quadroAtual==1) {
-//        [[self navigationItem] setHidesBackButton:NO];
-//    }else{
-//        [[self navigationItem] setHidesBackButton:YES];
-//    }
-}
 
 - (void)viewDidLoad
 {
@@ -41,17 +34,16 @@
     
     single = [OCTirinhasSingleton sharedTirinhas];
     [_proximo setEnabled:NO];
-    if (single.quadroAtual==0) {
-        OCTirinha *tirinha = [[OCTirinha alloc]init];
-        [single addTirinha:tirinha];
-    }
-    single.quadroAtual++;
+//    if (single.quadroAtual==0) {
+//        OCTirinha *tirinha = [[OCTirinha alloc]init];
+//        [single addTirinha:tirinha];
+//    }
+//    single.quadroAtual++;
 }
 
 -(BOOL)shouldAutorotate{
     return NO;
 }
-
 
 - (IBAction)selecionar:(id)sender {
     UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Tipo de Imagem:" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Tirar Foto",@"Escolher da Biblioteca", nil];
@@ -94,15 +86,15 @@
     
     [_currentImage setImage:[single renderizarImagem:[info objectForKey:@"UIImagePickerControllerEditedImage"]]];
     [_proximo setEnabled:YES];
-    if (single.quadroAtual>=3) {
-        [single setQuadroAtual:0];
-        [self.concluido setHidden:NO];
-        [self.proximo setEnabled:NO];
-        [[self navigationItem] setTitle:@""];
-    }
-    else{
-        [self.concluido setHidden:YES];
-    }
+//    if (single.quadroAtual>=3) {
+//        [single setQuadroAtual:0];
+//        [self.concluido setHidden:NO];
+//        [self.proximo setEnabled:NO];
+//        [[self navigationItem] setTitle:@""];
+//    }
+//    else{
+//        [self.concluido setHidden:YES];
+//    }
 }
 
 
@@ -150,9 +142,9 @@
     }
 }
 - (IBAction)cancelar:(id)sender {
-    [[single tirinhas] removeLastObject];
-    OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
-    [self.navigationController pushViewController:table animated:YES];
+//    [[single tirinhas] removeLastObject];
+//    OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
+//    [self.navigationController pushViewController:table animated:YES];
 }
 
 @end

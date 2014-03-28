@@ -24,7 +24,7 @@
 - (id)initWithQuadros:(NSMutableArray *)quadros;
 - (void)replaceQuadroAtIndex:(NSUInteger)indice withQuadro:(OCQuadro *)quadro;
 - (void)setImage:(UIImage *)imagem forQuadroAtIndex:(NSUInteger)indice;
--(void)adicionaQuadroNoArrayDeQuadros: (OCQuadro *)quadro;
+-(void)adicionaQuadroNoArrayDeQuadros: (OCQuadro *)quadro noIndice: (NSInteger)indice;
 - (UIImage *)tirinhaCompleta;
 
 @end

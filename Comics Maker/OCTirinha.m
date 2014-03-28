@@ -65,11 +65,11 @@
     }
 }
 
--(void)adicionaQuadroNoArrayDeQuadros: (OCQuadro *)quadro{
+-(void)adicionaQuadroNoArrayDeQuadros: (OCQuadro *)quadro noIndice:(NSInteger)indice{
     if (quadros == Nil) {
         quadros = [[NSMutableArray alloc]init];
     }
-    [quadros addObject:quadro];
+    [quadros setObject:quadro atIndexedSubscript:indice];
 }
 
 - (UIImage *)tirinhaCompleta {

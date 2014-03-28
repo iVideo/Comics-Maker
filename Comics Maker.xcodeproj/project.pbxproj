@@ -45,6 +45,8 @@
 		AC599C9018D9C3B9007325B6 /* testaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC599C8F18D9C3B9007325B6 /* testaViewController.m */; };
 		AC62596118D1FA4D004D6F02 /* slr_camera_filled-256.png in Resources */ = {isa = PBXBuildFile; fileRef = AC62596018D1FA4D004D6F02 /* slr_camera_filled-256.png */; };
 		AC62596318D1FA66004D6F02 /* slr_camera_filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AC62596218D1FA66004D6F02 /* slr_camera_filled-50.png */; };
+		AC9074C518E4633300B09B9B /* OCMontaTirinhaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9074C418E4633300B09B9B /* OCMontaTirinhaViewController.m */; };
+		AC9074C918E4657500B09B9B /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9074C818E4657500B09B9B /* placeholder.png */; };
 		ACC3A3EC18CF4738003C7438 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC3A3EB18CF4738003C7438 /* Social.framework */; };
 		ACCBA18A18DC862300FC99D1 /* ok_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = ACCBA18918DC862300FC99D1 /* ok_logo.png */; };
 		AEAA9BF218D337AC00D33414 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAA9BF118D337AC00D33414 /* libsqlite3.0.dylib */; };
@@ -135,6 +137,9 @@
 		AC599C8F18D9C3B9007325B6 /* testaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testaViewController.m; sourceTree = "<group>"; };
 		AC62596018D1FA4D004D6F02 /* slr_camera_filled-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slr_camera_filled-256.png"; sourceTree = "<group>"; };
 		AC62596218D1FA66004D6F02 /* slr_camera_filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slr_camera_filled-50.png"; sourceTree = "<group>"; };
+		AC9074C318E4633300B09B9B /* OCMontaTirinhaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMontaTirinhaViewController.h; sourceTree = "<group>"; };
+		AC9074C418E4633300B09B9B /* OCMontaTirinhaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMontaTirinhaViewController.m; sourceTree = "<group>"; };
+		AC9074C818E4657500B09B9B /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		ACC3A3EB18CF4738003C7438 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		ACCBA18918DC862300FC99D1 /* ok_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_logo.png; sourceTree = "<group>"; };
 		AEAA9BF118D337AC00D33414 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -224,6 +229,8 @@
 				AC599C8C18D9BBB2007325B6 /* OCPrimeiraView.m */,
 				A2353EB118C0A95600440F0F /* OCViewController.h */,
 				A2353EB218C0A95600440F0F /* OCViewController.m */,
+				AC9074C318E4633300B09B9B /* OCMontaTirinhaViewController.h */,
+				AC9074C418E4633300B09B9B /* OCMontaTirinhaViewController.m */,
 				A2353ED118C0BFED00440F0F /* OCTableViewController.h */,
 				A2353ED218C0BFED00440F0F /* OCTableViewController.m */,
 				AEB2F68C18C8B5970073030D /* OCTirinhaViewController.h */,
@@ -313,6 +320,7 @@
 				AC4799C218DB0EDB008A90FA /* Tirinhas */,
 				AC62596218D1FA66004D6F02 /* slr_camera_filled-50.png */,
 				ACCBA18918DC862300FC99D1 /* ok_logo.png */,
+				AC9074C818E4657500B09B9B /* placeholder.png */,
 				AC62596018D1FA4D004D6F02 /* slr_camera_filled-256.png */,
 			);
 			name = Imagens;
@@ -433,6 +441,7 @@
 				A2353EB518C0A95600440F0F /* Images.xcassets in Resources */,
 				AC4799D218DB124D008A90FA /* IMG_1937.JPG in Resources */,
 				A2353EA718C0A95600440F0F /* InfoPlist.strings in Resources */,
+				AC9074C918E4657500B09B9B /* placeholder.png in Resources */,
 				AC62596318D1FA66004D6F02 /* slr_camera_filled-50.png in Resources */,
 				A2353EB018C0A95600440F0F /* Main.storyboard in Resources */,
 			);
@@ -455,6 +464,7 @@
 			files = (
 				AC599C9018D9C3B9007325B6 /* testaViewController.m in Sources */,
 				A2353ED618C0CC6600440F0F /* OCTirinha.m in Sources */,
+				AC9074C518E4633300B09B9B /* OCMontaTirinhaViewController.m in Sources */,
 				A2353EAD18C0A95600440F0F /* OCAppDelegate.m in Sources */,
 				A2976BA918D7184000D331EC /* OCMyImageView.m in Sources */,
 				A2353EA918C0A95600440F0F /* main.m in Sources */,

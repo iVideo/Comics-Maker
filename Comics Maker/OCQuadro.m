@@ -29,7 +29,8 @@
     if (self) {
         _texto = texto;
         OCTirinhasSingleton *t = [OCTirinhasSingleton sharedTirinhas];
-        [t addTirinha:self];
+        //[t addTirinha:self];
+        //[[[[t tirinhas] lastObject] quadros] addObject:self];
     }
     return self;
 }
@@ -40,10 +41,19 @@
 }
 
 - (UIImage *)imagem {
-    NSString *path = [@"/Documents/" stringByAppendingString:_key];
-    path = [NSHomeDirectory() stringByAppendingString:path];
-    NSFileHandle* myFileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
-    UIImage *loadedImage = [UIImage imageWithData:[myFileHandle readDataToEndOfFile]];
+    UIImage *loadedImage;
+    @try
+    {
+        NSString *path = [@"/Documents/" stringByAppendingString:_key];
+        path = [NSHomeDirectory() stringByAppendingString:path];
+        NSFileHandle* myFileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
+        loadedImage = [UIImage imageWithData:[myFileHandle readDataToEndOfFile]];
+    }
+    @catch(NSException *e)
+    {
+        loadedImage = [UIImage imageNamed:@"placeholder"];
+    }
+    
     return loadedImage;
 }
 

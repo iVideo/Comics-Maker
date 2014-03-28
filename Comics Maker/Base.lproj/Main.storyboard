@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Nova Tirinha-->
+        <!--View Controller - Novo Quadro-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController storyboardIdentifier="novaTirinha" id="vXZ-lx-hvc" customClass="OCViewController" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3l9-KV-utL">
-                                <rect key="frame" x="0.0" y="156" width="320" height="258"/>
+                                <rect key="frame" x="0.0" y="156" width="320" height="370"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="slr_camera_filled-50.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,26 +26,14 @@
                                     <action selector="selecionar:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="v1k-Fg-1z6"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LZo-xK-Xkg">
-                                <rect key="frame" x="8" y="132.5" width="305" height="305"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="LZo-xK-Xkg">
+                                <rect key="frame" x="8" y="133" width="305" height="384"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Bm9-h9-jwK" appends="YES" id="Hb1-xH-h1S"/>
                                 </connections>
                             </imageView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-qN-M5S">
-                                <rect key="frame" x="130" y="448" width="60" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.91605839416058399" green="1" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="ok_logo.png">
-                                    <color key="titleColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="zQv-ir-lhA" kind="push" id="gQ1-nc-HB9"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="46J-B3-dpt">
                                 <rect key="frame" x="150" y="252" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -76,24 +64,25 @@
                         </connections>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Nova Tirinha" id="Huk-rh-NCT">
+                    <navigationItem key="navigationItem" title="Novo Quadro" id="Huk-rh-NCT">
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="FbQ-dY-ONK">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancelar:" destination="vXZ-lx-hvc" id="ZSf-NZ-Q5E"/>
+                                <segue destination="xyr-bp-7Wq" kind="push" id="yIM-Eb-ZB0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Próximo" id="6jb-dO-J0g">
+                        <barButtonItem key="rightBarButtonItem" title="Concluído" id="6jb-dO-J0g">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="push" id="K86-qU-rw8"/>
+                                <action selector="concluido:" destination="vXZ-lx-hvc" id="6L3-8x-cJF"/>
+                                <segue destination="xyr-bp-7Wq" kind="push" id="jBZ-6X-f5d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="botaoInserirBalao" destination="ugq-Fs-1tN" id="cmk-1b-v6g"/>
-                        <outlet property="concluido" destination="AA5-qN-M5S" id="3dO-kx-E7V"/>
                         <outlet property="currentImage" destination="LZo-xK-Xkg" id="XP0-i7-x4E"/>
                         <outlet property="gesture" destination="Bm9-h9-jwK" id="NQm-FA-yY3"/>
                         <outlet property="loading" destination="46J-B3-dpt" id="u4x-EP-4zu"/>
@@ -110,12 +99,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="532" y="-818"/>
+            <point key="canvasLocation" x="473" y="-364"/>
         </scene>
-        <!--View Controller-->
+        <!--Monta Tirinha View Controller - Quadros-->
         <scene sceneID="8lj-QV-JJg">
             <objects>
-                <viewController id="xyr-bp-7Wq" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="montaTirinha" id="xyr-bp-7Wq" customClass="OCMontaTirinhaViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lsq-ZM-AIG"/>
                         <viewControllerLayoutGuide type="bottom" id="ewp-dP-GtF"/>
@@ -123,12 +112,103 @@
                     <view key="view" contentMode="scaleToFill" id="PpD-QZ-rRQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HUP-kx-fgM">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <items/>
+                                <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="eq5-9F-cnj">
+                                <rect key="frame" x="1" y="234" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="VIT-uA-SNL">
+                                <rect key="frame" x="110" y="234" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="vkt-5o-nff">
+                                <rect key="frame" x="219" y="234" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvB-vU-0QO">
+                                <rect key="frame" x="1" y="234" width="100" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="botaoQuadro1:" destination="xyr-bp-7Wq" eventType="touchUpInside" id="dua-M0-es1"/>
+                                    <segue destination="vXZ-lx-hvc" kind="push" id="qcF-KS-Nbl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNR-Gr-tOa">
+                                <rect key="frame" x="110" y="234" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="botaoQuadro2:" destination="xyr-bp-7Wq" eventType="touchUpInside" id="0GN-q5-rH3"/>
+                                    <segue destination="vXZ-lx-hvc" kind="push" id="Nej-ih-Pxx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55z-xc-6k8">
+                                <rect key="frame" x="218" y="234" width="101" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="botaoQuadro3:" destination="xyr-bp-7Wq" eventType="touchUpInside" id="4gL-cB-WKX"/>
+                                    <segue destination="vXZ-lx-hvc" kind="push" id="0IL-uX-UhJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Quadros" id="12L-Gm-cVB">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="N9y-Lr-ccq">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="i5r-2l-ENp">
+                                <rect key="frame" x="16" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelar:" destination="xyr-bp-7Wq" eventType="touchUpInside" id="EBE-cK-eJ6"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Concluído" style="plain" id="eo9-ka-8wZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7mQ-cD-9vA">
+                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Concluído">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="zQv-ir-lhA" kind="push" id="ck8-17-LEw"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="botaoQuadro2" destination="ZNR-Gr-tOa" id="5Ja-zq-9EB"/>
+                        <outlet property="botaoQuadro3" destination="55z-xc-6k8" id="DR1-M1-tgZ"/>
+                        <outlet property="quadro1" destination="eq5-9F-cnj" id="e2f-to-oas"/>
+                        <outlet property="quadro2" destination="VIT-uA-SNL" id="9sl-bV-206"/>
+                        <outlet property="quadro3" destination="vkt-5o-nff" id="jTs-ik-QP7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7K-RZ-FTq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="532" y="-166"/>
+            <point key="canvasLocation" x="473" y="-1080"/>
         </scene>
         <!--Tirinha View Controller-->
         <scene sceneID="oXj-eh-V86">
@@ -276,7 +356,8 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="f9Z-3A-ddA">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="push" id="wkh-YW-sCT"/>
+                                <action selector="novo:" destination="7ox-7x-0pS" id="s8D-8s-4bL"/>
+                                <segue destination="xyr-bp-7Wq" kind="push" id="UKd-xJ-Nz4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -381,7 +462,7 @@
         <image name="IMG_1935.JPG" width="1152" height="640"/>
         <image name="IMG_1936.JPG" width="1152" height="640"/>
         <image name="IMG_1937.JPG" width="1152" height="640"/>
-        <image name="ok_logo.png" width="616" height="649"/>
+        <image name="placeholder.png" width="300" height="300"/>
         <image name="slr_camera_filled-50.png" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -390,6 +471,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wkh-YW-sCT"/>
+        <segue reference="jBZ-6X-f5d"/>
+        <segue reference="Nej-ih-Pxx"/>
     </inferredMetricsTieBreakers>
 </document>
