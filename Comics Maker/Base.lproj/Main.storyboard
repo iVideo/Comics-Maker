@@ -59,9 +59,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4uX-WR-QnP">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.32941177490000001" green="0.40392160420000001" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
                                 <items/>
-                                <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.32941177490000001" green="0.40392160420000001" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
@@ -123,9 +123,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HUP-kx-fgM">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.32941177490000001" green="0.40392160420000001" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
                                 <items/>
-                                <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.32941177490000001" green="0.40392160420000001" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="eq5-9F-cnj">
                                 <rect key="frame" x="1" y="234" width="100" height="100"/>
@@ -173,7 +173,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Quadros" id="12L-Gm-cVB">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="N9y-Lr-ccq">
@@ -232,7 +232,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUC-DE-OH2">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.32941177490000001" green="0.40392160420000001" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="Bv7-jX-e7G">
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -241,7 +241,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.32941177490000001" green="0.40392160420000001" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gO2-rF-0ry">
                                 <rect key="frame" x="0.0" y="230" width="320" height="108"/>
@@ -252,7 +252,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="gUC-DE-OH2" secondAttribute="bottom" id="1uk-Hk-DtU"/>
                             <constraint firstAttribute="trailing" secondItem="gUC-DE-OH2" secondAttribute="trailing" id="iA9-7j-J4a"/>
@@ -263,7 +263,7 @@
                     <navigationItem key="navigationItem" id="6ct-Dl-46e">
                         <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="8e4-Zh-JTF">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RFB-Ub-7z4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RFB-Ub-7z4">
                                 <rect key="frame" x="178" y="5" width="126" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
@@ -353,9 +353,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="edit" destination="kyo-ze-6xi" id="KJe-q6-cR6"/>
+                        <outlet property="searchDisplayController" destination="tYm-s6-wFp" id="FRy-Rm-G2C"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWE-nV-ebY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="tYm-s6-wFp">
+                    <connections>
+                        <outlet property="delegate" destination="7ox-7x-0pS" id="pVf-u9-KZi"/>
+                        <outlet property="searchContentsController" destination="7ox-7x-0pS" id="5s5-QL-HQs"/>
+                        <outlet property="searchResultsDataSource" destination="7ox-7x-0pS" id="cfI-ei-0cf"/>
+                        <outlet property="searchResultsDelegate" destination="7ox-7x-0pS" id="aTE-xu-c97"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-16" y="-1080"/>
         </scene>
@@ -369,7 +378,7 @@
                     </toolbarItems>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PAF-es-ZPW">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.32941177487373352" green="0.40392160415649414" blue="0.42352944612503052" alpha="1" colorSpace="deviceRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -435,7 +444,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.32941177490000001" green="0.40392160420000001" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="LA0-qg-X6g"/>
                 </viewController>
@@ -461,7 +470,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="yIM-Eb-ZB0"/>
         <segue reference="Nej-ih-Pxx"/>
-        <segue reference="jBZ-6X-f5d"/>
     </inferredMetricsTieBreakers>
 </document>

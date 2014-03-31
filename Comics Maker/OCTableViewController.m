@@ -22,6 +22,7 @@
 @interface OCTableViewController ()
 @property NSInteger index;
 @property NSString *tituloTable;
+@property UISearchBar *search;
 @end
 
 @implementation OCTableViewController
@@ -47,19 +48,78 @@
     
     [[self navigationController] setDelegate:self];
     [[self tableView] setAllowsMultipleSelection:YES];
-
+    _search = [[UISearchBar alloc]init];
+    [_search setDelegate:self];
+    
     //Pegando instancia unica do singleton para usar por todo o .m    
     single = [OCTirinhasSingleton sharedTirinhas];
     data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
     [single setNovaTirinha:YES];
 }
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return _search;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 38;
+}
+
 -(void)viewDidAppear:(BOOL)animated{
-    single.quadroAtual=0;
+    single.quadroAtual = 0;
 }
 
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+//    NSLog(@"tentando localizar");
+//    NSString *string = @"hello bla bla";
+//    
+//    if ([string rangeOfString:@"bla"].location == NSNotFound) {
+//        NSLog(@"string does not contain bla");
+//    } else {
+//        NSLog(@"string contains bla!");
+//    }
+    
+}
+
+-(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    return YES;
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+    for (int i = 0; i<single.tirinhas.count; i++) {
+        
+        if ([[searchBar text] caseInsensitiveCompare:[[[single tirinhas] objectAtIndex:i] titulo]]) {
+            NSLog(@"Case Insensitive");
+        }
+        
+        if ([[searchBar text] rangeOfString:[[[single tirinhas] objectAtIndex:i] titulo]].location == NSNotFound) {
+
+        }else{
+            NSLog(@"range");
+        }
+        
+        if ([[searchBar text] isEqualToString:[[[single tirinhas] objectAtIndex:i] titulo]]) {
+            NSLog(@"is equal");
+        }
+        
+        if (![[searchBar text] compare:[[[single tirinhas] objectAtIndex:i] titulo] options:NSLiteralSearch]) {
+            NSLog(@"compare");
+        }
+        
+        
+    }
+    
 }
 
 #pragma mark - Table view data source
@@ -107,7 +167,6 @@
 
 - (IBAction)edit:(id)sender
 {
-    
     if ([[self tableView] isEditing]) {
         [[self tableView] setEditing:NO];
         [_edit setTitle:@"Editar" forState:UIControlStateNormal];
