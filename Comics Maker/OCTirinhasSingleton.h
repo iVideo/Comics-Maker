@@ -18,6 +18,8 @@
 @property (strong, nonatomic) OCTirinha *tirinhaAtual;
 @property (nonatomic) NSInteger quadroAtual;
 @property (strong, nonatomic) OCBaloesDeTexto *balaoAtual;
+@property (strong, nonatomic) NSIndexPath *linhaDaTabela;
+@property (nonatomic) BOOL novaTirinha;
 
 + (id)sharedTirinhas;
 - (void)addTirinha:(NSObject *)tirinha;

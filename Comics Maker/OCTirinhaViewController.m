@@ -26,24 +26,33 @@
 @synthesize join;
 @synthesize scrollView;
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft);
+//}
+//
+//-(BOOL)shouldAutorotate
+//{
+//    return YES;
+//}
+//
+//-(NSUInteger)supportedInterfaceOrientations
+//{
+//    return UIInterfaceOrientationMaskLandscapeLeft;
+//}
 
--(BOOL)shouldAutorotate
-{
-    return YES;
-}
-
--(NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskLandscapeLeft;
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+        [join setFrame: CGRectMake(0, 230, 320, 108)];
+    }
+    else{
+        [join setFrame:CGRectMake(0, 70, 570, 190)];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft );
+    //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft );
     [[self navigationItem] setHidesBackButton:YES];
 }
 
@@ -54,7 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
+    //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
     [[self navigationItem] setHidesBackButton:YES];
     
     if (!tirinha) {
@@ -71,11 +80,8 @@
         [self insereTitulo];
     }
     else{
-        //testaViewController *testa = [[testaViewController alloc]init];
         OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
         [self.navigationController pushViewController:table animated:YES];
-        //[self performSegueWithIdentifier:@"tabela" sender:self];
-        //[self.navigationController setViewControllers:[[NSArray alloc] initWithObjects:testa,nil]animated:YES];
         
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:sing];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
@@ -104,7 +110,7 @@
 }
 
 -(void)insereTitulo{
-    myAlertView = [[UIAlertView alloc]initWithTitle:@"Informe um nome:" message:nil delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Ok", nil];
+    myAlertView = [[UIAlertView alloc]initWithTitle:@"Informe um título:" message:nil delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Ok", nil];
     [myAlertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [myAlertView show];
 }

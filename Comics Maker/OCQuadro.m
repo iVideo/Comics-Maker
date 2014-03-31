@@ -38,7 +38,8 @@
     if (self) {
         _texto = texto;
         OCTirinhasSingleton *t = [OCTirinhasSingleton sharedTirinhas];
-        [t addTirinha:self];
+        //[t addTirinha:self];
+        //[[[[t tirinhas] lastObject] quadros] addObject:self];
     }
     return self;
 }

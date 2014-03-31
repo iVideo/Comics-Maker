@@ -25,6 +25,7 @@
 - (id)init {
     self = [super init];
     self.tirinhas = [[NSMutableArray alloc] init];
+    self.novaTirinha = NO;
     self.quadroAtual = 0;
     
     return self;
@@ -73,7 +74,7 @@
             //[quadro addImagem:_currentImage.image andTexto:nil andKey:[NSString stringWithFormat:@"tirinha_%d_quadro_%d.png", single.tirinhas.count - 1, single.quadroAtual != 0 ? single.quadroAtual - 1 : 2]];
             [quadro addTexto:nil andKey:[NSString stringWithFormat:@"tirinha_%d_quadro_%d.jpg", self.tirinhas.count - 1, self.quadroAtual != 0 ? self.quadroAtual - 1 : 2]];
             OCTirinha *t = [[self tirinhas] lastObject];
-            [t adicionaQuadroNoArrayDeQuadros:quadro];
+            [t adicionaQuadroNoArrayDeQuadros:quadro noIndice:self.quadroAtual];
 
     [self salvarImagemNoDisco:filteredImage];
     return filteredImage;

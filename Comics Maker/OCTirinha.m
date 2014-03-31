@@ -69,7 +69,7 @@
     if (quadros == nil) {
         quadros = [[NSMutableArray alloc]init];
     }
-    [quadros addObject:quadro];
+    [quadros setObject:quadro atIndexedSubscript:indice];
 }
 
 - (UIImage *)tirinhaCompleta {
@@ -119,7 +119,7 @@
 - (UIImage *)tirinhaPequena {
     
     if (!_tirinhaPequena) {
-        _tirinhaPequena =[self imageWithImage:[self tirinhaCompleta] scaledToSize:CGSizeMake(115, 39)];
+        _tirinhaPequena = [self imageWithImage:[self tirinhaCompleta] scaledToSize:CGSizeMake(115, 39)];
     }
     
     return _tirinhaPequena;

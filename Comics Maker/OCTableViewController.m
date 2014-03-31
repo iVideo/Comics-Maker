@@ -50,18 +50,13 @@
 
     //Pegando instancia unica do singleton para usar por todo o .m    
     single = [OCTirinhasSingleton sharedTirinhas];
-    
     data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [single setNovaTirinha:YES];
 }
 -(void)viewDidAppear:(BOOL)animated{
     single.quadroAtual=0;
 }
+
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
@@ -151,6 +146,9 @@
         }
     }
 }
+- (IBAction)novo:(id)sender {
+    //[single setNovaTirinha:YES];
+}
 
 -(void)deletaTodasTirinhas{
     UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Deletar Todas As Tirinhas", nil];
@@ -178,6 +176,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [single setLinhaDaTabela:indexPath];
+    [single setNovaTirinha:NO];
     OCTirinhaViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"TirinhaViewController"];
     [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:tirinha, nil] animated:YES];
     [[tirinha botaoConcluido] setTitle:@"Ok" forState:UIControlStateNormal];
