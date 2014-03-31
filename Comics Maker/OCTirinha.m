@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
-#import "OCTirinha.h"
 #import "OCTirinhasSingleton.h"
 #import "OCQuadro.h"
+#import "OCTirinha.h"
 
 @implementation OCTirinha
 @synthesize quadros;
@@ -66,7 +66,7 @@
 }
 
 -(void)adicionaQuadroNoArrayDeQuadros: (OCQuadro *)quadro{
-    if (quadros == Nil) {
+    if (quadros == nil) {
         quadros = [[NSMutableArray alloc]init];
     }
     [quadros addObject:quadro];

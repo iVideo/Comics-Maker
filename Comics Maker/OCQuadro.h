@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "OCBaloesDeTexto.h"
+#import "OCTirinhasSingleton.h"
 
 @interface OCQuadro : NSObject <NSCoding>
 

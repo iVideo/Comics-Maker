@@ -92,11 +92,12 @@
     
     // testar se é lateral ou não. Caso a origem seja lateral, igualar a x ou a x + width e usar (y + height / 2)
     
-    CGContextMoveToPoint(ctx, (_balaoAtual.inicio.x + _balaoAtual.width / 2) - 15, _balaoAtual.inicio.y > point.y ? _balaoAtual.inicio.y + 7 : _balaoAtual.inicio.y + _balaoAtual.height - 7);
+    CGContextMoveToPoint(ctx, (_balaoAtual.inicio.x + _balaoAtual.width / 2) - 15, _balaoAtual.inicio.y > point.y ? _balaoAtual.inicio.y + 3 : _balaoAtual.inicio.y + _balaoAtual.height - 3);
     CGContextAddLineToPoint(ctx, point.x, point.y);
-    CGContextAddLineToPoint(ctx, (_balaoAtual.inicio.x + _balaoAtual.width / 2) + 15, _balaoAtual.inicio.y > point.y ? _balaoAtual.inicio.y + 7 : _balaoAtual.inicio.y + _balaoAtual.height - 7);
+    CGContextAddLineToPoint(ctx, (_balaoAtual.inicio.x + _balaoAtual.width / 2) + 15, _balaoAtual.inicio.y > point.y ? _balaoAtual.inicio.y + 3 : _balaoAtual.inicio.y + _balaoAtual.height - 3);
     CGContextClosePath(ctx);
     CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
+    CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
     CGContextFillPath(ctx);
     CGContextStrokePath(ctx);
     

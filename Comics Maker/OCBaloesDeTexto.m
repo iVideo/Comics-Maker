@@ -35,6 +35,16 @@
     return balaoCompleto;
 }
 
+- (NSUInteger)width {
+    int width = _texto.length < 50 ? _texto.length * 10 : 400;
+    return width > 200 ? width : 200;
+}
+
+- (NSUInteger)height {
+    int height = (_texto.length / 50 + 1) * 50;
+    return height > 100 ? height : 100;
+}
+
 
 
 @end

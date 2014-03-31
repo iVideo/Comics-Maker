@@ -10,10 +10,12 @@
 #import <GPUImage.h>
 #import "OCBaloesDeTexto.h"
 
+@class OCTirinha;
 
 @interface OCTirinhasSingleton : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSMutableArray *tirinhas;
+@property (strong, nonatomic) OCTirinha *tirinhaAtual;
 @property (nonatomic) NSInteger quadroAtual;
 @property (strong, nonatomic) OCBaloesDeTexto *balaoAtual;
 

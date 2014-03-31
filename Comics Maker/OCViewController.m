@@ -13,6 +13,9 @@
 
 @interface OCViewController ()
 @property NSInteger contador;
+@property OCBaloesDeTexto *balaoSelecionado;
+@property BOOL movendoBalao;
+@property CGPoint novaOrigem;
 @end
 
 @implementation OCViewController
@@ -30,6 +33,7 @@
 {
     [super viewDidLoad];
     [_textoBalao setDelegate:self];
+    _textoBalao.placeholder = @"Digite um texto para o balão";
     
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [[[self navigationController] navigationBar] setHidden:NO];
@@ -42,7 +46,7 @@
     single = [OCTirinhasSingleton sharedTirinhas];
     [_proximo setEnabled:NO];
     if (single.quadroAtual==0) {
-        OCTirinha *tirinha = [[OCTirinha alloc]init];
+        OCTirinha *tirinha = [[OCTirinha alloc] init];
         [single addTirinha:tirinha];
     }
     single.quadroAtual++;
@@ -85,6 +89,14 @@
 
 }
 
+- (BOOL)point:(CGPoint)local isOverBalao:(OCBaloesDeTexto *)b {
+    if (local.x >= b.inicio.x && local.x <= b.inicio.x + b.width &&
+        local.y >= b.inicio.y && local.y <= b.inicio.y + b.height) {
+        return YES;
+    }
+    return NO;
+}
+
 
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
@@ -110,54 +122,102 @@
     _texto = _textoBalao.text;
     [textField resignFirstResponder];
     [_botaoInserirBalao setHidden:NO];
-    [_textoBalao setHidden:YES];
     return YES;
 }
 
 
 //Pegando tap para inserir os baloes
 - (IBAction)tap:(UITapGestureRecognizer *)sender {
-    int scaleTouch = 2;
-    
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        scaleTouch = 1;
-    }
-    
-    if (_switchInserirBalao == 1) {
-        CGPoint tapPoint = [sender locationInView:_currentImage];
-        
-        
-        
-        int tapX = (int) tapPoint.x * scaleTouch;
-        int tapY = (int) tapPoint.y * scaleTouch;
-        OCBaloesDeTexto *balao = [[OCBaloesDeTexto alloc] initWithText:_texto andPosition:CGPointMake(tapX, tapY) andOrigin:CGPointMake(tapX, tapY)];
-        _currentImage.image = [single imageByInsertingBalao:balao atIndex:(single.tirinhas.count - 1) andQuadro:(single.quadroAtual == 0 ? 2 : single.quadroAtual - 1)];
-        [single salvarImagemNoDisco:_currentImage.image];
-        [_botaoInserirBalao setTitle:@"Inserir origem" forState:UIControlStateNormal];
-    }
-    else if (_switchInserirBalao == 2) {
-        CGPoint tapPoint = [sender locationInView:_currentImage];
-        
-        
-        int tapX = (int) tapPoint.x * scaleTouch;
-        int tapY = (int) tapPoint.y * scaleTouch;
-        OCBaloesDeTexto *balao = [[OCBaloesDeTexto alloc] initWithText:@"Texto está aqui" andPosition:CGPointMake(tapX, tapY) andOrigin:CGPointMake(tapX, tapY)];
-        _currentImage.image = [single imageByInsertingOrigemAtPoint:CGPointMake(tapX, tapY) forBalao:balao atIndex:(single.tirinhas.count - 1) andQuadro:(single.quadroAtual == 0 ? 2 : single.quadroAtual - 1)];
-        [single salvarImagemNoDisco:_currentImage.image];
-        [_botaoInserirBalao setTitle:@"" forState:UIControlStateNormal];
-    }
 
+    CGPoint tapPoint = [sender locationInView:_currentImage];
+    
+    if (tapPoint.y < 0 || tapPoint.y > 300) {
+        return;
+    }
+    
+    BOOL acrescentar = YES;
+    OCTirinha *t = [single.tirinhas lastObject];
+    OCQuadro *q = t.quadros[single.quadroAtual - 1];
+    OCBaloesDeTexto *b = [[OCBaloesDeTexto alloc] initWithText:_texto andPosition:CGPointMake(tapPoint.x, tapPoint.y) andOrigin:CGPointMake(tapPoint.x, tapPoint.y)];
+    for (OCBaloesDeTexto *bl in q.baloes) {
+        if ([self point:tapPoint isOverBalao:bl]) {
+            [q.baloes removeObject:bl];
+            acrescentar = NO;
+            break;
+        }
+    }
+    if (acrescentar) {
+        [q.baloes addObject:b];
+    }
+    
+    _currentImage.image = q.imagem;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint local = [touch locationInView:_currentImage];
+    
+    OCTirinha *t = [single.tirinhas lastObject];
+    OCQuadro *q = t.quadros[single.quadroAtual - 1];
+    _movendoBalao = NO;
+    for (OCBaloesDeTexto *b in q.baloes) {
+        if ([self point:local isOverBalao:b]) {
+            _balaoSelecionado = b;
+            _movendoBalao = YES;
+        }
+    }
+    
+    _novaOrigem = local;
+    
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    OCTirinha *t = [single.tirinhas lastObject];
+    OCQuadro *q = t.quadros[single.quadroAtual - 1];
+    
+    if (_movendoBalao) {
+        UITouch *t = [touches anyObject];
+        CGPoint location = [t locationInView:_currentImage];
+        
+        _balaoSelecionado.inicio = location;
+        _currentImage.image = q.imagem;
+        
+        [_currentImage setNeedsDisplay];
+
+    }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint l = [touch locationInView:_currentImage];
+    
+    OCTirinha *t = [single.tirinhas lastObject];
+    OCQuadro *q = t.quadros[single.quadroAtual - 1];
+    
+    if (!_movendoBalao) {
+        for (OCBaloesDeTexto *b in q.baloes) {
+            if ([self point:l isOverBalao:b]) {
+                b.origem = l;
+            }
+        }
+    }
+    
+    [_currentImage setNeedsDisplay];
 }
 
 - (IBAction)inserirBalao:(id)sender {
     if (_switchInserirBalao == 0) {
         _switchInserirBalao = 1;
-    } else if (_switchInserirBalao == 1){
-        _switchInserirBalao = 2;
+        [_botaoInserirBalao setTitle:@"Inserir Origem" forState:UIControlStateNormal];
     } else {
         _switchInserirBalao = 0;
+        [_botaoInserirBalao setTitle:@"Inserir Balões" forState:UIControlStateNormal];
     }
+    NSLog(@"%d", _switchInserirBalao);
 }
+
 - (IBAction)cancelar:(id)sender {
     [[single tirinhas] removeLastObject];
     OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];

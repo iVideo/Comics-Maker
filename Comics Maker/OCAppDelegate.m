@@ -7,8 +7,8 @@
 //
 
 #import "OCAppDelegate.h"
-#import "OCTirinhasSingleton.h"
 #import "OCTableViewController.h"
+//#import "OCTirinhasSingleton.h"
 #import "OCPrimeiraView.h"
 
 @implementation OCAppDelegate
