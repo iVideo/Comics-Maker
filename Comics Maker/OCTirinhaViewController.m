@@ -52,7 +52,6 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft );
     [[self navigationItem] setHidesBackButton:YES];
 }
 
@@ -63,7 +62,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
     [[self navigationItem] setHidesBackButton:YES];
     
     if (!tirinha) {
@@ -81,8 +79,8 @@
     }
     else{
         OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
-        [self.navigationController pushViewController:table animated:YES];
-        
+        //[[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:table, nil] animated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:sing];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
         
