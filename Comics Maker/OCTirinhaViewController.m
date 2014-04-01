@@ -78,9 +78,15 @@
         [self insereTitulo];
     }
     else{
+        
+        NSLog(@"%@", [self.navigationController viewControllers]);
+        
         OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
-        //[[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:table, nil] animated:YES];
-        [self.navigationController popViewControllerAnimated:YES];
+        [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:table, nil] animated:YES];
+        //[self.navigationController popViewControllerAnimated:YES];
+        
+        
+        
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:sing];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
         

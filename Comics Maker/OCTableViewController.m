@@ -239,10 +239,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (tableView == self.searchDisplayController.searchResultsTableView)
-    {
-        [self performSegueWithIdentifier: @"visualizar" sender: self];//showRecipeDetail
-    }
+//    if (tableView == self.searchDisplayController.searchResultsTableView)
+//    {
+//        [self performSegueWithIdentifier: @"visualizar" sender: self];//showRecipeDetail
+//    }
 //    [single setLinhaDaTabela:indexPath];
 //    [single setNovaTirinha:NO];
 //    OCTirinhaViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"TirinhaViewController"];
@@ -261,6 +261,8 @@
     if ([segue.identifier isEqualToString:@"visualizar"]) {
         NSIndexPath *indexPath = nil;
         OCTirinha *tira = nil;
+        NSLog(@"%@", [self.navigationController viewControllers]);
+        NSLog(@"%@", segue.identifier);
         
         if (self.searchDisplayController.active) {
             indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
