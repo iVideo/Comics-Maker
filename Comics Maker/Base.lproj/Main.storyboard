@@ -283,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sro-he-LW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040" y="-818"/>
+            <point key="canvasLocation" x="1098" y="-818"/>
         </scene>
         <!--Testa View Controller-->
         <scene sceneID="4PI-x3-akd">
@@ -498,8 +498,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="phx-S7-hkS"/>
-        <segue reference="Nej-ih-Pxx"/>
         <segue reference="OdL-rx-Tib"/>
+        <segue reference="jBZ-6X-f5d"/>
+        <segue reference="Nej-ih-Pxx"/>
     </inferredMetricsTieBreakers>
 </document>
