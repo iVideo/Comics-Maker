@@ -206,6 +206,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="botaoQuadro1" destination="rvB-vU-0QO" id="B63-zS-zxG"/>
                         <outlet property="botaoQuadro2" destination="ZNR-Gr-tOa" id="5Ja-zq-9EB"/>
                         <outlet property="botaoQuadro3" destination="55z-xc-6k8" id="DR1-M1-tgZ"/>
                         <outlet property="quadro1" destination="eq5-9F-cnj" id="e2f-to-oas"/>
@@ -498,8 +499,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OdL-rx-Tib"/>
-        <segue reference="jBZ-6X-f5d"/>
+        <segue reference="ck8-17-LEw"/>
+        <segue reference="yIM-Eb-ZB0"/>
         <segue reference="Nej-ih-Pxx"/>
     </inferredMetricsTieBreakers>
 </document>

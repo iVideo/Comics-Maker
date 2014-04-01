@@ -22,7 +22,6 @@
 @interface OCTableViewController ()
 @property NSInteger index;
 @property NSString *tituloTable;
-@property BOOL iePesquisa;
 @property NSArray *resultados;
 @end
 
