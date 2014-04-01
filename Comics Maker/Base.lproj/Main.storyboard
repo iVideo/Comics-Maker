@@ -498,8 +498,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OdL-rx-Tib"/>
-        <segue reference="UKd-xJ-Nz4"/>
+        <segue reference="phx-S7-hkS"/>
         <segue reference="Nej-ih-Pxx"/>
+        <segue reference="OdL-rx-Tib"/>
     </inferredMetricsTieBreakers>
 </document>

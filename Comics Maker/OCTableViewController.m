@@ -100,7 +100,6 @@
         return [self.resultados count];
         
     }
-    
     // Return the number of rows in the section.
     return [[single tirinhas] count];
 }
@@ -132,7 +131,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Display recipe in the table cell
     OCTirinha *tira = nil;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         tira = [self.resultados objectAtIndex:indexPath.row];
@@ -144,27 +142,6 @@
     [[cell imageView] setImage:[tira tirinhaPequena]];
     
     return cell;
-    
-    
-    
-    //---------------
-//    static NSString *CellIdentifier = @"Cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    
-//    OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
-//    
-//    
-//    if (tableView == self.searchDisplayController.searchResultsTableView) {
-//        tira = [self.resultados objectAtIndex:indexPath.row];
-//    } else {
-//        tira = [[single tirinhas]objectAtIndex:[indexPath row]];
-//    }
-//    
-//    
-//    [[cell textLabel] setText:[tira titulo]];
-//    [[cell imageView] setImage:[tira tirinhaPequena]];
-//    
-//    return cell;
 }
 
 - (IBAction)edit:(id)sender
@@ -234,28 +211,6 @@
     }
 }
 
-
-
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-//    if (tableView == self.searchDisplayController.searchResultsTableView)
-//    {
-//        [self performSegueWithIdentifier: @"visualizar" sender: self];//showRecipeDetail
-//    }
-//    [single setLinhaDaTabela:indexPath];
-//    [single setNovaTirinha:NO];
-//    OCTirinhaViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"TirinhaViewController"];
-//    [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:tirinha, nil] animated:YES];
-//    [[tirinha botaoConcluido] setTitle:@"Ok" forState:UIControlStateNormal];
-//
-//    OCTirinha *tira = [[single tirinhas] objectAtIndex:[indexPath row]];
-//    tirinha.tirinha = tira;
-//    [[tirinha navigationItem] setTitle: [tira titulo]];
-
-    
-    
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"visualizar"]) {
