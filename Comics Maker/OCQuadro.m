@@ -50,14 +50,20 @@
 }
 
 - (UIImage *)imagem {
-    NSString *path = [@"/Documents/" stringByAppendingString:_key];
-    path = [NSHomeDirectory() stringByAppendingString:path];
-    NSFileHandle* myFileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
-    UIImage *loadedImage = [UIImage imageWithData:[myFileHandle readDataToEndOfFile]];
+    UIImage *loadedImage;
+    @try
+    {
+        NSString *path = [@"/Documents/" stringByAppendingString:_key];
+        path = [NSHomeDirectory() stringByAppendingString:path];
+        NSFileHandle* myFileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
+        loadedImage = [self drawBaloesDeTexto:[UIImage imageWithData:[myFileHandle readDataToEndOfFile]]];
+    }
+    @catch(NSException *e)
+    {
+        loadedImage = [UIImage imageNamed:@"placeholder"];
+    }
     
-    return [self drawBaloesDeTexto:loadedImage];
-    
-    //return loadedImage;
+    return loadedImage;
 }
 
 - (UIImage *)drawBaloesDeTexto:(UIImage *)imagem {
@@ -112,16 +118,51 @@
                               NSParagraphStyleAttributeName, paragraphStyle,
                               nil];
         CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
+            CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
         CGContextFillEllipseInRect(ctx, balaoRect);
         [b.texto drawInRect:CGRectMake(x + width * 0.2, y + height * 0.2, width * 0.6, height * 0.6) withAttributes:atts];
             
-    /*
+            // ajustando a origem
+            int fimOrigemY = b.inicio.y * 2 + height;
+            int fimOrigemX = b.inicio.x * 2 + width / 2;
+            BOOL mudaX = YES;
+            
+            if (b.origem.y > b.inicio.y + height) {
+                fimOrigemY = b.inicio.y * 2 + height;
+            }
+            
+            else if (b.origem.y < b.inicio.y) {
+                fimOrigemY = b.inicio.y * 2;
+            }
+            
+            else if (b.origem.y > b.inicio.y && b.origem.y < b.inicio.y * 2 + height) {
+                fimOrigemY = b.inicio.y * 2 + height / 2;
+                fimOrigemX = b.inicio.x * 2;
+                NSLog(@"segundo if: x -> %d y -> %d", fimOrigemX, fimOrigemY);
+                if (b.origem.x * 2 > b.inicio.x * 2 + width) {
+                    fimOrigemX = b.inicio.x * 2 + width;
+                    NSLog(@"terceiro if: %d", fimOrigemX);
+                }
+                mudaX = NO;
+            }
+            
+            
             CGContextBeginPath(ctx);
-            CGContextMoveToPoint(ctx, b.inicio.x + b.width / 2 + 30, b.inicio.y + b.height / 2);
-            CGContextAddLineToPoint(ctx, b.origem.x, b.origem.y);
-            CGContextAddLineToPoint(ctx, b.inicio.x + b.width / 2 - 30, b.inicio.y + b.height / 2);
+            
+            if (mudaX) {
+                CGContextMoveToPoint(ctx, /*b.inicio.x * 2 + width / 2 + 30 */ fimOrigemX - 10, /*b.inicio.y * 2 + height / 2*/ fimOrigemY);
+                CGContextAddLineToPoint(ctx, b.origem.x * 2, b.origem.y * 2);
+                CGContextAddLineToPoint(ctx, /*b.inicio.x * 2 + width / 2 - 30 */ fimOrigemX + 10, /*b.inicio.y * 2 + height / 2*/ fimOrigemY);
+            } else {
+                CGContextMoveToPoint(ctx, /*b.inicio.x * 2 + width / 2 + 30 */ fimOrigemX, /*b.inicio.y * 2 + height / 2*/ fimOrigemY - 10);
+                CGContextAddLineToPoint(ctx, b.origem.x * 2, b.origem.y * 2);
+                CGContextAddLineToPoint(ctx, /*b.inicio.x * 2 + width / 2 - 30 */ fimOrigemX, /*b.inicio.y * 2 + height / 2*/ fimOrigemY + 10);
+            }
+            CGContextClosePath(ctx);
+            CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
+            CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
+            CGContextFillPath(ctx);
             CGContextStrokePath(ctx);
-      */      
         
         // getting the new image
         imagem = UIGraphicsGetImageFromCurrentImageContext();

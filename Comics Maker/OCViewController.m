@@ -32,17 +32,19 @@
     [[[self navigationController] navigationBar] setHidden:NO];
     UIGestureRecognizer *tap = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
     [tap setDelegate:self];
+    
+    
     [[self currentImage] addGestureRecognizer:tap];
     _switchInserirBalao = 0;
     [_botaoInserirBalao setHidden:YES];
     
     single = [OCTirinhasSingleton sharedTirinhas];
     [_proximo setEnabled:NO];
-    if (single.quadroAtual==0) {
-        OCTirinha *tirinha = [[OCTirinha alloc] init];
-        [single addTirinha:tirinha];
-    }
-    single.quadroAtual++;
+//    if (single.quadroAtual==0) {
+//        OCTirinha *tirinha = [[OCTirinha alloc]init];
+//        [single addTirinha:tirinha];
+//    }
+//    single.quadroAtual++;
 }
 
 -(BOOL)shouldAutorotate{
@@ -127,19 +129,27 @@
         return;
     }
     
-    BOOL acrescentar = YES;
     OCTirinha *t = [single.tirinhas lastObject];
-    OCQuadro *q = t.quadros[single.quadroAtual - 1];
-    OCBaloesDeTexto *b = [[OCBaloesDeTexto alloc] initWithText:_texto andPosition:CGPointMake(tapPoint.x, tapPoint.y) andOrigin:CGPointMake(tapPoint.x, tapPoint.y)];
-    for (OCBaloesDeTexto *bl in q.baloes) {
-        if ([self point:tapPoint isOverBalao:bl]) {
-            [q.baloes removeObject:bl];
-            acrescentar = NO;
-            break;
+    OCQuadro *q = t.quadros[single.quadroAtual];
+    
+    
+    if (_switchInserirBalao == 1) {
+        _balaoSelecionado.origem = CGPointMake(tapPoint.x, tapPoint.y);
+        _currentImage.image = q.imagem;
+    } else {
+        BOOL acrescentar = YES;
+        OCBaloesDeTexto *b = [[OCBaloesDeTexto alloc] initWithText:_texto andPosition:CGPointMake(tapPoint.x, tapPoint.y) andOrigin:CGPointMake(tapPoint.x, tapPoint.y)];
+        for (OCBaloesDeTexto *bl in q.baloes) {
+            if ([self point:tapPoint isOverBalao:bl]) {
+                [q.baloes removeObject:bl];
+                acrescentar = NO;
+                break;
+            }
         }
-    }
-    if (acrescentar) {
-        [q.baloes addObject:b];
+        if (acrescentar) {
+            [q.baloes addObject:b];
+        }
+        
     }
     
     _currentImage.image = q.imagem;
@@ -150,7 +160,7 @@
     CGPoint local = [touch locationInView:_currentImage];
     
     OCTirinha *t = [single.tirinhas lastObject];
-    OCQuadro *q = t.quadros[single.quadroAtual - 1];
+    OCQuadro *q = t.quadros[single.quadroAtual];
     _movendoBalao = NO;
     for (OCBaloesDeTexto *b in q.baloes) {
         if ([self point:local isOverBalao:b]) {
@@ -166,7 +176,7 @@
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
     OCTirinha *t = [single.tirinhas lastObject];
-    OCQuadro *q = t.quadros[single.quadroAtual - 1];
+    OCQuadro *q = t.quadros[single.quadroAtual];
     
     if (_movendoBalao) {
         UITouch *t = [touches anyObject];
@@ -186,7 +196,7 @@
     CGPoint l = [touch locationInView:_currentImage];
     
     OCTirinha *t = [single.tirinhas lastObject];
-    OCQuadro *q = t.quadros[single.quadroAtual - 1];
+    OCQuadro *q = t.quadros[single.quadroAtual];
     
     if (!_movendoBalao) {
         for (OCBaloesDeTexto *b in q.baloes) {
@@ -202,13 +212,15 @@
 - (IBAction)inserirBalao:(id)sender {
     if (_switchInserirBalao == 0) {
         _switchInserirBalao = 1;
-        [_botaoInserirBalao setTitle:@"Inserir Origem" forState:UIControlStateNormal];
+        [_botaoInserirBalao setTitle:@"Editar Balões" forState:UIControlStateNormal];
     } else {
         _switchInserirBalao = 0;
-        [_botaoInserirBalao setTitle:@"Inserir Balões" forState:UIControlStateNormal];
+        [_botaoInserirBalao setTitle:@"Editar Origem" forState:UIControlStateNormal];
     }
     NSLog(@"%d", _switchInserirBalao);
 }
+
+
 
 - (IBAction)cancelar:(id)sender {
 //    [[single tirinhas] removeLastObject];

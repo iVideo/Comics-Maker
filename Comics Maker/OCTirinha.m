@@ -65,8 +65,8 @@
     }
 }
 
--(void)adicionaQuadroNoArrayDeQuadros: (OCQuadro *)quadro{
-    if (quadros == nil) {
+-(void)adicionaQuadroNoArrayDeQuadros: (OCQuadro *)quadro noIndice:(NSInteger)indice{
+    if (quadros == Nil) {
         quadros = [[NSMutableArray alloc]init];
     }
     [quadros setObject:quadro atIndexedSubscript:indice];
