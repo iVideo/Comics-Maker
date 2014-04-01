@@ -10,7 +10,7 @@
 #import "OCTirinha.h"
 #import "OCTirinhasSingleton.h"
 
-@interface OCTableViewController : UITableViewController <UINavigationBarDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, NSCoding>
+@interface OCTableViewController : UITableViewController <UINavigationBarDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, NSCoding, UISearchBarDelegate>
 @property OCTirinhasSingleton *single;
 @property NSData* data;
 @property (weak, nonatomic) IBOutlet UIButton *edit;
