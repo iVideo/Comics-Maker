@@ -41,12 +41,21 @@
 //}
 
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
-        [join setFrame: CGRectMake(0, 230, 320, 108)];
-    }
-    else{
-        [join setFrame:CGRectMake(0, 70, 570, 190)];
-    }
+        if ([[UIDevice currentDevice] userInterfaceIdiom] ==UIUserInterfaceIdiomPad) {
+            if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+                [join setFrame: CGRectMake(0, 380, 768, 256)];
+            }
+            else{
+                [join setFrame:CGRectMake(0, 220, 1024, 341)];
+            }
+        } else {
+            if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+                [join setFrame: CGRectMake(0, 230, 320, 108)];
+            }
+            else{
+                [join setFrame:CGRectMake(0, 70, 570, 190)];
+            }
+        }
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -67,6 +76,9 @@
         tirinha = [[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject];
     }
     [join setImage:[tirinha tirinhaCompleta]];
+    
+    
+    
 }
 
 

@@ -215,8 +215,6 @@
     if ([segue.identifier isEqualToString:@"visualizar"]) {
         NSIndexPath *indexPath = nil;
         OCTirinha *tira = nil;
-        NSLog(@"%@", [self.navigationController viewControllers]);
-        NSLog(@"%@", segue.identifier);
         
         if (self.searchDisplayController.active) {
             indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];

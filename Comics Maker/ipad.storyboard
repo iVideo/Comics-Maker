@@ -233,10 +233,10 @@
             </objects>
             <point key="canvasLocation" x="-1506" y="-52"/>
         </scene>
-        <!--View Controller-->
+        <!--Primeira View-->
         <scene sceneID="fzC-BJ-Ex1">
             <objects>
-                <viewController id="Pd9-dE-Tsf" sceneMemberID="viewController">
+                <viewController id="Pd9-dE-Tsf" customClass="OCPrimeiraView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EDu-3Z-dbd"/>
                         <viewControllerLayoutGuide type="bottom" id="scI-Sd-JVc"/>
@@ -386,10 +386,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X84-DC-57f">
-                                <rect key="frame" x="0.0" y="359" width="768" height="318"/>
+                                <rect key="frame" x="0.0" y="384" width="768" height="256"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3Y-XG-Uu3">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3Y-XG-Uu3">
                                 <rect key="frame" x="0.0" y="980" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.32941177490000001" green="0.40392160420000001" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
@@ -406,6 +406,11 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="M3Y-XG-Uu3" secondAttribute="trailing" id="3Xp-fe-vYI"/>
+                            <constraint firstItem="M3Y-XG-Uu3" firstAttribute="leading" secondItem="ZAI-Bl-xar" secondAttribute="leading" id="ZXq-kx-PEJ"/>
+                            <constraint firstAttribute="bottom" secondItem="M3Y-XG-Uu3" secondAttribute="bottom" id="yeU-hH-8IM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YH7-Hl-MwI">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="HXA-sb-fDW">
@@ -441,8 +446,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="d0S-IJ-99n"/>
-        <segue reference="2f9-xp-5Yp"/>
+        <segue reference="KGM-P1-gPY"/>
         <segue reference="wSt-lE-qSF"/>
+        <segue reference="2f9-xp-5Yp"/>
     </inferredMetricsTieBreakers>
 </document>

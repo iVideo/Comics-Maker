@@ -46,7 +46,6 @@
 		AC62596118D1FA4D004D6F02 /* slr_camera_filled-256.png in Resources */ = {isa = PBXBuildFile; fileRef = AC62596018D1FA4D004D6F02 /* slr_camera_filled-256.png */; };
 		AC62596318D1FA66004D6F02 /* slr_camera_filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AC62596218D1FA66004D6F02 /* slr_camera_filled-50.png */; };
 		AC81BC5518E9B2D6000FF223 /* mycomics icon 3.png in Resources */ = {isa = PBXBuildFile; fileRef = AC81BC5318E9B2D6000FF223 /* mycomics icon 3.png */; };
-		AC81BC5618E9B2D6000FF223 /* mycomics LAUCHING.png in Resources */ = {isa = PBXBuildFile; fileRef = AC81BC5418E9B2D6000FF223 /* mycomics LAUCHING.png */; };
 		AC8232C318EAE4C300BC0315 /* mycomicss LAUCHING.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8232C218EAE4C300BC0315 /* mycomicss LAUCHING.png */; };
 		AC8232C818EAE61C00BC0315 /* ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8232C718EAE61C00BC0315 /* ipad.storyboard */; };
 		AC9074C518E4633300B09B9B /* OCMontaTirinhaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9074C418E4633300B09B9B /* OCMontaTirinhaViewController.m */; };
@@ -142,7 +141,6 @@
 		AC62596018D1FA4D004D6F02 /* slr_camera_filled-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slr_camera_filled-256.png"; sourceTree = "<group>"; };
 		AC62596218D1FA66004D6F02 /* slr_camera_filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slr_camera_filled-50.png"; sourceTree = "<group>"; };
 		AC81BC5318E9B2D6000FF223 /* mycomics icon 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mycomics icon 3.png"; sourceTree = "<group>"; };
-		AC81BC5418E9B2D6000FF223 /* mycomics LAUCHING.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mycomics LAUCHING.png"; sourceTree = "<group>"; };
 		AC8232C218EAE4C300BC0315 /* mycomicss LAUCHING.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mycomicss LAUCHING.png"; sourceTree = "<group>"; };
 		AC8232C718EAE61C00BC0315 /* ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ipad.storyboard; sourceTree = "<group>"; };
 		AC9074C318E4633300B09B9B /* OCMontaTirinhaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMontaTirinhaViewController.h; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 			children = (
 				AC4799C918DB0EEF008A90FA /* IMG_1925.JPG */,
 				AC81BC5318E9B2D6000FF223 /* mycomics icon 3.png */,
-				AC81BC5418E9B2D6000FF223 /* mycomics LAUCHING.png */,
 				AC8232C218EAE4C300BC0315 /* mycomicss LAUCHING.png */,
 				AC4799C718DB0EEA008A90FA /* IMG_1927.JPG */,
 				AC4799C518DB0EE5008A90FA /* IMG_1926.JPG */,
@@ -458,7 +455,6 @@
 				AC4799C818DB0EEA008A90FA /* IMG_1927.JPG in Resources */,
 				AC4799CC18DB0FBE008A90FA /* IMG_1934.JPG in Resources */,
 				ACCBA18A18DC862300FC99D1 /* ok_logo.png in Resources */,
-				AC81BC5618E9B2D6000FF223 /* mycomics LAUCHING.png in Resources */,
 				AC4799C618DB0EE5008A90FA /* IMG_1926.JPG in Resources */,
 				A2353EB518C0A95600440F0F /* Images.xcassets in Resources */,
 				AC4799D218DB124D008A90FA /* IMG_1937.JPG in Resources */,
@@ -630,7 +626,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -649,7 +645,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
