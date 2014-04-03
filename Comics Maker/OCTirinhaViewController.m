@@ -90,11 +90,9 @@
     else{
         OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
         [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:table, nil] animated:YES];
-//        [[self navigationController] popViewControllerAnimated:YES];
 
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:sing];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
-        
     }
 }
 
@@ -107,15 +105,6 @@
     [tira setTitulo:titulo];
     [[self navigationItem] setTitle:titulo];
     [_botaoConcluido setTitle:@"Ok" forState:UIControlStateNormal];
-    UIImageWriteToSavedPhotosAlbum([join image], nil, nil, nil);
-    UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Salvo na biblioteca" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
-    
-    [alerta show];
-    [self performSelector:@selector(test:) withObject:alerta afterDelay:1.2];
-}
-
--(void)test:(UIAlertView *)x {
-	[x dismissWithClickedButtonIndex:-1 animated:YES];
 }
 
 -(void)insereTitulo{
@@ -123,6 +112,7 @@
     [myAlertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [myAlertView show];
 }
+
 - (IBAction)compartilhar:(id)sender {
     self.activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[join.image] applicationActivities:nil];
     [self presentViewController:self.activityViewController animated:YES completion:nil];
@@ -232,6 +222,7 @@
 - (IBAction)editar:(id)sender {
     OCTirinhasSingleton *single = [OCTirinhasSingleton sharedTirinhas];
     [single setNovaTirinha:NO];
+    [single setEditandoTirinha:YES];
     OCMontaTirinhaViewController *monta = [self.storyboard instantiateViewControllerWithIdentifier:@"montaTirinha"];
     [monta recebeTirinha:tirinha];
     [tirinha setTirinhaPequena:nil];

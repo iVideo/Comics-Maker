@@ -17,6 +17,7 @@
 #import "OCTableViewController.h"
 #import "OCTirinhaViewController.h"
 #import "OCViewController.h"
+#import "OCMontaTirinhaViewController.h"
 
 
 @interface OCTableViewController ()
@@ -66,10 +67,9 @@
     
     [[self navigationController] setDelegate:self];
     [[self tableView] setAllowsMultipleSelection:YES];
-
+    
     resultados = [[NSArray alloc]init];
     
-    //Pegando instancia unica do singleton para usar por todo o .m
     single = [OCTirinhasSingleton sharedTirinhas];
     data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
     [single setNovaTirinha:YES];
@@ -192,7 +192,7 @@
 }
 
 -(void)criaTirinha{
-    OCViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"novaTirinha"];
+    OCMontaTirinhaViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"montaTirinha"];
     [[self navigationController] pushViewController:tirinha animated:YES];
 }
 
@@ -229,6 +229,10 @@
         
         [[destViewController navigationItem] setTitle:[tira titulo]];
     }
+    
+    if ([segue.identifier isEqualToString:@"novaTirinha"]) {
+        [single setEditandoTirinha:NO];
+    }
 }
 
 -(void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -251,30 +255,5 @@
     }
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-
-
-
-
-
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

@@ -52,6 +52,13 @@
 		AC9074C918E4657500B09B9B /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9074C818E4657500B09B9B /* placeholder.png */; };
 		ACC3A3EC18CF4738003C7438 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC3A3EB18CF4738003C7438 /* Social.framework */; };
 		ACCBA18A18DC862300FC99D1 /* ok_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = ACCBA18918DC862300FC99D1 /* ok_logo.png */; };
+		ACE555A918EDA191009EE9C6 /* SGActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE555A018EDA191009EE9C6 /* SGActionView.m */; };
+		ACE555AA18EDA191009EE9C6 /* SGAlertMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE555A218EDA191009EE9C6 /* SGAlertMenu.m */; };
+		ACE555AB18EDA191009EE9C6 /* SGBaseMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE555A418EDA191009EE9C6 /* SGBaseMenu.m */; };
+		ACE555AC18EDA191009EE9C6 /* SGGridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE555A618EDA191009EE9C6 /* SGGridMenu.m */; };
+		ACE555AD18EDA191009EE9C6 /* SGSheetMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE555A818EDA191009EE9C6 /* SGSheetMenu.m */; };
+		ACE555B118EDA638009EE9C6 /* biblioteca.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACE555B018EDA638009EE9C6 /* biblioteca.jpg */; };
+		ACE555B318EDA7E1009EE9C6 /* camera.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACE555B218EDA7E1009EE9C6 /* camera.jpg */; };
 		AEAA9BF218D337AC00D33414 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AEAA9BF118D337AC00D33414 /* libsqlite3.0.dylib */; };
 		AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */; };
 /* End PBXBuildFile section */
@@ -148,6 +155,18 @@
 		AC9074C818E4657500B09B9B /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		ACC3A3EB18CF4738003C7438 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		ACCBA18918DC862300FC99D1 /* ok_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok_logo.png; sourceTree = "<group>"; };
+		ACE5559F18EDA191009EE9C6 /* SGActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGActionView.h; sourceTree = "<group>"; };
+		ACE555A018EDA191009EE9C6 /* SGActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGActionView.m; sourceTree = "<group>"; };
+		ACE555A118EDA191009EE9C6 /* SGAlertMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAlertMenu.h; sourceTree = "<group>"; };
+		ACE555A218EDA191009EE9C6 /* SGAlertMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGAlertMenu.m; sourceTree = "<group>"; };
+		ACE555A318EDA191009EE9C6 /* SGBaseMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGBaseMenu.h; sourceTree = "<group>"; };
+		ACE555A418EDA191009EE9C6 /* SGBaseMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGBaseMenu.m; sourceTree = "<group>"; };
+		ACE555A518EDA191009EE9C6 /* SGGridMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGGridMenu.h; sourceTree = "<group>"; };
+		ACE555A618EDA191009EE9C6 /* SGGridMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGGridMenu.m; sourceTree = "<group>"; };
+		ACE555A718EDA191009EE9C6 /* SGSheetMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGSheetMenu.h; sourceTree = "<group>"; };
+		ACE555A818EDA191009EE9C6 /* SGSheetMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGSheetMenu.m; sourceTree = "<group>"; };
+		ACE555B018EDA638009EE9C6 /* biblioteca.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = biblioteca.jpg; sourceTree = "<group>"; };
+		ACE555B218EDA7E1009EE9C6 /* camera.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camera.jpg; sourceTree = "<group>"; };
 		AEAA9BF118D337AC00D33414 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		AEB2F68C18C8B5970073030D /* OCTirinhaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCTirinhaViewController.h; sourceTree = "<group>"; };
 		AEB2F68D18C8B5970073030D /* OCTirinhaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCTirinhaViewController.m; sourceTree = "<group>"; };
@@ -226,8 +245,9 @@
 		A2353EA218C0A95600440F0F /* Comics Maker */ = {
 			isa = PBXGroup;
 			children = (
-				AC8232C618EAE57900BC0315 /* iPad */,
+				ACE5559E18EDA191009EE9C6 /* SGActionView */,
 				A2353EAE18C0A95600440F0F /* Main.storyboard */,
+				AC8232C718EAE61C00BC0315 /* ipad.storyboard */,
 				A2353EAB18C0A95600440F0F /* OCAppDelegate.h */,
 				A2353EAC18C0A95600440F0F /* OCAppDelegate.m */,
 				AC599C8E18D9C3B9007325B6 /* testaViewController.h */,
@@ -328,6 +348,8 @@
 			children = (
 				AC4799C218DB0EDB008A90FA /* Tirinhas */,
 				AC62596218D1FA66004D6F02 /* slr_camera_filled-50.png */,
+				ACE555B218EDA7E1009EE9C6 /* camera.jpg */,
+				ACE555B018EDA638009EE9C6 /* biblioteca.jpg */,
 				ACCBA18918DC862300FC99D1 /* ok_logo.png */,
 				AC9074C818E4657500B09B9B /* placeholder.png */,
 				AC62596018D1FA4D004D6F02 /* slr_camera_filled-256.png */,
@@ -335,12 +357,21 @@
 			name = Imagens;
 			sourceTree = "<group>";
 		};
-		AC8232C618EAE57900BC0315 /* iPad */ = {
+		ACE5559E18EDA191009EE9C6 /* SGActionView */ = {
 			isa = PBXGroup;
 			children = (
-				AC8232C718EAE61C00BC0315 /* ipad.storyboard */,
+				ACE5559F18EDA191009EE9C6 /* SGActionView.h */,
+				ACE555A018EDA191009EE9C6 /* SGActionView.m */,
+				ACE555A118EDA191009EE9C6 /* SGAlertMenu.h */,
+				ACE555A218EDA191009EE9C6 /* SGAlertMenu.m */,
+				ACE555A318EDA191009EE9C6 /* SGBaseMenu.h */,
+				ACE555A418EDA191009EE9C6 /* SGBaseMenu.m */,
+				ACE555A518EDA191009EE9C6 /* SGGridMenu.h */,
+				ACE555A618EDA191009EE9C6 /* SGGridMenu.m */,
+				ACE555A718EDA191009EE9C6 /* SGSheetMenu.h */,
+				ACE555A818EDA191009EE9C6 /* SGSheetMenu.m */,
 			);
-			name = iPad;
+			path = SGActionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,11 +482,13 @@
 				AC4799CE18DB0FC4008A90FA /* IMG_1935.JPG in Resources */,
 				AC8232C318EAE4C300BC0315 /* mycomicss LAUCHING.png in Resources */,
 				AC62596118D1FA4D004D6F02 /* slr_camera_filled-256.png in Resources */,
+				ACE555B118EDA638009EE9C6 /* biblioteca.jpg in Resources */,
 				AC4799D118DB124D008A90FA /* IMG_1936.JPG in Resources */,
 				AC4799C818DB0EEA008A90FA /* IMG_1927.JPG in Resources */,
 				AC4799CC18DB0FBE008A90FA /* IMG_1934.JPG in Resources */,
 				ACCBA18A18DC862300FC99D1 /* ok_logo.png in Resources */,
 				AC4799C618DB0EE5008A90FA /* IMG_1926.JPG in Resources */,
+				ACE555B318EDA7E1009EE9C6 /* camera.jpg in Resources */,
 				A2353EB518C0A95600440F0F /* Images.xcassets in Resources */,
 				AC4799D218DB124D008A90FA /* IMG_1937.JPG in Resources */,
 				AC8232C818EAE61C00BC0315 /* ipad.storyboard in Resources */,
@@ -486,16 +519,21 @@
 				A2353ED618C0CC6600440F0F /* OCTirinha.m in Sources */,
 				AC9074C518E4633300B09B9B /* OCMontaTirinhaViewController.m in Sources */,
 				A2353EAD18C0A95600440F0F /* OCAppDelegate.m in Sources */,
+				ACE555AC18EDA191009EE9C6 /* SGGridMenu.m in Sources */,
 				A2976BA918D7184000D331EC /* OCMyImageView.m in Sources */,
 				A2353EA918C0A95600440F0F /* main.m in Sources */,
 				AC1D991118D0AA8D00788C07 /* OCNavigationController.m in Sources */,
 				AEB2F68E18C8B5970073030D /* OCTirinhaViewController.m in Sources */,
 				A2353EB318C0A95600440F0F /* OCViewController.m in Sources */,
 				A2353ED318C0BFED00440F0F /* OCTableViewController.m in Sources */,
+				ACE555AD18EDA191009EE9C6 /* SGSheetMenu.m in Sources */,
+				ACE555AB18EDA191009EE9C6 /* SGBaseMenu.m in Sources */,
+				ACE555A918EDA191009EE9C6 /* SGActionView.m in Sources */,
 				AC599C8D18D9BBB2007325B6 /* OCPrimeiraView.m in Sources */,
 				A2353ED918C0CC7E00440F0F /* OCQuadro.m in Sources */,
 				A2353EDC18C0CCD400440F0F /* OCBaloesDeTexto.m in Sources */,
 				A2353EDF18C0CD2B00440F0F /* OCTirinhasSingleton.m in Sources */,
+				ACE555AA18EDA191009EE9C6 /* SGAlertMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,7 +56,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="yEt-xd-cyK">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="hwo-7V-I8w" kind="push" id="d0S-IJ-99n"/>
+                                <segue destination="hwo-7V-I8w" kind="push" identifier="novaTirinha" id="d0S-IJ-99n"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -498,7 +498,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="SMf-is-SN5"/>
-        <segue reference="QmZ-dg-qQN"/>
+        <segue reference="d0S-IJ-99n"/>
         <segue reference="JhT-5P-znd"/>
     </inferredMetricsTieBreakers>
 </document>
