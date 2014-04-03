@@ -60,23 +60,27 @@
 }
 
 - (IBAction)selecionar:(id)sender {
-    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    [picker setAllowsEditing:YES];
-    [SGActionView showGridMenuWithTitle:@"Tipo de imagem" itemTitles:[[NSArray alloc] initWithObjects:@"Biblioteca", @"Foto", nil] images:[[NSArray alloc]initWithObjects:[UIImage imageNamed:@"biblioteca.jpg"],[UIImage imageNamed:@"camera.jpg"] , nil] selectedHandle:^(NSInteger index) {
-        if ((long)index == 1) {
-            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            [self presentViewController:picker animated:YES completion:nil];
+        if ([[UIDevice currentDevice] userInterfaceIdiom]!=UIUserInterfaceIdiomPad) {
+            UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            [picker setAllowsEditing:YES];
+            [SGActionView showGridMenuWithTitle:@"Tipo de imagem" itemTitles:[[NSArray alloc] initWithObjects:@"Biblioteca", @"Foto", nil] images:[[NSArray alloc]initWithObjects:[UIImage imageNamed:@"biblioteca.jpg"],[UIImage imageNamed:@"camera.jpg"] , nil] selectedHandle:^(NSInteger index) {
+                if ((long)index == 1) {
+                    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    [self presentViewController:picker animated:YES completion:nil];
+                }
+                else if ((long)index == 2){
+                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    [self presentViewController:picker animated:YES completion:nil];
+                }
+            }];
         }
-        else if ((long)index == 2){
-            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-            [self presentViewController:picker animated:YES completion:nil];
+        else{
+            UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Tipo de Imagem:" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Tirar Foto",@"Escolher da Biblioteca", nil];
+            popup.tag = 1;
+            [popup showInView:[UIApplication sharedApplication].keyWindow];            
         }
-    }];
     
-//    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Tipo de Imagem:" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Tirar Foto",@"Escolher da Biblioteca", nil];
-//    popup.tag = 1;
-//    [popup showInView:[UIApplication sharedApplication].keyWindow];
 }
 
 -(void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -254,6 +258,8 @@
 //    [[single tirinhas] removeLastObject];
 //    OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
 //    [self.navigationController pushViewController:table animated:YES];
+    
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 

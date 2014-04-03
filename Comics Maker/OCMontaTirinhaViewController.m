@@ -48,6 +48,66 @@
     }
 }
 
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    
+    static NSInteger tamanhoQuadroPortraitIpad = 250;
+    static NSInteger tamanhoQuadroPortraitIphone = 100;
+    static NSInteger tamanhoQuadroLandscapeIpad = 340;
+    static NSInteger tamanhoQuadroLandscapeIphone = 180;
+    
+    static NSInteger yPortraitIpad = 380;
+    static NSInteger yPortraitIphone = 244;
+    static NSInteger yLandscapeIpad = 230;
+    static NSInteger yLandscapeIphone = 75;
+    
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] ==UIUserInterfaceIdiomPad) {
+        
+        if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+            [_quadro1 setFrame: CGRectMake(0, yPortraitIpad, tamanhoQuadroPortraitIpad, tamanhoQuadroPortraitIpad)];
+            [_botaoQuadro1 setFrame: CGRectMake(0, yPortraitIpad, tamanhoQuadroPortraitIpad, tamanhoQuadroPortraitIpad)];
+            
+            [_quadro2 setFrame: CGRectMake(260, yPortraitIpad, tamanhoQuadroPortraitIpad, tamanhoQuadroPortraitIpad)];
+            [_botaoQuadro2 setFrame: CGRectMake(260, yPortraitIpad, tamanhoQuadroPortraitIpad, tamanhoQuadroPortraitIpad)];
+            
+            [_quadro3 setFrame: CGRectMake(520, yPortraitIpad, tamanhoQuadroPortraitIpad, tamanhoQuadroPortraitIpad)];
+            [_botaoQuadro3 setFrame: CGRectMake(520, yPortraitIpad, tamanhoQuadroPortraitIpad, tamanhoQuadroPortraitIpad)];
+        }
+        else{
+            [_quadro1 setFrame: CGRectMake(0, yLandscapeIpad, tamanhoQuadroLandscapeIpad, tamanhoQuadroLandscapeIpad)];
+            [_botaoQuadro1 setFrame: CGRectMake(0, yLandscapeIpad, tamanhoQuadroLandscapeIpad, tamanhoQuadroLandscapeIpad)];
+            
+            [_quadro2 setFrame: CGRectMake(345, yLandscapeIpad, tamanhoQuadroLandscapeIpad, tamanhoQuadroLandscapeIpad)];
+            [_botaoQuadro2 setFrame: CGRectMake(345, yLandscapeIpad, tamanhoQuadroLandscapeIpad, tamanhoQuadroLandscapeIpad)];
+            
+            [_quadro3 setFrame: CGRectMake(690, yLandscapeIpad, tamanhoQuadroLandscapeIpad, tamanhoQuadroLandscapeIpad)];
+            [_botaoQuadro3 setFrame: CGRectMake(690, yLandscapeIpad, tamanhoQuadroLandscapeIpad, tamanhoQuadroLandscapeIpad)];
+        }
+    } else {
+        
+        if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+            [_quadro1 setFrame: CGRectMake(0, yPortraitIphone, tamanhoQuadroPortraitIphone, tamanhoQuadroPortraitIphone)];
+            [_botaoQuadro1 setFrame: CGRectMake(0, yPortraitIphone, tamanhoQuadroPortraitIphone, tamanhoQuadroPortraitIphone)];
+            
+            [_quadro2 setFrame: CGRectMake(110, yPortraitIphone, tamanhoQuadroPortraitIphone, tamanhoQuadroPortraitIphone)];
+            [_botaoQuadro2 setFrame: CGRectMake(110, yPortraitIphone, tamanhoQuadroPortraitIphone, tamanhoQuadroPortraitIphone)];
+            
+            [_quadro3 setFrame: CGRectMake(218, yPortraitIphone, tamanhoQuadroPortraitIphone, tamanhoQuadroPortraitIphone)];
+            [_botaoQuadro3 setFrame: CGRectMake(218, yPortraitIphone, tamanhoQuadroPortraitIphone, tamanhoQuadroPortraitIphone)];
+            
+        }
+        else{
+            [_quadro1 setFrame: CGRectMake(5, yLandscapeIphone, tamanhoQuadroLandscapeIphone, tamanhoQuadroLandscapeIphone)];
+            [_botaoQuadro1 setFrame: CGRectMake(5, yLandscapeIphone, tamanhoQuadroLandscapeIphone, tamanhoQuadroLandscapeIphone)];
+            
+            [_quadro2 setFrame: CGRectMake(195, yLandscapeIphone, tamanhoQuadroLandscapeIphone, tamanhoQuadroLandscapeIphone)];
+            [_botaoQuadro2 setFrame: CGRectMake(195, yLandscapeIphone, tamanhoQuadroLandscapeIphone, tamanhoQuadroLandscapeIphone)];
+            
+            [_quadro3 setFrame: CGRectMake(385, yLandscapeIphone, tamanhoQuadroLandscapeIphone, tamanhoQuadroLandscapeIphone)];
+            [_botaoQuadro3 setFrame: CGRectMake(385, yLandscapeIphone, tamanhoQuadroLandscapeIphone, tamanhoQuadroLandscapeIphone)];
+        }
+    }
+}
 
 - (IBAction)botaoQuadro1:(id)sender {
     [single setQuadroAtual:0];

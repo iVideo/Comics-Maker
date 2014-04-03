@@ -147,12 +147,9 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hwo-7V-I8w" kind="push" id="QmZ-dg-qQN"/>
+                                    <action selector="cancelar:" destination="PYs-Xx-yOd" eventType="touchUpInside" id="8th-Ph-Zjm"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <action selector="cancelar:" destination="PYs-Xx-yOd" id="BuO-NR-ODp"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Concluído" style="plain" id="M0x-eu-uAS">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="szu-Ga-6Os">
@@ -497,8 +494,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SMf-is-SN5"/>
-        <segue reference="d0S-IJ-99n"/>
         <segue reference="JhT-5P-znd"/>
+        <segue reference="NfO-f3-XgG"/>
+        <segue reference="SMf-is-SN5"/>
     </inferredMetricsTieBreakers>
 </document>
