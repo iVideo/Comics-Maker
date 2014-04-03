@@ -22,6 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [[[self navigationItem] leftBarButtonItem] setTintColor:[UIColor whiteColor]];
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     [[[self navigationController] navigationBar] setHidden:NO];
@@ -40,12 +41,13 @@
         [[[[single tirinhas] lastObject] quadros] insertObject:quadro atIndex:2];
         [single setNovaTirinha:NO];
     }
+
     [self insereImagemNosQuadros];
+    if (self.tirinhaEdicao) {
+        [self insereTirinhaProntaParaEdicao];
+    }
 }
 
--(BOOL)shouldAutorotate{
-    return NO;
-}
 
 - (IBAction)botaoQuadro1:(id)sender {
     [single setQuadroAtual:0];
@@ -55,6 +57,16 @@
 }
 - (IBAction)botaoQuadro3:(id)sender {
     [single setQuadroAtual:2];
+}
+
+-(void)recebeTirinha: (OCTirinha *)tirinha{
+    self.tirinhaEdicao = tirinha;
+}
+
+-(void)insereTirinhaProntaParaEdicao{
+    [_quadro1 setImage:[[[[self tirinhaEdicao] quadros] objectAtIndex:0] imagem]];
+    [_quadro2 setImage:[[[[self tirinhaEdicao] quadros] objectAtIndex:1] imagem]];
+    [_quadro3 setImage:[[[[self tirinhaEdicao] quadros] objectAtIndex:2] imagem]];
 }
 
 -(void)insereImagemNosQuadros{
@@ -69,16 +81,5 @@
     OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
     [self.navigationController pushViewController:table animated:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

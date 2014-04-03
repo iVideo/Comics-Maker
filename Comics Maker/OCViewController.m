@@ -40,15 +40,23 @@
     
     single = [OCTirinhasSingleton sharedTirinhas];
     [_proximo setEnabled:NO];
-//    if (single.quadroAtual==0) {
-//        OCTirinha *tirinha = [[OCTirinha alloc]init];
-//        [single addTirinha:tirinha];
-//    }
-//    single.quadroAtual++;
+    
+    if ([self im]) {
+        [self mudaImagem];
+    }
+
 }
 
 -(BOOL)shouldAutorotate{
     return NO;
+}
+
+-(void)recebeImagem: (UIImage *)imagem{
+    self.im = imagem;
+}
+
+-(void)mudaImagem{
+    [self setCurrentImage:[[UIImageView alloc] initWithImage:self.im]];
 }
 
 - (IBAction)selecionar:(id)sender {

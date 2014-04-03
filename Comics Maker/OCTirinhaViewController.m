@@ -12,10 +12,12 @@
 #import "OCQuadro.h"
 #import "OCTableViewController.h"
 #import "testaViewController.h"
+#import "OCMontaTirinhaViewController.h"
 #import <objc/message.h>
 #import <Social/Social.h>
 
 @interface OCTirinhaViewController ()
+@property (strong, nonatomic) UIActivityViewController *activityViewController;
 @end
 
 @implementation OCTirinhaViewController{
@@ -76,9 +78,6 @@
         tirinha = [[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject];
     }
     [join setImage:[tirinha tirinhaCompleta]];
-    
-    
-    
 }
 
 
@@ -89,7 +88,6 @@
         [self insereTitulo];
     }
     else{
-        
         OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
         [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:table, nil] animated:YES];
 
@@ -125,9 +123,8 @@
     [myAlertView show];
 }
 - (IBAction)compartilhar:(id)sender {
-    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Compartilhar" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Facebook",@"Twitter", nil];
-    popup.tag = 1;
-    [popup showInView:[UIApplication sharedApplication].keyWindow];
+    self.activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[join.image] applicationActivities:nil];
+    [self presentViewController:self.activityViewController animated:YES completion:nil];
 }
 
 -(void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -230,5 +227,15 @@
     return YES;
 }
 
+
+- (IBAction)editar:(id)sender {
+    OCTirinhasSingleton *single = [OCTirinhasSingleton sharedTirinhas];
+    [single setNovaTirinha:NO];
+    OCMontaTirinhaViewController *monta = [self.storyboard instantiateViewControllerWithIdentifier:@"montaTirinha"];
+    [monta recebeTirinha:tirinha];
+    [tirinha setTirinhaPequena:nil];
+    [[self navigationController] pushViewController:monta animated:YES];
+//    [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:monta, nil] animated:YES];
+}
 
 @end

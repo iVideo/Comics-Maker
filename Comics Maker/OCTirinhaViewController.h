@@ -16,6 +16,8 @@
 @property(nonatomic)CGContextRef ctx;
 @property(strong, nonatomic) OCTirinha* tirinha;
 @property (weak, nonatomic) IBOutlet UIButton *botaoConcluido;
+@property (weak, nonatomic) IBOutlet UIButton *editar;
 
+- (IBAction)editar:(id)sender;
 
 @end
