@@ -81,7 +81,7 @@
         <!--View Controller-->
         <scene sceneID="t7b-4Y-GOc">
             <objects>
-                <viewController id="PYs-Xx-yOd" customClass="OCViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController" id="PYs-Xx-yOd" customClass="OCViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TNb-s8-Z8Z"/>
                         <viewControllerLayoutGuide type="bottom" id="3KW-bp-nuI"/>
@@ -321,7 +321,7 @@
                                 </state>
                                 <connections>
                                     <action selector="botaoQuadro1:" destination="hwo-7V-I8w" eventType="touchUpInside" id="Vbo-bz-IAv"/>
-                                    <segue destination="PYs-Xx-yOd" kind="push" id="Baf-Tf-WTw"/>
+                                    <segue destination="PYs-Xx-yOd" kind="push" identifier="quadro1" id="Baf-Tf-WTw"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="6kn-yP-nXU">
@@ -336,7 +336,7 @@
                                 </state>
                                 <connections>
                                     <action selector="botaoQuadro2:" destination="hwo-7V-I8w" eventType="touchUpInside" id="kBb-D5-mQK"/>
-                                    <segue destination="PYs-Xx-yOd" kind="push" id="NsY-SA-NW7"/>
+                                    <segue destination="PYs-Xx-yOd" kind="push" identifier="quadro2" id="NsY-SA-NW7"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="EpE-vq-M0t">
@@ -351,7 +351,7 @@
                                 </state>
                                 <connections>
                                     <action selector="botaoQuadro3:" destination="hwo-7V-I8w" eventType="touchUpInside" id="fJw-V7-xCi"/>
-                                    <segue destination="PYs-Xx-yOd" kind="push" id="SMf-is-SN5"/>
+                                    <segue destination="PYs-Xx-yOd" kind="push" identifier="quadro3" id="SMf-is-SN5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -497,8 +497,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Baf-Tf-WTw"/>
-        <segue reference="d0S-IJ-99n"/>
-        <segue reference="2f9-xp-5Yp"/>
+        <segue reference="SMf-is-SN5"/>
+        <segue reference="QmZ-dg-qQN"/>
+        <segue reference="JhT-5P-znd"/>
     </inferredMetricsTieBreakers>
 </document>

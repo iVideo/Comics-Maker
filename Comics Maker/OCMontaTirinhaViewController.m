@@ -82,4 +82,19 @@
     [self.navigationController pushViewController:table animated:YES];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    OCViewController *destViewController = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"quadro1"]) {
+        [destViewController recebeImagem:_quadro1.image];
+    }
+    else if ([segue.identifier isEqualToString:@"quadro2"]){
+        [destViewController recebeImagem:_quadro2.image];
+    }
+    else{
+        [destViewController recebeImagem:_quadro3.image];
+    }
+
+    
+}
+
 @end

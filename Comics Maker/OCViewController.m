@@ -25,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    single = [OCTirinhasSingleton sharedTirinhas];
     [_textoBalao setDelegate:self];
     _textoBalao.placeholder = @"Digite um texto para o balão";
     
@@ -33,18 +34,16 @@
     UIGestureRecognizer *tap = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
     [tap setDelegate:self];
     
-    
+//    if ([self im]) {
+//        [self mudaImagem];
+//    }
     [[self currentImage] addGestureRecognizer:tap];
     _switchInserirBalao = 0;
     [_botaoInserirBalao setHidden:YES];
     
-    single = [OCTirinhasSingleton sharedTirinhas];
+    
     [_proximo setEnabled:NO];
     
-    if ([self im]) {
-        [self mudaImagem];
-    }
-
 }
 
 -(BOOL)shouldAutorotate{
@@ -228,6 +227,12 @@
     NSLog(@"%d", _switchInserirBalao);
 }
 
+- (IBAction)filtro1:(id)sender {
+}
+- (IBAction)filtro2:(id)sender {
+}
+- (IBAction)filtro3:(id)sender {
+}
 
 
 - (IBAction)cancelar:(id)sender {
