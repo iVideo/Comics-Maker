@@ -86,90 +86,119 @@
         }
         
         if (desenhar) {
-        // setting height and width of the OCBalao
-        int width = b.texto.length < 50 ? b.texto.length * 10 : 400;
-        int height = (b.texto.length / 50 + 1) * 50;
-        if (width < 200) width = 200;
-        if (height < 100) height = 100;
-        b.width = width;
-        b.height = height;
+            // setting height and width of the OCBalao
+            int width = b.texto.length < 50 ? b.texto.length * 10 : 400;
+            int height = (b.texto.length / 50 + 1) * 50;
+            if (width < 200) width = 200;
+            if (height < 100) height = 100;
+            b.width = width;
+            b.height = height;
         
-        // log informativo
-        NSLog(@"-\n%@ x: %d y: %d", b.texto, x, y);
+            // iniciando o contexto com a imagem
+            UIGraphicsBeginImageContext(imagem.size);
+            [imagem drawAtPoint:CGPointZero];
+            CGContextRef ctx = UIGraphicsGetCurrentContext();
         
-        // iniciando o contexto com a imagem
-        UIGraphicsBeginImageContext(imagem.size);
-        [imagem drawAtPoint:CGPointZero];
-        CGContextRef ctx = UIGraphicsGetCurrentContext();
-        
-        // setting the colors
-        [[UIColor blackColor] setStroke];
-        
-        // drawing the OCBalao
-        CGRect balaoRect = CGRectMake(x, y,
-                                      b.width,
-                                      b.height);
-        UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:16.0f];
-        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-        paragraphStyle.alignment = NSTextAlignmentCenter;
-        NSDictionary *atts = [NSDictionary dictionaryWithObjectsAndKeys:
-                              font, NSFontAttributeName,
-                              [NSNumber numberWithFloat:1.0], NSBaselineOffsetAttributeName,
-                              NSParagraphStyleAttributeName, paragraphStyle,
-                              nil];
-        CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
+            // setting the colors
+            [[UIColor blackColor] setStroke];
+            
+            // trying to draw the origin
+            
+            // drawing the border
+            CGContextBeginPath(ctx);
+            CGContextMoveToPoint(ctx, /*b.inicio.x * 2 + width / 2 + 30 */ b.originBegin.x + 2, /*b.inicio.y * 2 + height / 2*/ b.originBegin.y + 2);
+            CGContextAddLineToPoint(ctx, b.origem.x * 2 + 2, b.origem.y * 2 + 2);
+            CGContextAddLineToPoint(ctx, /*b.inicio.x * 2 + width / 2 - 30 */  b.originEnd.x - 2, /*b.inicio.y * 2 + height / 2*/ b.originEnd.y - 2);
+            CGContextClosePath(ctx);
+            CGContextSetFillColorWithColor(ctx, [UIColor blackColor].CGColor);
             CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
-        CGContextFillEllipseInRect(ctx, balaoRect);
-        [b.texto drawInRect:CGRectMake(x + width * 0.2, y + height * 0.2, width * 0.6, height * 0.6) withAttributes:atts];
+            CGContextFillPath(ctx);
+            CGContextStrokePath(ctx);
             
-            // ajustando a origem
-            int fimOrigemY = b.inicio.y * 2 + height;
-            int fimOrigemX = b.inicio.x * 2 + width / 2;
-            BOOL mudaX = YES;
             
-            if (b.origem.y > b.inicio.y + height) {
-                fimOrigemY = b.inicio.y * 2 + height;
-            }
             
-            else if (b.origem.y < b.inicio.y) {
-                fimOrigemY = b.inicio.y * 2;
-            }
             
-            else if (b.origem.y > b.inicio.y && b.origem.y < b.inicio.y * 2 + height) {
-                fimOrigemY = b.inicio.y * 2 + height / 2;
-                fimOrigemX = b.inicio.x * 2;
-                NSLog(@"segundo if: x -> %d y -> %d", fimOrigemX, fimOrigemY);
-                if (b.origem.x * 2 > b.inicio.x * 2 + width) {
-                    fimOrigemX = b.inicio.x * 2 + width;
-                    NSLog(@"terceiro if: %d", fimOrigemX);
-                }
-                mudaX = NO;
-            }
-            
+        
+            // drawing the OCBalao
+            CGRect balaoRect = CGRectMake(x, y,
+                                          b.width,
+                                          b.height);
+            CGRect sombraBalaoRect = CGRectMake(x - 2, y - 2,
+                                          b.width + 4,
+                                          b.height + 4);
+            UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:16.0f];
+            NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+            paragraphStyle.alignment = NSTextAlignmentCenter;
+            NSDictionary *atts = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  font, NSFontAttributeName,
+                                  [NSNumber numberWithFloat:1.0], NSBaselineOffsetAttributeName,
+                                  NSParagraphStyleAttributeName, paragraphStyle,
+                                  nil];
+            CGContextSetFillColorWithColor(ctx, [UIColor blackColor].CGColor);
+            CGContextFillEllipseInRect(ctx, sombraBalaoRect);
             
             CGContextBeginPath(ctx);
-            
-            if (mudaX) {
-                CGContextMoveToPoint(ctx, /*b.inicio.x * 2 + width / 2 + 30 */ fimOrigemX - 10, /*b.inicio.y * 2 + height / 2*/ fimOrigemY);
-                CGContextAddLineToPoint(ctx, b.origem.x * 2, b.origem.y * 2);
-                CGContextAddLineToPoint(ctx, /*b.inicio.x * 2 + width / 2 - 30 */ fimOrigemX + 10, /*b.inicio.y * 2 + height / 2*/ fimOrigemY);
-            } else {
-                CGContextMoveToPoint(ctx, /*b.inicio.x * 2 + width / 2 + 30 */ fimOrigemX, /*b.inicio.y * 2 + height / 2*/ fimOrigemY - 10);
-                CGContextAddLineToPoint(ctx, b.origem.x * 2, b.origem.y * 2);
-                CGContextAddLineToPoint(ctx, /*b.inicio.x * 2 + width / 2 - 30 */ fimOrigemX, /*b.inicio.y * 2 + height / 2*/ fimOrigemY + 10);
-            }
+            CGContextMoveToPoint(ctx, /*b.inicio.x * 2 + width / 2 + 30 */ b.originBegin.x, /*b.inicio.y * 2 + height / 2*/ b.originBegin.y);
+            CGContextAddLineToPoint(ctx, b.origem.x * 2, b.origem.y * 2);
+            CGContextAddLineToPoint(ctx, /*b.inicio.x * 2 + width / 2 - 30 */  b.originEnd.x, /*b.inicio.y * 2 + height / 2*/ b.originEnd.y);
             CGContextClosePath(ctx);
             CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
             CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
             CGContextFillPath(ctx);
             CGContextStrokePath(ctx);
+            
+            CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
+            CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
+            CGContextFillEllipseInRect(ctx, balaoRect);
+            [b.texto drawInRect:CGRectMake(x + width * 0.2, y + height * 0.2, width * 0.6, height * 0.6) withAttributes:atts];
+            
+            // ajustando a origem
+            int fimOrigemY = b.inicio.y * 2 + height;
+            int fimOrigemX = b.inicio.x * 2 + width / 2;
+            BOOL mudaX = YES;
+            BOOL north, south, east, west;
+            north = south = east = west = NO;
+            
+            if (b.origem.y * 2 > b.inicio.y * 2 + height) {
+                south = YES;
+                fimOrigemY = b.inicio.y * 2 + height;
+            }
+            
+            else if (b.origem.y * 2 < b.inicio.y * 2) {
+                north = YES;
+                fimOrigemY = b.inicio.y * 2;
+            }
+            
+            else if (b.origem.y * 2 > b.inicio.y * 2 && b.origem.y * 2 < b.inicio.y * 2 + height) {
+                fimOrigemY = b.inicio.y * 2 + height / 2;
+                fimOrigemX = b.inicio.x * 2;
+                if (b.origem.x * 2 > b.inicio.x * 2 + width) {
+                    fimOrigemX = b.inicio.x * 2 + width;
+                }
+                mudaX = NO;
+            }
+            
+            /*** finding the position of the origin ***/
+            
+            if (b.origem.y * 2 > b.inicio.y * 2 + height)
+                south = YES;
+            if (b.origem.y * 2 < b.inicio.y * 2)
+                north = YES;
+            if (b.origem.x * 2 > b.inicio.x + width)
+                east = YES;
+            if (b.origem.x * 2 < b.inicio.x)
+                west = YES;
+            
+            /*** ---------------------------------- ***/
+            
+            
         
-        // getting the new image
-        imagem = UIGraphicsGetImageFromCurrentImageContext();
-        newImage = UIGraphicsGetImageFromCurrentImageContext();
+            // getting the new image
+            imagem = UIGraphicsGetImageFromCurrentImageContext();
+            newImage = UIGraphicsGetImageFromCurrentImageContext();
         
-        // free the context
-        UIGraphicsEndImageContext();
+            // free the context
+            UIGraphicsEndImageContext();
         }
     }
     
