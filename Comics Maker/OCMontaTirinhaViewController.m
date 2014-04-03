@@ -43,6 +43,10 @@
     [self insereImagemNosQuadros];
 }
 
+-(BOOL)shouldAutorotate{
+    return NO;
+}
+
 - (IBAction)botaoQuadro1:(id)sender {
     [single setQuadroAtual:0];
 }

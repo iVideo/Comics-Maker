@@ -46,7 +46,8 @@
 		AC62596118D1FA4D004D6F02 /* slr_camera_filled-256.png in Resources */ = {isa = PBXBuildFile; fileRef = AC62596018D1FA4D004D6F02 /* slr_camera_filled-256.png */; };
 		AC62596318D1FA66004D6F02 /* slr_camera_filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = AC62596218D1FA66004D6F02 /* slr_camera_filled-50.png */; };
 		AC81BC5518E9B2D6000FF223 /* mycomics icon 3.png in Resources */ = {isa = PBXBuildFile; fileRef = AC81BC5318E9B2D6000FF223 /* mycomics icon 3.png */; };
-		AC81BC5618E9B2D6000FF223 /* mycomics LAUCHING.png in Resources */ = {isa = PBXBuildFile; fileRef = AC81BC5418E9B2D6000FF223 /* mycomics LAUCHING.png */; };
+		AC8232C318EAE4C300BC0315 /* mycomicss LAUCHING.png in Resources */ = {isa = PBXBuildFile; fileRef = AC8232C218EAE4C300BC0315 /* mycomicss LAUCHING.png */; };
+		AC8232C818EAE61C00BC0315 /* ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8232C718EAE61C00BC0315 /* ipad.storyboard */; };
 		AC9074C518E4633300B09B9B /* OCMontaTirinhaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9074C418E4633300B09B9B /* OCMontaTirinhaViewController.m */; };
 		AC9074C918E4657500B09B9B /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = AC9074C818E4657500B09B9B /* placeholder.png */; };
 		ACC3A3EC18CF4738003C7438 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC3A3EB18CF4738003C7438 /* Social.framework */; };
@@ -140,7 +141,8 @@
 		AC62596018D1FA4D004D6F02 /* slr_camera_filled-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slr_camera_filled-256.png"; sourceTree = "<group>"; };
 		AC62596218D1FA66004D6F02 /* slr_camera_filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slr_camera_filled-50.png"; sourceTree = "<group>"; };
 		AC81BC5318E9B2D6000FF223 /* mycomics icon 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mycomics icon 3.png"; sourceTree = "<group>"; };
-		AC81BC5418E9B2D6000FF223 /* mycomics LAUCHING.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mycomics LAUCHING.png"; sourceTree = "<group>"; };
+		AC8232C218EAE4C300BC0315 /* mycomicss LAUCHING.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mycomicss LAUCHING.png"; sourceTree = "<group>"; };
+		AC8232C718EAE61C00BC0315 /* ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ipad.storyboard; sourceTree = "<group>"; };
 		AC9074C318E4633300B09B9B /* OCMontaTirinhaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMontaTirinhaViewController.h; sourceTree = "<group>"; };
 		AC9074C418E4633300B09B9B /* OCMontaTirinhaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMontaTirinhaViewController.m; sourceTree = "<group>"; };
 		AC9074C818E4657500B09B9B /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		A2353EA218C0A95600440F0F /* Comics Maker */ = {
 			isa = PBXGroup;
 			children = (
+				AC8232C618EAE57900BC0315 /* iPad */,
 				A2353EAE18C0A95600440F0F /* Main.storyboard */,
 				A2353EAB18C0A95600440F0F /* OCAppDelegate.h */,
 				A2353EAC18C0A95600440F0F /* OCAppDelegate.m */,
@@ -309,7 +312,7 @@
 			children = (
 				AC4799C918DB0EEF008A90FA /* IMG_1925.JPG */,
 				AC81BC5318E9B2D6000FF223 /* mycomics icon 3.png */,
-				AC81BC5418E9B2D6000FF223 /* mycomics LAUCHING.png */,
+				AC8232C218EAE4C300BC0315 /* mycomicss LAUCHING.png */,
 				AC4799C718DB0EEA008A90FA /* IMG_1927.JPG */,
 				AC4799C518DB0EE5008A90FA /* IMG_1926.JPG */,
 				AC4799CB18DB0FBE008A90FA /* IMG_1934.JPG */,
@@ -330,6 +333,14 @@
 				AC62596018D1FA4D004D6F02 /* slr_camera_filled-256.png */,
 			);
 			name = Imagens;
+			sourceTree = "<group>";
+		};
+		AC8232C618EAE57900BC0315 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				AC8232C718EAE61C00BC0315 /* ipad.storyboard */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,7 +393,7 @@
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 				TargetAttributes = {
 					A2353E9818C0A95600440F0F = {
-						DevelopmentTeam = KKKTBJ9APM;
+						DevelopmentTeam = V2YTJ2SSE4;
 					};
 					A2353EB918C0A95600440F0F = {
 						TestTargetID = A2353E9818C0A95600440F0F;
@@ -438,15 +449,16 @@
 			files = (
 				AC4799CA18DB0EEF008A90FA /* IMG_1925.JPG in Resources */,
 				AC4799CE18DB0FC4008A90FA /* IMG_1935.JPG in Resources */,
+				AC8232C318EAE4C300BC0315 /* mycomicss LAUCHING.png in Resources */,
 				AC62596118D1FA4D004D6F02 /* slr_camera_filled-256.png in Resources */,
 				AC4799D118DB124D008A90FA /* IMG_1936.JPG in Resources */,
 				AC4799C818DB0EEA008A90FA /* IMG_1927.JPG in Resources */,
 				AC4799CC18DB0FBE008A90FA /* IMG_1934.JPG in Resources */,
 				ACCBA18A18DC862300FC99D1 /* ok_logo.png in Resources */,
-				AC81BC5618E9B2D6000FF223 /* mycomics LAUCHING.png in Resources */,
 				AC4799C618DB0EE5008A90FA /* IMG_1926.JPG in Resources */,
 				A2353EB518C0A95600440F0F /* Images.xcassets in Resources */,
 				AC4799D218DB124D008A90FA /* IMG_1937.JPG in Resources */,
+				AC8232C818EAE61C00BC0315 /* ipad.storyboard in Resources */,
 				A2353EA718C0A95600440F0F /* InfoPlist.strings in Resources */,
 				AC9074C918E4657500B09B9B /* placeholder.png in Resources */,
 				AC62596318D1FA66004D6F02 /* slr_camera_filled-50.png in Resources */,
@@ -614,15 +626,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Comics Maker/Comics Maker-Prefix.pch";
 				HEADER_SEARCH_PATHS = "../Comics-Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
 				INFOPLIST_FILE = "Comics Maker/Comics Maker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -631,15 +645,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Comics Maker/Comics Maker-Prefix.pch";
 				HEADER_SEARCH_PATHS = "../Comics-Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
 				INFOPLIST_FILE = "Comics Maker/Comics Maker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

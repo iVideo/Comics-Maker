@@ -22,7 +22,7 @@
 @interface OCTableViewController ()
 @property NSInteger index;
 @property NSString *tituloTable;
-@property UISearchBar *search;
+@property NSArray *resultados;
 @end
 
 @implementation OCTableViewController
@@ -30,6 +30,7 @@
 @synthesize index;
 @synthesize tituloTable;
 @synthesize data;
+@synthesize resultados;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -41,6 +42,23 @@
     return YES;
 }
 
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"titulo contains[c] %@", searchText];
+    self.resultados = [[[NSArray alloc] initWithArray:[single tirinhas]] filteredArrayUsingPredicate:resultPredicate];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -48,21 +66,13 @@
     
     [[self navigationController] setDelegate:self];
     [[self tableView] setAllowsMultipleSelection:YES];
-    _search = [[UISearchBar alloc]init];
-    [_search setDelegate:self];
+
+    resultados = [[NSArray alloc]init];
     
-    //Pegando instancia unica do singleton para usar por todo o .m    
+    //Pegando instancia unica do singleton para usar por todo o .m
     single = [OCTirinhasSingleton sharedTirinhas];
     data = [NSKeyedArchiver archivedDataWithRootObject:single.tirinhas];
     [single setNovaTirinha:YES];
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return _search;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 38;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -74,53 +84,6 @@
     return UIStatusBarStyleLightContent;
 }
 
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-//    NSLog(@"tentando localizar");
-//    NSString *string = @"hello bla bla";
-//    
-//    if ([string rangeOfString:@"bla"].location == NSNotFound) {
-//        NSLog(@"string does not contain bla");
-//    } else {
-//        NSLog(@"string contains bla!");
-//    }
-    
-}
-
--(BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
-    [searchBar resignFirstResponder];
-    return YES;
-}
-
--(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-    [searchBar resignFirstResponder];
-}
-
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    [searchBar resignFirstResponder];
-    for (int i = 0; i<single.tirinhas.count; i++) {
-        
-        if ([[searchBar text] caseInsensitiveCompare:[[[single tirinhas] objectAtIndex:i] titulo]]) {
-            NSLog(@"Case Insensitive");
-        }
-        
-        if ([[searchBar text] rangeOfString:[[[single tirinhas] objectAtIndex:i] titulo]].location == NSNotFound) {
-
-        }else{
-            NSLog(@"range");
-        }
-        
-        if ([[searchBar text] isEqualToString:[[[single tirinhas] objectAtIndex:i] titulo]]) {
-            NSLog(@"is equal");
-        }
-        
-        if (![[searchBar text] compare:[[[single tirinhas] objectAtIndex:i] titulo] options:NSLiteralSearch]) {
-            NSLog(@"compare");
-        }
-        
-        
-    }
-    
-}
 
 #pragma mark - Table view data source
 
@@ -132,6 +95,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.resultados count];
+        
+    }
     // Return the number of rows in the section.
     return [[single tirinhas] count];
 }
@@ -156,9 +123,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = (UITableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    OCTirinha *tira = [[single tirinhas]objectAtIndex:[indexPath row]];
+    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    OCTirinha *tira = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        tira = [self.resultados objectAtIndex:indexPath.row];
+    } else {
+        tira = [[single tirinhas] objectAtIndex:indexPath.row];
+    }
+    
     [[cell textLabel] setText:[tira titulo]];
     [[cell imageView] setImage:[tira tirinhaPequena]];
     
@@ -205,9 +183,7 @@
         }
     }
 }
-- (IBAction)novo:(id)sender {
-    //[single setNovaTirinha:YES];
-}
+
 
 -(void)deletaTodasTirinhas{
     UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Deletar Todas As Tirinhas", nil];
@@ -234,18 +210,26 @@
     }
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [single setLinhaDaTabela:indexPath];
-    [single setNovaTirinha:NO];
-    OCTirinhaViewController *tirinha = [self.storyboard instantiateViewControllerWithIdentifier:@"TirinhaViewController"];
-    [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:tirinha, nil] animated:YES];
-    [[tirinha botaoConcluido] setTitle:@"Ok" forState:UIControlStateNormal];
 
-    OCTirinha *tira = [[single tirinhas] objectAtIndex:[indexPath row]];
-    tirinha.tirinha = tira;
-    [[tirinha navigationItem] setTitle: [tira titulo]];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"visualizar"]) {
+        NSIndexPath *indexPath = nil;
+        OCTirinha *tira = nil;
+        
+        if (self.searchDisplayController.active) {
+            indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            tira = [self.resultados objectAtIndex:indexPath.row];
+        } else {
+            indexPath = [self.tableView indexPathForSelectedRow];
+            tira = [[single tirinhas] objectAtIndex:indexPath.row];
+        }
+        
+        OCTirinhaViewController *destViewController = segue.destinationViewController;
+        destViewController.tirinha = tira;
+        
+        [[destViewController navigationItem] setTitle:[tira titulo]];
+    }
 }
-
 
 -(void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex{
     switch (popup.tag) {

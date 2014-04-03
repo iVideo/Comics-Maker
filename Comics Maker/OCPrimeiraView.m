@@ -7,6 +7,7 @@
 //
 
 #import "OCPrimeiraView.h"
+#import "OCTirinhasSingleton.h"
 
 @interface OCPrimeiraView ()
 
@@ -28,6 +29,8 @@
     [super viewDidLoad];
     [[self navigationItem] setHidesBackButton:YES];
     [[[self navigationController] navigationBar] setHidden:YES];
+    OCTirinhasSingleton *single = [OCTirinhasSingleton sharedTirinhas];
+    [single setNovaTirinha:YES];
     // Do any additional setup after loading the view.
 }
 

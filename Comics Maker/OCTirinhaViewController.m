@@ -24,7 +24,6 @@
 @synthesize ctx;
 @synthesize tirinha;
 @synthesize join;
-@synthesize scrollView;
 
 //- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 //{
@@ -42,17 +41,25 @@
 //}
 
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
-        [join setFrame: CGRectMake(0, 230, 320, 108)];
-    }
-    else{
-        [join setFrame:CGRectMake(0, 70, 570, 190)];
-    }
+        if ([[UIDevice currentDevice] userInterfaceIdiom] ==UIUserInterfaceIdiomPad) {
+            if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+                [join setFrame: CGRectMake(0, 380, 768, 256)];
+            }
+            else{
+                [join setFrame:CGRectMake(0, 220, 1024, 341)];
+            }
+        } else {
+            if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+                [join setFrame: CGRectMake(0, 230, 320, 108)];
+            }
+            else{
+                [join setFrame:CGRectMake(0, 70, 570, 190)];
+            }
+        }
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft );
     [[self navigationItem] setHidesBackButton:YES];
 }
 
@@ -63,13 +70,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationLandscapeLeft);
     [[self navigationItem] setHidesBackButton:YES];
     
     if (!tirinha) {
         tirinha = [[[OCTirinhasSingleton sharedTirinhas] tirinhas] lastObject];
     }
     [join setImage:[tirinha tirinhaCompleta]];
+    
+    
+    
 }
 
 
@@ -80,9 +89,10 @@
         [self insereTitulo];
     }
     else{
-        OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
-        [self.navigationController pushViewController:table animated:YES];
         
+        OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
+        [[self navigationController] setViewControllers:[[NSArray alloc] initWithObjects:table, nil] animated:YES];
+
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:sing];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"notes"];
         

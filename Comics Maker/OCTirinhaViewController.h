@@ -11,11 +11,10 @@
 
 
 @interface OCTirinhaViewController : UIViewController<UIScrollViewDelegate,UITextFieldDelegate, UITextFieldDelegate,UIAlertViewDelegate, UIActionSheetDelegate, NSCoding>
-@property (weak, nonatomic) IBOutlet UIImageView *join;
 
+@property (weak, nonatomic) IBOutlet UIImageView *join;
 @property(nonatomic)CGContextRef ctx;
 @property(strong, nonatomic) OCTirinha* tirinha;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *botaoConcluido;
 
 

@@ -17,6 +17,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] ==UIUserInterfaceIdiomPad) {
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ipad" bundle:nil];
+//    } else {
+//        [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    }
+    
+    
+    
+    
     // Override point for customization after application launch.
 //    OCTirinhasSingleton* sing = [[OCTirinhasSingleton alloc]init];
 //    sing = [memoryCard objectForKey:@"save"];
