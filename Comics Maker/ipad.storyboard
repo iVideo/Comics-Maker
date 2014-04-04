@@ -12,7 +12,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Pesquisa uma tirinha" showsSearchResultsButton="YES" id="oYK-Os-STz">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Pesquisar tirinhas" showsSearchResultsButton="YES" id="oYK-Os-STz">
                             <rect key="frame" x="0.0" y="64" width="768" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -56,7 +56,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="compose" id="yEt-xd-cyK">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="hwo-7V-I8w" kind="push" id="d0S-IJ-99n"/>
+                                <segue destination="hwo-7V-I8w" kind="push" identifier="novaTirinha" id="d0S-IJ-99n"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -81,7 +81,7 @@
         <!--View Controller-->
         <scene sceneID="t7b-4Y-GOc">
             <objects>
-                <viewController id="PYs-Xx-yOd" customClass="OCViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewController" id="PYs-Xx-yOd" customClass="OCViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TNb-s8-Z8Z"/>
                         <viewControllerLayoutGuide type="bottom" id="3KW-bp-nuI"/>
@@ -147,12 +147,9 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hwo-7V-I8w" kind="push" id="QmZ-dg-qQN"/>
+                                    <action selector="cancelar:" destination="PYs-Xx-yOd" eventType="touchUpInside" id="8th-Ph-Zjm"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <action selector="cancelar:" destination="PYs-Xx-yOd" id="BuO-NR-ODp"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Concluído" style="plain" id="M0x-eu-uAS">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="szu-Ga-6Os">
@@ -187,7 +184,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="479" y="-1344"/>
+            <point key="canvasLocation" x="459" y="-1416"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xzk-Af-Jbv">
@@ -203,7 +200,7 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="h9x-HY-2Rv" kind="relationship" relationship="rootViewController" id="goJ-eI-xZL"/>
+                        <segue destination="h9x-HY-2Rv" kind="relationship" relationship="rootViewController" id="q9J-nM-MtT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KwS-UD-JBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -245,11 +242,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.64999999999999969" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_1925.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="jNR-Ua-G1i">
+                                <rect key="frame" x="0.0" y="65" width="768" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_1926.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="8sd-4e-5Fk">
+                                <rect key="frame" x="0.0" y="227" width="768" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_1927.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="NJv-XZ-OgL">
+                                <rect key="frame" x="0.0" y="391" width="768" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_1934.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="7OG-kp-OiI">
+                                <rect key="frame" x="0.0" y="554" width="768" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_1935.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="GUg-9V-55d">
+                                <rect key="frame" x="0.0" y="714" width="768" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_1936.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="R0m-kB-Sge">
+                                <rect key="frame" x="0.0" y="875" width="768" height="149"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIK-Dj-57M">
                                 <rect key="frame" x="0.0" y="75" width="768" height="949"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="55"/>
                                 <state key="normal" title="Crie a sua primeira tirinha">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -257,7 +279,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.32941177490000001" green="0.40392160420000001" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="aeo-Sv-MZt"/>
                 </viewController>
@@ -268,7 +290,7 @@
         <!--Monta Tirinha View Controller - Quadros-->
         <scene sceneID="tDF-Ia-0ps">
             <objects>
-                <viewController id="hwo-7V-I8w" customClass="OCMontaTirinhaViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="montaTirinha" id="hwo-7V-I8w" customClass="OCMontaTirinhaViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a63-gs-7sO"/>
                         <viewControllerLayoutGuide type="bottom" id="vfb-xA-qZ4"/>
@@ -277,59 +299,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="TJW-TC-Wad">
-                                <rect key="frame" x="9" y="342" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="SYB-k3-YaV">
-                                <rect key="frame" x="264" y="342" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="jNN-Uq-fx1">
-                                <rect key="frame" x="519" y="342" width="240" height="240"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnW-qq-FI5">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnW-qq-FI5">
                                 <rect key="frame" x="0.0" y="980" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.32941177490000001" green="0.40392160420000001" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
                                 <items/>
+                                <color key="barTintColor" red="0.32941177490000001" green="0.40392160420000001" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FpJ-TR-1Uu">
-                                <rect key="frame" x="9" y="342" width="240" height="240"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="fBd-Gj-Xca">
+                                <rect key="frame" x="9" y="392" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIx-Dx-ctK">
+                                <rect key="frame" x="9" y="392" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="botaoQuadro1:" destination="hwo-7V-I8w" eventType="touchUpInside" id="siP-lz-2zk"/>
-                                    <segue destination="PYs-Xx-yOd" kind="push" id="Tsd-6n-Qa7"/>
+                                    <action selector="botaoQuadro1:" destination="hwo-7V-I8w" eventType="touchUpInside" id="Vbo-bz-IAv"/>
+                                    <segue destination="PYs-Xx-yOd" kind="push" identifier="quadro1" id="Baf-Tf-WTw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZX-Q2-9UF">
-                                <rect key="frame" x="264" y="342" width="240" height="240"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="6kn-yP-nXU">
+                                <rect key="frame" x="264" y="392" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ph1-uE-Yo0">
+                                <rect key="frame" x="264" y="392" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="botaoQuadro2:" destination="hwo-7V-I8w" eventType="touchUpInside" id="1FF-eq-Px6"/>
-                                    <segue destination="PYs-Xx-yOd" kind="push" id="m0T-dN-CK5"/>
+                                    <action selector="botaoQuadro2:" destination="hwo-7V-I8w" eventType="touchUpInside" id="kBb-D5-mQK"/>
+                                    <segue destination="PYs-Xx-yOd" kind="push" identifier="quadro2" id="NsY-SA-NW7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08k-gd-bk5">
-                                <rect key="frame" x="519" y="342" width="240" height="240"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="EpE-vq-M0t">
+                                <rect key="frame" x="517" y="392" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSp-Ef-V2K">
+                                <rect key="frame" x="517" y="392" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="botaoQuadro3:" destination="hwo-7V-I8w" eventType="touchUpInside" id="Bis-lj-iwR"/>
-                                    <segue destination="PYs-Xx-yOd" kind="push" id="wSt-lE-qSF"/>
+                                    <action selector="botaoQuadro3:" destination="hwo-7V-I8w" eventType="touchUpInside" id="fJw-V7-xCi"/>
+                                    <segue destination="PYs-Xx-yOd" kind="push" identifier="quadro3" id="SMf-is-SN5"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dnW-qq-FI5" firstAttribute="leading" secondItem="K3g-XZ-rxT" secondAttribute="leading" id="3GI-vP-K28"/>
+                            <constraint firstAttribute="trailing" secondItem="dnW-qq-FI5" secondAttribute="trailing" id="5J3-1f-mZ2"/>
+                            <constraint firstAttribute="bottom" secondItem="dnW-qq-FI5" secondAttribute="bottom" id="dNC-eF-pDq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Quadros" id="9hC-Iq-zmV">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="aKj-H7-0xZ">
@@ -362,16 +390,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="botaoQuadro1" destination="FpJ-TR-1Uu" id="I28-Sg-I1o"/>
-                        <outlet property="botaoQuadro2" destination="pZX-Q2-9UF" id="1H0-h4-d82"/>
-                        <outlet property="botaoQuadro3" destination="08k-gd-bk5" id="LTT-Or-ZsB"/>
-                        <outlet property="quadro2" destination="SYB-k3-YaV" id="kT9-lM-DWg"/>
-                        <outlet property="quadro3" destination="jNN-Uq-fx1" id="ZK9-4o-gpw"/>
+                        <outlet property="quadro1" destination="fBd-Gj-Xca" id="pyE-WT-T5d"/>
+                        <outlet property="quadro2" destination="6kn-yP-nXU" id="vfM-EJ-M8U"/>
+                        <outlet property="quadro3" destination="EpE-vq-M0t" id="LpS-6H-31z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ck-uI-dtJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479" y="-52"/>
+            <point key="canvasLocation" x="459" y="-52"/>
         </scene>
         <!--Tirinha View Controller-->
         <scene sceneID="gCV-Rx-qzC">
@@ -413,6 +439,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YH7-Hl-MwI">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="gCs-FP-dZZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vt9-Ci-vlB">
+                                <rect key="frame" x="16" y="5" width="170" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Editar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editar:" destination="JSy-7c-OjX" eventType="touchUpInside" id="neh-Le-vIP"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="HXA-sb-fDW">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZWx-7p-y4l">
                                 <rect key="frame" x="582" y="5" width="170" height="33"/>
@@ -429,15 +469,23 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="botaoConcluido" destination="ZWx-7p-y4l" id="qon-Y9-FGg"/>
+                        <outlet property="editar" destination="vt9-Ci-vlB" id="ldb-9F-6cn"/>
                         <outlet property="join" destination="X84-DC-57f" id="qLP-Xn-6R0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hen-ZY-qx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1592" y="-52"/>
+            <point key="canvasLocation" x="1457" y="-52"/>
         </scene>
     </scenes>
     <resources>
+        <image name="IMG_1925.JPG" width="1152" height="640"/>
+        <image name="IMG_1926.JPG" width="1152" height="640"/>
+        <image name="IMG_1927.JPG" width="1152" height="640"/>
+        <image name="IMG_1934.JPG" width="1152" height="640"/>
+        <image name="IMG_1935.JPG" width="1152" height="640"/>
+        <image name="IMG_1936.JPG" width="1152" height="640"/>
         <image name="placeholder.png" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -446,8 +494,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="KGM-P1-gPY"/>
-        <segue reference="wSt-lE-qSF"/>
-        <segue reference="2f9-xp-5Yp"/>
+        <segue reference="JhT-5P-znd"/>
+        <segue reference="NfO-f3-XgG"/>
+        <segue reference="SMf-is-SN5"/>
     </inferredMetricsTieBreakers>
 </document>

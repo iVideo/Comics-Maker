@@ -9,7 +9,8 @@
 #import "OCViewController.h"
 #import "OCTirinhaViewController.h"
 #import "OCMontaTirinhaViewController.h"
-
+#import "SGActionView/SGActionView.h"
+#import "SGGridMenu.h"
 
 
 @interface OCViewController ()
@@ -25,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    single = [OCTirinhasSingleton sharedTirinhas];
     [_textoBalao setDelegate:self];
     _textoBalao.placeholder = @"Digite um texto para o balão";
     
@@ -33,28 +35,52 @@
     UIGestureRecognizer *tap = [[UIGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
     [tap setDelegate:self];
     
-    
+//    if ([self im]) {
+//        [self mudaImagem];
+//    }
     [[self currentImage] addGestureRecognizer:tap];
     _switchInserirBalao = 0;
     [_botaoInserirBalao setHidden:YES];
     
-    single = [OCTirinhasSingleton sharedTirinhas];
+    
     [_proximo setEnabled:NO];
-//    if (single.quadroAtual==0) {
-//        OCTirinha *tirinha = [[OCTirinha alloc]init];
-//        [single addTirinha:tirinha];
-//    }
-//    single.quadroAtual++;
+    
 }
 
 -(BOOL)shouldAutorotate{
     return NO;
 }
 
+-(void)recebeImagem: (UIImage *)imagem{
+    self.im = imagem;
+}
+
+-(void)mudaImagem{
+    [self setCurrentImage:[[UIImageView alloc] initWithImage:self.im]];
+}
+
 - (IBAction)selecionar:(id)sender {
-    UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Tipo de Imagem:" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Tirar Foto",@"Escolher da Biblioteca", nil];
-    popup.tag = 1;
-    [popup showInView:[UIApplication sharedApplication].keyWindow];
+        if ([[UIDevice currentDevice] userInterfaceIdiom]!=UIUserInterfaceIdiomPad) {
+            UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            [picker setAllowsEditing:YES];
+            [SGActionView showGridMenuWithTitle:@"Tipo de imagem" itemTitles:[[NSArray alloc] initWithObjects:@"Biblioteca", @"Foto", nil] images:[[NSArray alloc]initWithObjects:[UIImage imageNamed:@"biblioteca.jpg"],[UIImage imageNamed:@"camera.jpg"] , nil] selectedHandle:^(NSInteger index) {
+                if ((long)index == 1) {
+                    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    [self presentViewController:picker animated:YES completion:nil];
+                }
+                else if ((long)index == 2){
+                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    [self presentViewController:picker animated:YES completion:nil];
+                }
+            }];
+        }
+        else{
+            UIActionSheet *popup = [[UIActionSheet alloc]initWithTitle:@"Tipo de Imagem:" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Tirar Foto",@"Escolher da Biblioteca", nil];
+            popup.tag = 1;
+            [popup showInView:[UIApplication sharedApplication].keyWindow];            
+        }
+    
 }
 
 -(void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -220,12 +246,21 @@
     NSLog(@"%d", _switchInserirBalao);
 }
 
+- (IBAction)filtro1:(id)sender {
+}
+- (IBAction)filtro2:(id)sender {
+}
+- (IBAction)filtro3:(id)sender {
+}
 
 
 - (IBAction)cancelar:(id)sender {
 //    [[single tirinhas] removeLastObject];
 //    OCTableViewController *table = [self.storyboard instantiateViewControllerWithIdentifier:@"TabelaView"];
 //    [self.navigationController pushViewController:table animated:YES];
+    
+    [[self navigationController] popViewControllerAnimated:YES];
 }
+
 
 @end
