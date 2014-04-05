@@ -18,6 +18,8 @@
 @property OCBaloesDeTexto *balaoSelecionado;
 @property BOOL movendoBalao;
 @property CGPoint novaOrigem;
+
+@property (nonatomic, readonly) int constraintIdiom;
 @end
 
 @implementation OCViewController
@@ -150,8 +152,9 @@
 - (IBAction)tap:(UITapGestureRecognizer *)sender {
 
     CGPoint tapPoint = [sender locationInView:_currentImage];
+    NSLog(@"\n\nx: %f y: %f\n", tapPoint.x, tapPoint.y);
     
-    if (tapPoint.y < 0 || tapPoint.y > 300) {
+    if (tapPoint.y < 0 || tapPoint.y > [self constraintIdiom]) {
         return;
     }
     
@@ -260,6 +263,20 @@
 //    [self.navigationController pushViewController:table animated:YES];
     
     [[self navigationController] popViewControllerAnimated:YES];
+}
+
+- (int)scaleIdiom {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        return 1;
+    }
+    return 2;
+}
+
+- (int)constraintIdiom {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        return 760;
+    }
+    return 300;
 }
 
 

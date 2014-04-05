@@ -18,6 +18,8 @@
 @property (nonatomic) CGPoint center;
 @property (nonatomic) CGPoint originBegin;
 @property (nonatomic) CGPoint originEnd;
+@property (nonatomic) CGPoint originSombraBegin;
+@property (nonatomic) CGPoint originSombraEnd;
 @property float deltaX;
 @property float deltaY;
 

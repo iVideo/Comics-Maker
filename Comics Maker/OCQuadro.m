@@ -10,6 +10,12 @@
 #import "OCTirinhasSingleton.h"
 #import "OCTirinha.h"
 
+@interface OCQuadro ()
+
+@property (nonatomic, readonly) int scaleIdiom;
+
+@end
+
 @implementation OCQuadro
 
 - (id)init {
@@ -75,14 +81,14 @@
     for (OCBaloesDeTexto *b in _baloes) {
         // fix x and y
         
-        if (b.inicio.x < 0 || b.inicio.x > 300 ||
-            b.inicio.y < 0 || b.inicio.y > 300) {
+        if (b.inicio.x < 0 || b.inicio.x > 760 ||
+            b.inicio.y < 0 || b.inicio.y > 760) {
             desenhar = NO;
         }
         else {
             desenhar = YES;
-            x = b.inicio.x * 2;
-            y = b.inicio.y * 2;
+            x = b.inicio.x * [self scaleIdiom];
+            y = b.inicio.y * [self scaleIdiom];
         }
         
         if (desenhar) {
@@ -106,9 +112,9 @@
             
             // drawing the border
             CGContextBeginPath(ctx);
-            CGContextMoveToPoint(ctx, /*b.inicio.x * 2 + width / 2 + 30 */ b.originBegin.x + 2, /*b.inicio.y * 2 + height / 2*/ b.originBegin.y + 2);
-            CGContextAddLineToPoint(ctx, b.origem.x * 2 + 2, b.origem.y * 2 + 2);
-            CGContextAddLineToPoint(ctx, /*b.inicio.x * 2 + width / 2 - 30 */  b.originEnd.x - 2, /*b.inicio.y * 2 + height / 2*/ b.originEnd.y - 2);
+            CGContextMoveToPoint(ctx, b.originSombraBegin.x, b.originSombraBegin.y); // errado!!! a origem tem de ter o * 1.02 dentro dela!
+            CGContextAddLineToPoint(ctx, b.origem.x * [self scaleIdiom], b.origem.y * [self scaleIdiom]);
+            CGContextAddLineToPoint(ctx, b.originSombraEnd.x, b.originSombraEnd.y);
             CGContextClosePath(ctx);
             CGContextSetFillColorWithColor(ctx, [UIColor blackColor].CGColor);
             CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
@@ -139,7 +145,7 @@
             
             CGContextBeginPath(ctx);
             CGContextMoveToPoint(ctx, /*b.inicio.x * 2 + width / 2 + 30 */ b.originBegin.x, /*b.inicio.y * 2 + height / 2*/ b.originBegin.y);
-            CGContextAddLineToPoint(ctx, b.origem.x * 2, b.origem.y * 2);
+            CGContextAddLineToPoint(ctx, b.origem.x * [self scaleIdiom], b.origem.y * [self scaleIdiom]);
             CGContextAddLineToPoint(ctx, /*b.inicio.x * 2 + width / 2 - 30 */  b.originEnd.x, /*b.inicio.y * 2 + height / 2*/ b.originEnd.y);
             CGContextClosePath(ctx);
             CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
@@ -151,46 +157,6 @@
             CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
             CGContextFillEllipseInRect(ctx, balaoRect);
             [b.texto drawInRect:CGRectMake(x + width * 0.2, y + height * 0.2, width * 0.6, height * 0.6) withAttributes:atts];
-            
-            // ajustando a origem
-            int fimOrigemY = b.inicio.y * 2 + height;
-            int fimOrigemX = b.inicio.x * 2 + width / 2;
-            BOOL mudaX = YES;
-            BOOL north, south, east, west;
-            north = south = east = west = NO;
-            
-            if (b.origem.y * 2 > b.inicio.y * 2 + height) {
-                south = YES;
-                fimOrigemY = b.inicio.y * 2 + height;
-            }
-            
-            else if (b.origem.y * 2 < b.inicio.y * 2) {
-                north = YES;
-                fimOrigemY = b.inicio.y * 2;
-            }
-            
-            else if (b.origem.y * 2 > b.inicio.y * 2 && b.origem.y * 2 < b.inicio.y * 2 + height) {
-                fimOrigemY = b.inicio.y * 2 + height / 2;
-                fimOrigemX = b.inicio.x * 2;
-                if (b.origem.x * 2 > b.inicio.x * 2 + width) {
-                    fimOrigemX = b.inicio.x * 2 + width;
-                }
-                mudaX = NO;
-            }
-            
-            /*** finding the position of the origin ***/
-            
-            if (b.origem.y * 2 > b.inicio.y * 2 + height)
-                south = YES;
-            if (b.origem.y * 2 < b.inicio.y * 2)
-                north = YES;
-            if (b.origem.x * 2 > b.inicio.x + width)
-                east = YES;
-            if (b.origem.x * 2 < b.inicio.x)
-                west = YES;
-            
-            /*** ---------------------------------- ***/
-            
             
         
             // getting the new image
@@ -208,6 +174,13 @@
 - (void)addBalaoComTexto:(NSString *)texto noPonto:(CGPoint)ponto {
     OCBaloesDeTexto *b = [[OCBaloesDeTexto alloc] initWithText:texto andPosition:ponto andOrigin:ponto];
     [_baloes addObject:b];
+}
+
+- (int)scaleIdiom {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        return 1;
+    }
+    return 2;
 }
 
 @end

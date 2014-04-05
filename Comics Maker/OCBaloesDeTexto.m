@@ -11,6 +11,8 @@
 
 @interface OCBaloesDeTexto ()
 
+@property (nonatomic, readonly) int scaleIdiom;
+
 @end
 
 @implementation OCBaloesDeTexto
@@ -54,16 +56,16 @@
 - (CGPoint)center {
     // pensando no iPhone, multiplica-se
     // x e y por 2
-    return CGPointMake(_inicio.x * 2 + _width / 2, _inicio.y * 2 + _height / 2);
+    return CGPointMake(_inicio.x * [self scaleIdiom] + _width / 2, _inicio.y * [self scaleIdiom] + _height / 2);
 }
 
 - (float)deltaX {
     //NSLog(@"\nDelta x: %d\nDelta y: %d", self.deltaX, self.deltaY);
-    return self.origem.x * 2 - self.center.x;
+    return self.origem.x * [self scaleIdiom] - self.center.x;
 }
 
 - (float)deltaY {
-    return self.origem.y * 2 - self.center.y;
+    return self.origem.y * [self scaleIdiom] - self.center.y;
 }
 
 - (CGPoint)originBegin {
@@ -96,6 +98,8 @@
                        self.center.y - y);
 }
 
+
+
 - (CGPoint)originEnd {
     int x, y;
     x = y = 0;
@@ -125,8 +129,70 @@
 }
 
 
+- (CGPoint)originSombraBegin {
+    // PRECISO CONSERTAR O CASO "SUDOESTE" E "NOROESTE"!!!
+    
+    int x, y;
+    x = y = 0;
+    
+    if (self.center.x + (abs(self.deltaY * 0.15) > abs(self.width * 0.15))) {
+        x = self.width / 15;
+    } else {
+        x = self.deltaY * 15;
+    }
+    
+    if (self.center.y - (abs(self.deltaX * 0.15) > abs(self.height * 0.15))) {
+        y = self.height * 0.15;
+    } else {
+        y = self.deltaX * 0.15;
+    }
+    
+    if (self.deltaY < 0) {
+        x = - x;
+    }
+    if (self.deltaX < 0) {
+        y = - y;
+    }
+    
+    
+    return CGPointMake(self.center.x + x * 1.02,
+                       self.center.y - y * 1.02);
+}
 
+- (CGPoint)originSombraEnd {
+    int x, y;
+    x = y = 0;
+    
+    if (self.center.x - (abs(self.deltaY * 0.15) > abs(self.width * 0.15))) {
+        x = self.width * 0.15;
+    } else {
+        x = self.deltaY * 0.15;
+    }
+    
+    if (self.center.y + (abs(self.deltaX * 0.15) > abs(self.height * 0.15))) {
+        y = self.height * 0.15;
+    } else {
+        y = self.deltaX * 0.15;
+    }
+    
+    if (self.deltaY < 0) {
+        x = -x;
+    }
+    if (self.deltaX < 0) {
+        y = - y;
+    }
+    
+    
+    return CGPointMake(self.center.x - x * 1.1,
+                       self.center.y + y * 1.1);
+}
 
+- (int)scaleIdiom {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        return 1;
+    }
+    return 2;
+}
 
 
 @end
