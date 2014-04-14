@@ -424,7 +424,7 @@
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 				TargetAttributes = {
 					A2353E9818C0A95600440F0F = {
-						DevelopmentTeam = KKKTBJ9APM;
+						DevelopmentTeam = V2YTJ2SSE4;
 					};
 					A2353EB918C0A95600440F0F = {
 						TestTargetID = A2353E9818C0A95600440F0F;
@@ -671,7 +671,7 @@
 				GCC_PREFIX_HEADER = "Comics Maker/Comics Maker-Prefix.pch";
 				HEADER_SEARCH_PATHS = "../Comics-Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
 				INFOPLIST_FILE = "Comics Maker/Comics Maker-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -690,7 +690,7 @@
 				GCC_PREFIX_HEADER = "Comics Maker/Comics Maker-Prefix.pch";
 				HEADER_SEARCH_PATHS = "../Comics-Maker/Comics\\ Maker/Submodules/GPUImage/framework/**";
 				INFOPLIST_FILE = "Comics Maker/Comics Maker-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

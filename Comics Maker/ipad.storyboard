@@ -494,8 +494,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="JhT-5P-znd"/>
-        <segue reference="NfO-f3-XgG"/>
         <segue reference="SMf-is-SN5"/>
+        <segue reference="d0S-IJ-99n"/>
+        <segue reference="2f9-xp-5Yp"/>
     </inferredMetricsTieBreakers>
 </document>

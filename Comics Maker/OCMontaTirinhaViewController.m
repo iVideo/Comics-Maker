@@ -48,6 +48,12 @@
     }
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"concluido"]) {
+        //colocar codigo aqui
+    }
+}
+
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
     
     static NSInteger tamanhoQuadroPortraitIpad = 250;

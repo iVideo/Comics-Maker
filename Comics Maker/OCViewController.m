@@ -11,7 +11,7 @@
 #import "OCMontaTirinhaViewController.h"
 #import "SGActionView/SGActionView.h"
 #import "SGGridMenu.h"
-
+#import <objc/message.h>
 
 @interface OCViewController ()
 @property NSInteger contador;
@@ -28,6 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    objc_msgSend([UIDevice currentDevice], @selector(setOrientation:), UIInterfaceOrientationPortrait );
+    
     single = [OCTirinhasSingleton sharedTirinhas];
     [_textoBalao setDelegate:self];
     _textoBalao.placeholder = @"Digite um texto para o balão";
@@ -49,8 +52,19 @@
     
 }
 
--(BOOL)shouldAutorotate{
-    return NO;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 -(void)recebeImagem: (UIImage *)imagem{
@@ -246,7 +260,6 @@
         _switchInserirBalao = 0;
         [_botaoInserirBalao setTitle:@"Editar Origem" forState:UIControlStateNormal];
     }
-    NSLog(@"%d", _switchInserirBalao);
 }
 
 - (IBAction)filtro1:(id)sender {
